@@ -1,3 +1,5 @@
 A-Smart-Lecturer
 ================
-shalom
+
+jce - Azrieli college jerusalem -a software engineering department project 2013 :
+A-Smart-Lecturer
