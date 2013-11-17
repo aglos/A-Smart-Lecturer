@@ -16,41 +16,6 @@
 
 	<script type="text/javascript" src="../script/jquery.js"></script>  
 	<script type="text/javascript" src="../script/jquery-ui.js"></script>  
-	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type='text/javascript'>
-      google.load('visualization', '1', {packages:['table']});
-      google.setOnLoadCallback(drawTable);
-       function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'שם חוג');
-		data.addColumn('string', 'שם קורס');
-        data.addColumn('number', 'מספר תרגיל');
-        //data.addColumn('boolean', 'Full Time Employee');
-		data.addColumn('string', '');
-        data.addRows([
-          ['הנדסת תוכנה',	'הנדסת תוכנה',   {v: 1,  f: 'תרגיל 1'},	'<a href="">עריכה</a> <a href="">צפייה</a> <a href="">מחיקה</a>'],
-          ['הנדסת תוכנה',	'הנדסת תוכנה',   {v: 2,  f: 'תרגיל 2'},	'<a href="">עריכה</a> <a href="">צפייה</a> <a href="">מחיקה</a>'],
-          ['הנדסת תוכנה',	'הנדסת תוכנה',   {v: 3,  f: 'תרגיל 3'},	'<a href="">עריכה</a> <a href="">צפייה</a> <a href="">מחיקה</a>'],
-          ['הנדסת תוכנה',	'הנדסת תוכנה',   {v: 4,  f: 'תרגיל 4'},	'<a href="">עריכה</a> <a href="">צפייה</a> <a href="">מחיקה</a>']
-        ]);
-
-		data.setProperty(0, 0, {className: 'edit'});
-	
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-		
-        table.draw(data, {showRowNumber: false , allowHtml: true} );
-
-		//var virt_panel = document.getElementById( 'virt_panel' );
- 		//document.getElementById( 'c_panel1' ).innerHTML =  virt_panel.innerHTML;
-		//document.getElementById( 'c_panel2' ).innerHTML =  virt_panel.innerHTML;
-		//document.getElementById( 'c_panel3' ).innerHTML =  virt_panel.innerHTML;
-		//document.getElementById( 'c_panel4' ).innerHTML =  virt_panel.innerHTML;
-		
-
-      }
-	  
-	  
-    </script>
 
 	<script type="text/javascript">
 	$(document).ready(function() {
@@ -58,19 +23,7 @@
     $('.menuDiv > li > ul').hide();
   //  $('.menuDiv > li:first-child > ul').show();
 
-    
-	
-	$('.menuBottomTitle').click(function() {
-		 if($(this).next('ul').css('display') == 'none') {
-			$(this).removeClass('menuBottomTitle');
-			$(this).addClass('menuTitle');
-		} else {
-			$(this).removeClass('menuTitle');
-			$(this).addClass('menuBottomTitle');
-		}
-	});
-	
-	// accordion
+    // accordion
     $('.menuDiv > li > div').click(function() {
         // do nothing if already expanded
         if($(this).next().css('display') == 'none') {
@@ -123,7 +76,7 @@
             <div id="warp">	
                 		<ul class="menuDiv">
                         	<li>
-                            	<div class="menuTopTitle">ניהול מאגר שאלות</div>
+                            	<div class="menuTitle">ניהול מאגר שאלות</div>
                                 <ul class="subMenu1" style="list-style-type: none;margin:0;padding:0;">
                                     <li class="menuItem"><a href="lecturer/add_question.html"><span>הוספת שאלה</span></a></li>
                                     <li class="menuItem"><a href="lecturer/edit_question.html"><span>עריכת שאלה</span></a></li>
@@ -139,7 +92,7 @@
                                 </ul>
                             </li>
                             <li>
-                            	<div class="menuBottomTitle">סטטיסטיקות וציונים</div>
+                            	<div class="menuTitle">סטטיסטיקות וציונים</div>
                                 <ul class="subMenu1" style="list-style-type: none;margin:0;padding:0;">
                                     <li class="menuItem"><a href="lecturer/statics.html"><span>צפייה בסטטיסטיקות</span></a></li>
                                 </ul>
@@ -148,8 +101,7 @@
                     
                         
                         <div class="mainContent">
-                       		<h2>סטטיסטיקות חדשות</h2><Br/>
-                            <div id='table_div'></div>
+                            <div id="exericses_table" style="width: 600px;" align="right" dir="rtl"></div>
                         </div>
                         
                         <div style="clear:both"></div>

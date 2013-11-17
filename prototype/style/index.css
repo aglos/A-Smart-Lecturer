@@ -25,31 +25,26 @@
 	width:220px;
 	margin:0;
 	padding:0;
-	border:none;
+	border:1px solid #C3C3C3;
 	border-right:1px dotted #C3C3C3;
+	border-bottom:none;
 	height:auto;
 	float:right;
 
 }
 
-.menuTitle , .menuItem, .SelectedmenuItem, .menuTopTitle , .menuBottomTitle {
+
+
+.menuTitle , .menuItem, .SelectedmenuItem {
 	border-bottom:1px solid #C3C3C3;
 	padding-right:5px;
 }
 
-.menuTitle, .menuTopTitle , .menuBottomTitle {
+.menuTitle {
 	background-color:#e5e5e5;
 	font-weight:700;
 	font-size:90%;
 	color:#000000;
-}
-
-.menuTopTitle {
-	border-top-left-radius: 15px;
-}
-
-.menuBottomTitle {
-	border-bottom-left-radius: 15px;
 }
 
 .menuItem, .SelectedmenuItem {
