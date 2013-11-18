@@ -1,6 +1,6 @@
 A-Smart-Lecturer
 ================
-<img src="https://github-camo.global.ssl.fastly.net/2d4ab56f27499dc464fd17df2fec8ff69d545519/687474703a2f2f696d6738392e696d616765736861636b2e75732f696d6738392f3631312f6b6b342e676966">
+<img src="http://s16.postimg.org/n9008q1et/Owl_logo_03.jpg">
 
 <a href="https://github.com/aglos/A-Smart-Lecturer/wiki">A-Smart-Lecturer Wiki </a>
 
