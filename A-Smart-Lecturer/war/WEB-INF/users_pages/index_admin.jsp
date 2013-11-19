@@ -20,7 +20,6 @@
 
 	<div id="main_site_div">
 
-           <%@ include file="header.jsp" %>
         	
             
             <!-- START SITE MAIN -->   

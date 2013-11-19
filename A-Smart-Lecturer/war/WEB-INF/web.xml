@@ -10,13 +10,21 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet>
 		<servlet-name>header</servlet-name>
-		<servlet-class>WEB-INF/header.jsp</servlet-class>
+		<jsp-file>WEB-INF/header.jsp</jsp-file>
 	</servlet>
+		<servlet>
+		<servlet-name>LoginJSP</servlet-name>
+		<jsp-file>WEB-INF/login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>LoginJSP</servlet-name>
+	    <url-pattern>/Login</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<url-pattern>/a_smart_lecturer</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>Login</welcome-file>
 	</welcome-file-list>
 </web-app>
