@@ -8,11 +8,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<servlet-class>aglosh2014.appspot.com.A_smart_lecturerServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>header</servlet-name>
+		<servlet-class>header.jspt</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<url-pattern>/a_smart_lecturer</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>login.html</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

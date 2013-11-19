@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//war/WEB-INF/header.jsp=UTF-8
+encoding//war/index.jsp=UTF-8
+encoding//war/login.jsp=UTF-8
+encoding//war/users_pages/checker/add_grades.jsp=UTF-8
+encoding//war/users_pages/index_admin.jsp=UTF-8
+encoding//war/users_pages/index_checker.jsp=UTF-8
+encoding//war/users_pages/index_lecturer.jsp=UTF-8
+encoding//war/users_pages/index_student.jsp=UTF-8
+encoding/<project>=UTF-8
+encoding/war=UTF-8
