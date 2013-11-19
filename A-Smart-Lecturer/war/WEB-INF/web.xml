@@ -10,7 +10,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet>
 		<servlet-name>header</servlet-name>
-		<servlet-class>header.jspt</servlet-class>
+		<servlet-class>WEB-INF/header.jsp</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>A_smart_lecturer</servlet-name>
