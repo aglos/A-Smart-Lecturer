@@ -9,9 +9,6 @@
 	<meta http-equiv="Content-Language" content="he" />
     
 	<title>A Smart Lecturer</title>
-    
-    <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
-    <link rel="image_src" href="images/share.png" />
 
 
 </head>
@@ -19,28 +16,7 @@
 
 	<div id="main_site_div">
 
-            <!-- START HEADER -->
-        	<div id="header">
-				<div class="headerTitle">
-                    <h3>שלום אורח,</h3>
-                    יום ראשון, 22 לנובמבר 2013, 22:00
-                </div>
-            </div>
-            <!-- END HEADER -->
-
-            <!-- START TOP BAR -->
-            <div class="imei_box_cell">
-                
-                
-                <!-- START IMEI TEXT BOX -->
-                <div id="top_bar"> 
-  					<div class="logo"></div>
-                </div>
-                <!-- END IMEI TEXT BOX  -->
-            </div>
-            
- 			<div class="header_fade"></div>
-            <!-- END TOP BAR -->
+            <%@ include file="header.jsp" %>
         	
             
             <!-- START SITE MAIN -->   
@@ -86,14 +62,7 @@
             
             <!-- END SITE MAIN -->   
 
-            <!-- START FOOTER -->
-            <div id="footer">
-                
-                <a href="" title="">פתרון תקלות</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="" title="">צור קשר עם מנהל</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="#" title="">שאלות ותשובות</a>    
-            </div>
-            <!-- END FOOTER -->
+            <%@ include file="footer.jsp" %>
     
     
 	</div>

@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//war/WEB-INF/footer.jsp=UTF-8
 encoding//war/WEB-INF/header.jsp=UTF-8
 encoding//war/WEB-INF/index.jsp=UTF-8
 encoding//war/WEB-INF/login.jsp=UTF-8

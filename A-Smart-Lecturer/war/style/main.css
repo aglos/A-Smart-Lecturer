@@ -80,11 +80,10 @@ a, .div_link {
 }
 
 .logo {
-	background:url(../images/logo.png) no-repeat;
+	background:url(../images/logo.jpg) no-repeat;
 	float:left;
-	height:115px;
-	width:257px;
-	margin-left:20px;
+	height:123px;
+	width:310px;
 
 }
 
