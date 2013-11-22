@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
 <head>   
@@ -10,7 +10,37 @@
     
 	<title>A Smart Lecturer</title>
 
-
+	<script type="text/javascript" src="script/jquery.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			$('#login').click(function() {
+	
+				/* To copy imei number to the currect form */
+				var username = $("#username").val();
+				var password = $("#pass").val();
+				var div = $("#loginMsg");
+				var msg = '';
+	
+				if (username == "")
+					msg = 'הכנס שם משתמש תקין';
+	
+				if (password == "")
+					msg = 'הכנס סיסמה תקינה';
+	
+				if (username == "" && password == "")
+					msg = 'שדות שם משתמש וסיסמה דרושים';
+	
+				if (msg != '') {
+					//alert('111');
+					div.html(msg);
+					return false;
+				}
+				return true;
+			});
+		});
+	</script>
 </head>
 <body>
 
@@ -53,11 +83,6 @@
 
                         </div>
 					</form>
-            
-            <a href="users_pages/index_lecturer.jsp" title="">מרצה</a><Br />
-       		<a href="users_pages/index_checker.jsp" title="">בודק</a><Br />
-            <a href="users_pages/index_student.jsp" title="">סטודנט</a><Br />
-            <a href="users_pages/index_admin.jsp" title="">מנהל</a><Br />
             </div>
             
             <!-- END SITE MAIN -->   

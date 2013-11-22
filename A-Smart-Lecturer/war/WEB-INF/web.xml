@@ -16,14 +16,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-name>footer</servlet-name>
 		<jsp-file>WEB-INF/footer.jsp</jsp-file>
 	</servlet>
+	
 	<servlet>
 		<servlet-name>LoginJSP</servlet-name>
-		<jsp-file>WEB-INF/login.jsp</jsp-file>
+		<jsp-file>/WEB-INF/login.jsp</jsp-file>
 	</servlet>
+	 
 	<servlet-mapping>
 	    <servlet-name>LoginJSP</servlet-name>
 	    <url-pattern>/Login</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<url-pattern>/a_smart_lecturer</url-pattern>
@@ -32,7 +35,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>LecturerIndex</servlet-name>
-		<jsp-file>WEB-INF/users_pages/index_lecturer.jsp</jsp-file>
+		<jsp-file>/WEB-INF/users_pages/index_lecturer.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>LecturerIndex</servlet-name>
@@ -41,7 +44,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>StudentIndex</servlet-name>
-		<jsp-file>WEB-INF/users_pages/index_student.jsp</jsp-file>
+		<jsp-file>/WEB-INF/users_pages/index_student.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>StudentIndex</servlet-name>
@@ -50,7 +53,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>CheckerIndex</servlet-name>
-		<jsp-file>WEB-INF/users_pages/index_checker.jsp</jsp-file>
+		<jsp-file>/WEB-INF/users_pages/index_checker.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>CheckerIndex</servlet-name>
@@ -59,7 +62,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>AdminIndex</servlet-name>
-		<jsp-file>WEB-INF/users_pages/index_admin.jsp</jsp-file>
+		<jsp-file>/WEB-INF/users_pages/index_admin.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>AdminIndex</servlet-name>
@@ -67,6 +70,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<welcome-file-list>
-		<welcome-file>LoginJSP</welcome-file>
+		<welcome-file>Login</welcome-file>
 	</welcome-file-list>
 </web-app>
