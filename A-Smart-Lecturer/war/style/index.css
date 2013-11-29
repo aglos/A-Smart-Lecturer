@@ -121,3 +121,10 @@ textarea {
 .exericse_filterDiv {
 	margin-top:20px;
 }
+
+
+#chart_div {
+	width:800px;
+	text-align: right;
+	direction: rtl;
+}

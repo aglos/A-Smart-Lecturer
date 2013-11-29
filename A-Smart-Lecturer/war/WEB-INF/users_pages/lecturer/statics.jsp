@@ -10,89 +10,88 @@
 	<meta http-equiv="Content-Language" content="he" />
     
 	<title>A Smart Lecturer</title>
-    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['ציון', 'אחוזים'],
+          ['0-10',  18],
+          ['20-30',  2],
+          ['30-40',  2],
+          ['40-50',  4],
+          ['50-60',  4],
+          ['60-70',  5],
+          ['70-80',  5],
+          ['80-90',  20],
+          ['90-100',  40]
+          
+        ]);
+
+        var options = {
+        		width: 800,
+        		height: 400,
+        		chartArea: {left:185},
+        	    
+        	    
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
 
 </head>
 <body>
 
 	<div id="main_site_div">
 
-            <!-- START HEADER -->
-        	<div id="header">
-            	<div class="headerTitle">
-                    <h3>×©××× ××××××,</h3>
-                    ××× ×¨××©××, 22 ×× ×××××¨ 2013, 22:00
-                </div>
-                
-               <a href="../../login.html" class="logout">××¦×××</a>
-            </div>
-            <!-- END HEADER -->
-
-            <!-- START TOP BAR -->
-            <div class="imei_box_cell">
-                
-                
-                <!-- START IMEI TEXT BOX -->
-                <div id="top_bar"> 
-  					<div class="logo"></div>
-                </div>
-                <!-- END IMEI TEXT BOX  -->
-            </div>
-            
- 			<div class="header_fade">
-            	<a href="../index_lecturer.html">×¢××× ×¨××©×</a> -
-                ×¦×¤××× ××¡××××¡×××§××ª
-            </div>
-            <!-- END TOP BAR -->
+         <%@ include file="../../header.jsp" %>
         	
             
             <!-- START SITE MAIN -->   
             <div id="warp">	
                 
-                        <div class="menuDiv">
-                            <div class="menuTitle">× ×××× ××××¨ ×©××××ª</div>
-                            <a href="add_question.html"><div class="menuItem">×××¡×¤×ª ×©×××</div></a>
-                            <a href="edit_question.html"><div class="menuItem">×¢×¨×××ª ×©×××</div></a>
-                            <a href="del_question.html"><div class="menuItem">××××§×ª ×©×××</div></a>
-                            <div class="menuTitle">× ×××× ××××¨ ×ª×¨×××××</div>
-                            <a href="add_exericse.html"><div class="menuItem">×××¡×¤×ª ×ª×¨×××</div></a>
-                            <a href="edit_exericse.html"><div class="menuItem">×¢×¨×××ª ×ª×¨×××</div></a>
-                            <a href="del_exericse.html"><div class="menuItem">××××§×ª ×ª×¨×××</div></a>
-                            <div class="menuTitle">×¡××××¡×××§××ª ××¦××× ××</div>
-                            <div class="SelectedmenuItem">×¦×¤××× ××¡××××¡×××§××ª</div>                 
+                         <div class="menuDiv">
+                            <div class="menuTitle">מדדי ציונים</div>
+                            <div class="SelectedmenuItem">צפייה במדדים</div>                         
                         </div>
                         
                         <div class="mainContent">
-                        	<h2>×¦×¤××× ××¡××××¡×××§××ª</h2>
-                            <div class="exericse_filterDiv">
-                                <h3>×××: &nbsp;&nbsp;&nbsp;
+                        	<h2>צפייה בסטטיסטיקות</h2>
+                                   
+         					<div class="exericse_filterDiv">
+                                <h3>חוג: &nbsp;&nbsp;&nbsp;
                                 
                                 <select name="subject" id="subject" class="formField">
-                                    <option value="0" style="background-color:#CCCfff">×××¨ ×××</option>
-                                    <option id="1" value="">×× ××¡×ª ×ª×¢×©××× ×× ××××</option>
-                                    <option id="2" value="">×× ××¡×ª ×ª××× ×</option>
+                                    <option value="0" style="background-color:#CCCfff">בחר חוג</option>
+                                    <option id="1" value="">הנדסת תעשייה וניהול</option>
+                                    <option id="2" value="">הנדסת תוכנה</option>
                                 </select>
                                 
-                                &nbsp;&nbsp;&nbsp;×§××¨×¡: &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;קורס: &nbsp;&nbsp;&nbsp;
                                 <select name="subject" id="subject" class="formField">
-                                    <option value="0" style="background-color:#CCCfff">×××¨ ×××</option>
-                                    <option id="1" value="">×× ××¡×ª ×ª××× ×</option>
-                                    <option id="2" value="">××¢×¨×××ª ××¤×¢××</option>
+                                    <option value="0" style="background-color:#CCCfff">בחר חוג</option>
+                                    <option id="1" value="">הנדסת תוכנה</option>
+                                    <option id="2" value="">מערכות הפעלה</option>
                                 </select>
                                 
-                               &nbsp;&nbsp;&nbsp; ×ª×¨××× ××¡×¤×¨: &nbsp;&nbsp;&nbsp;
+                               &nbsp;&nbsp;&nbsp; תרגיל מספר: &nbsp;&nbsp;&nbsp;
                                 
                                 <select name="subject" id="subject" class="formField" style="width:100px">
-                                    <option value="0" style="background-color:#CCCfff">×××¨ ×ª×¨×××</option>
+                                    <option value="0" style="background-color:#CCCfff">בחר תרגיל</option>
                                     <option id="1" value="">1</option>
                                     <option id="2" value="">2</option>
                                 </select>
                                 </h3>
-                            </div>
+                             </div>
+                             <hr />
                             
                              <!--Div that will hold the pie chart-->
-                            <div id="chart_div" align="center"></div>
-                            
+                             <div align="center" style="width:800px">
+                             	<div id="chart_div" style="height: 500px;"></div>
+                             </div>
                         </div>
                         
                         <div style="clear:both"></div>
@@ -101,14 +100,7 @@
             </div>
             <!-- END SITE MAIN -->   
        
-            <!-- START FOOTER -->
-            <div id="footer">
-                
-                <a href="http://www.unlock-it.co.il/tutorial/iphone_unlock.php" title="×××¨××××">×¤×ª×¨×× ×ª×§×××ª</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="http://www.unlock-it.co.il/contact/contact.php" title="×¦××¨ ×§×©×¨">×¦××¨ ×§×©×¨ ×¢× ×× ××</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="#" title="××£ ××××ª">×©××××ª ××ª×©××××ª</a>    
-            </div>
-            <!-- END FOOTER -->
+           <%@ include file="../../footer.jsp" %>
     
     
 	</div>

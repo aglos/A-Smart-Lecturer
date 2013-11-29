@@ -14,13 +14,12 @@
     <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
     <link rel="image_src" href="images/share.png" />
 
-
 </head>
 <body>
 
 	<div id="main_site_div">
 
-        	
+        	<%@ include file="../header.jsp" %>
             
             <!-- START SITE MAIN -->   
             <div id="warp">	
@@ -52,14 +51,7 @@
             </div>
             <!-- END SITE MAIN -->   
        
-            <!-- START FOOTER -->
-            <div id="footer">
-                
-                <a href="http://www.unlock-it.co.il/tutorial/iphone_unlock.php" title="מדריכים">פתרון תקלות</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="http://www.unlock-it.co.il/contact/contact.php" title="צור קשר">צור קשר עם מנהל</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="#" title="דף הבית">שאלות ותשובות</a>    
-            </div>
-            <!-- END FOOTER -->
+            <%@ include file="../footer.jsp" %>
     
     
 	</div>

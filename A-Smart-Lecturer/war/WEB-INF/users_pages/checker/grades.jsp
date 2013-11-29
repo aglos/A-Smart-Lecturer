@@ -1,15 +1,4 @@
-<%
-		
-	/*
-	
-		create array: 	[id] [name] [grade] 
-						[012312313][mosge david] [100]
-				
-								
-					 
-	*/
-		
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
 <head>   
@@ -34,33 +23,7 @@
 	
 	<div id="main_site_div">
 
-            <!-- START HEADER -->
-        	<div id="header">
-            	<div class="headerTitle">
-                    <h3>שלום אלוהים,</h3>
-                    יום ראשון, 22 לנובמבר 2013, 22:00
-                </div>
-                
-               <a href="../../login.html" class="logout">יציאה</a>
-            </div>
-            <!-- END HEADER -->
-
-            <!-- START TOP BAR -->
-            <div class="imei_box_cell">
-                
-                
-                <!-- START IMEI TEXT BOX -->
-                <div id="top_bar"> 
-  					<div class="logo"></div>
-                </div>
-                <!-- END IMEI TEXT BOX  -->
-            </div>
-            
- 			<div class="header_fade">
-            	<a href="../index_lecturer.html">עמוד ראשי</a> -
-                עריכת תרגיל ממאגר
-            </div>
-            <!-- END TOP BAR -->
+            <%@ include file="../../header.jsp" %>
         	
             
             <!-- START SITE MAIN -->   
@@ -103,18 +66,18 @@
                              <br />
                              <form id="formcontact"  method="post">
                              
-                                <table  border="1" cellpadding="0" cellspacing="0" width="100%">
-                                    
-                                    <tr class="form_tr">
-                                        <td width="10%" style="padding:10px">000000000</td>
-                                        <td width="80%" style="padding:30px">
+                                <table  border="0" cellpadding="0" cellspacing="0" width="100%" style="border-bottom:1px dotted #999">
+                                    <% for (int i=0;i<10;i++) {%>
+                                    <tr>
+                                        <td width="15%" style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999">000000000</td>
+                                        <td width="75%" style="padding:20px;border-top:1px dotted #999"">
                                         	<div class="slider"></div>	
                                        </td>
-                                       <td width="10%">
-                                       		<div align="center" id="val">&nbsp;</div>
+                                       <td width="10%" style="border-left:1px dotted #999;border-top:1px dotted #999"">
+                                       		<div align="center" id="val<%=i%>">&nbsp;</div>
                                        </td>
                                     </tr>
-                                   
+									 <% } %>
                                 </table>
                                <br /><br />
                                הערות למתרגל:<br /><textarea id="context" name="context" dir="rtl" ></textarea>
@@ -130,14 +93,7 @@
             </div>
             <!-- END SITE MAIN -->   
        
-            <!-- START FOOTER -->
-            <div id="footer">
-                
-                <a href="http://www.unlock-it.co.il/tutorial/iphone_unlock.php" title="מדריכים">פתרון תקלות</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="http://www.unlock-it.co.il/contact/contact.php" title="צור קשר">צור קשר עם מנהל</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="#" title="דף הבית">שאלות ותשובות</a>    
-            </div>
-            <!-- END FOOTER -->
+            <%@ include file="../../footer.jsp" %>
     
     
 	</div>

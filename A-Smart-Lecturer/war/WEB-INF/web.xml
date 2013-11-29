@@ -8,15 +8,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<servlet-class>aglosh2014.appspot.com.A_smart_lecturerServlet</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>header</servlet-name>
-		<jsp-file>WEB-INF/header.jsp</jsp-file>
-	</servlet>
-	<servlet>
-	<servlet-name>footer</servlet-name>
-		<jsp-file>WEB-INF/footer.jsp</jsp-file>
-	</servlet>
-	
+
 	<servlet>
 		<servlet-name>LoginJSP</servlet-name>
 		<jsp-file>/WEB-INF/login.jsp</jsp-file>
