@@ -10,10 +10,6 @@
 	<meta http-equiv="Content-Language" content="he" />
     
 	<title>A Smart Lecturer</title>
-    
-    <link rel="shortcut icon" href="../images/unlock-it.ico" type="image/x-icon" />
-    <link rel="image_src" href="../images/share.png" />
-
 
 </head>
 <body>

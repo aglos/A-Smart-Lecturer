@@ -61,6 +61,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>InsertGrades</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>CheckerIndex</servlet-name>
+	    <url-pattern>/Checker</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>AdminIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_admin.jsp</jsp-file>
 	</servlet>
