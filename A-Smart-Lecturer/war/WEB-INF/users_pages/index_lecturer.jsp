@@ -11,30 +11,33 @@
     
 	<title>A Smart Lecturer</title>
     
-    <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
-    <link rel="image_src" href="images/share.png" />
 
 	<script type="text/javascript" src="../script/jquery.js"></script>  
 	<script type="text/javascript" src="../script/jquery-ui.js"></script>  
 
-	<script type="text/javascript">
-	$(document).ready(function() {
-    // initialise
-    $('.menuDiv > li > ul').hide();
-  //  $('.menuDiv > li:first-child > ul').show();
 
-    // accordion
-    $('.menuDiv > li > div').click(function() {
-        // do nothing if already expanded
-        if($(this).next().css('display') == 'none') {
-            $('.menuDiv > li > ul').slideUp();
-            $(this).next().slideDown();
-        } else if ($(this).css('display') != 'none') {
-            $(this).next().slideUp();
-		}
-    });
-});
-	</script>
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'שם קורס');
+        data.addColumn('string', 'שם חוג');
+        data.addColumn('number', 'מספר תרגיל');
+        data.addColumn('boolean', 'הוזנו ציונים');
+        data.addColumn('string', 'ניהול');
+        data.addRows([
+                      <% for (int i=0;i<10;i++) { %>
+         			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
+         			   '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>'],
+        	     	  <% } %>
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {allowHtml: true});
+      }
+    </script>
 
 </head>
 <body>
@@ -75,33 +78,17 @@
 
             <div id="warp">	
                 		<ul class="menuDiv">
-                        	<li>
-                            	<div class="menuTitle">ניהול מאגר שאלות</div>
-                                <ul class="subMenu1" style="list-style-type: none;margin:0;padding:0;">
-                                    <li class="menuItem"><a href="lecturer/add_question.html"><span>הוספת שאלה</span></a></li>
-                                    <li class="menuItem"><a href="lecturer/edit_question.html"><span>עריכת שאלה</span></a></li>
-                                    <li class="menuItem"><a href="lecturer/del_question.html"><span>מחיקת שאלה</span></a></li>
-                                </ul>
-                            </li>
-                            <li>
-                            	<div class="menuTitle">ניהול מאגר תרגילים</div>
-                                <ul class="subMenu1" style="list-style-type: none;margin:0;padding:0;">
-                                    <li class="menuItem"><a href="lecturer/add_exericse.html"><span>הוספת תרגיל</span></a></li>
-                                    <li class="menuItem"><a href="lecturer/edit_exericse.html"><span>עריכת תרגיל</span></a></li>
-                                    <li class="menuItem"><a href="lecturer/del_exericse.html"><span>מחיקת תרגיל</span></a></li>
-                                </ul>
-                            </li>
                             <li>
                             	<div class="menuTitle">סטטיסטיקות וציונים</div>
                                 <ul class="subMenu1" style="list-style-type: none;margin:0;padding:0;">
-                                    <li class="menuItem"><a href="lecturer/statics.html"><span>צפייה בסטטיסטיקות</span></a></li>
+                                    <li class="menuItem"><a href="/Lecturer/Statistics"><span>צפייה בסטטיסטיקות</span></a></li>
                                 </ul>
                             </li>
                         </ul>
                     
                         
                         <div class="mainContent">
-                            <div id="exericses_table" style="width: 600px;" align="right" dir="rtl"></div>
+                            <div id='table_div'></div>
                         </div>
                         
                         <div style="clear:both"></div>

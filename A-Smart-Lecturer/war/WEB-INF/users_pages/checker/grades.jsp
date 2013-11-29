@@ -1,19 +1,37 @@
-
+<%
+		
+	/*
+	
+		create array: 	[id] [name] [grade] 
+						[012312313][mosge david] [100]
+				
+								
+					 
+	*/
+		
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
 <head>   
-	<link href="../../style/main.css" rel="stylesheet" type="text/css" media="screen" />
-   	<link href="../../style/index.css" rel="stylesheet" type="text/css" media="screen" />
-    
+
     <meta name="viewport" content="width=1031, maximum-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="Content-Language" content="he" />
     
 	<title>A Smart Lecturer</title>
 
+	<link href="../../style/main.css" rel="stylesheet" type="text/css" media="screen" />
+   	<link href="../../style/index.css" rel="stylesheet" type="text/css" media="screen" />
+
+					    
+		
+	<link rel="stylesheet" type="text/css" href="../../style/jquery-ui-slider-pips.css"> 
+	<link rel="stylesheet" type="text/css" href="http://sites.simey.me/jquery-pip/demo/css/flick/jquery-ui-1.10.1.custom.css"> 
+  
+
 </head>
 <body>
-
+	
 	<div id="main_site_div">
 
             <!-- START HEADER -->
@@ -85,72 +103,16 @@
                              <br />
                              <form id="formcontact"  method="post">
                              
-                                <table  border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <table  border="1" cellpadding="0" cellspacing="0" width="100%">
+                                    
                                     <tr class="form_tr">
-                                        <td width="7%" style="border:1px solid #999999;padding:10px">012345678</td>
-                                        <td style="border:1px solid #999999;padding:10px" align="center">
-                        
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />טוב מאוד
-                                            </div>
-                                            <div style="float:right;width:90px">
-                                                <input type="radio" name="012345678" />טוב
-                                            </div>
-                                            <div style="float:right;width:120px">
-                                                <input type="radio" name="012345678" />כמעט טוב
-                                            </div>
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />מספיק
-                                            </div>
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />לא מספיק
-                                            </div>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr class="form_tr">
-                                        <td width="7%" style="border:1px solid #999999;padding:10px">012345678</td>
-                                        <td style="border:1px solid #999999;padding:10px" align="center">
-                        
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />טוב מאוד
-                                            </div>
-                                            <div style="float:right;width:90px">
-                                                <input type="radio" name="012345678" />טוב
-                                            </div>
-                                            <div style="float:right;width:120px">
-                                                <input type="radio" name="012345678" />כמעט טוב
-                                            </div>
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />מספיק
-                                            </div>
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />לא מספיק
-                                            </div>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr class="form_tr">
-                                        <td width="7%" style="border:1px solid #999999;padding:10px">012345678</td>
-                                        <td style="border:1px solid #999999;padding:10px" align="center">
-                        
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />טוב מאוד
-                                            </div>
-                                            <div style="float:right;width:90px">
-                                                <input type="radio" name="012345678" />טוב
-                                            </div>
-                                            <div style="float:right;width:120px">
-                                                <input type="radio" name="012345678" />כמעט טוב
-                                            </div>
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />מספיק
-                                            </div>
-                                            <div style="float:right;width:110px">
-                                                <input type="radio" name="012345678" />לא מספיק
-                                            </div>
-                                            
-                                        </td>
+                                        <td width="10%" style="padding:10px">000000000</td>
+                                        <td width="80%" style="padding:30px">
+                                        	<div class="slider"></div>	
+                                       </td>
+                                       <td width="10%">
+                                       		<div align="center" id="val">&nbsp;</div>
+                                       </td>
                                     </tr>
                                    
                                 </table>
@@ -181,7 +143,28 @@
 	</div>
     </div>
     
-    <script type="text/javascript" src="../script/jquery.easing.1.3.js.js"></script>
-  	<script type="text/javascript" src="../script/jquery-ui.js"></script>
+	
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+  	<script src="../../script/jquery-ui-slider-pips.js"></script>
+					    
+	
+	<script>
+	$(document).ready( function() {
+
+		$('.slider').slider({ 
+			max: 100, 
+			min: 0, 
+			value: 0,
+			slide: function( event, ui ) {
+		         
+		          $("#val").html(ui.value);
+		       }	
+		}).slider('pips');
+		
+	});
+
+</script>
 </body>
 </html>

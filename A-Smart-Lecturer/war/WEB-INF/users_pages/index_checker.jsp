@@ -10,10 +10,29 @@
 	<meta http-equiv="Content-Language" content="he" />
     
 	<title>A Smart Lecturer</title>
-    
-    <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
-    <link rel="image_src" href="images/share.png" />
 
+	 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'שם קורס');
+        data.addColumn('string', 'שם חוג');
+        data.addColumn('number', 'מספר תרגיל');
+        data.addColumn('boolean', 'הוזנו ציונים');
+        data.addColumn('string', 'ניהול');
+        data.addRows([
+                      <% for (int i=0;i<10;i++) { %>
+         			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
+         			   '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>'],
+        	     	  <% } %>
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {allowHtml: true});
+      }
+    </script>
 
 </head>
 <body>
@@ -51,14 +70,11 @@
                 
                         <div class="menuDiv">
                             <div class="menuTitle">מדדי ציונים</div>
-                            <a href="checker/add_grades.html"><div class="menuItem">הוספת מדדים לתרגיל חדש</div></a>
-                            <a href="checker/edit_grades.html"><div class="menuItem">עריכת מדדי תרגיל קודם</div></a>                           
+                            <a href="/Checker/Add"><div class="menuItem">הוספת מדדים לתרגיל חדש</div></a>                          
                         </div>
                         
                         <div class="mainContent">
-                            תוכן של העמוד ומידע<br/>
-                            כאן ניתן להציג הודעות חדשות מהמרצה<br/>
-                            ועוד
+                            <div id='table_div'></div>
                         </div>
                         
                         <div style="clear:both"></div>

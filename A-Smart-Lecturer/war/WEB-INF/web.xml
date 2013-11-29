@@ -42,6 +42,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Lecturer</url-pattern>
 	</servlet-mapping>
 	
+	
+	
+	<servlet>
+		<servlet-name>LecturerStatistics</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/lecturer/statics.jsp</jsp-file>
+	</servlet>
+		<servlet-mapping>
+	    <servlet-name>LecturerStatistics</servlet-name>
+	    <url-pattern>/Lecturer/Statistics</url-pattern>
+	</servlet-mapping>
+	
+
+	
+		
 	<servlet>
 		<servlet-name>StudentIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_student.jsp</jsp-file>
@@ -65,9 +79,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>CheckerIndex</servlet-name>
-	    <url-pattern>/Checker</url-pattern>
+	    <servlet-name>InsertGrades</servlet-name>
+	    <url-pattern>/Checker/Add</url-pattern>
 	</servlet-mapping>
+	
+
+	
 	
 	<servlet>
 		<servlet-name>AdminIndex</servlet-name>
