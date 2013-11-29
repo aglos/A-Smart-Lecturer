@@ -71,10 +71,10 @@
                                     <tr>
                                         <td width="15%" style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999">000000000</td>
                                         <td width="75%" style="padding:20px;border-top:1px dotted #999"">
-                                        	<div class="slider"></div>	
+                                        	<div class="slider" id="<%=i%>"></div>	
                                        </td>
-                                       <td width="10%" style="border-left:1px dotted #999;border-top:1px dotted #999"">
-                                       		<div align="center" id="val<%=i%>">&nbsp;</div>
+                                       <td width="10%" style="border-left:1px dotted #999;border-top:1px dotted #999">
+                                       		<input class="textVal" type="text" align="center" id="val<%=i%>" style="width:60px;text-align:center;" />
                                        </td>
                                     </tr>
 									 <% } %>
@@ -114,11 +114,16 @@
 			min: 0, 
 			value: 0,
 			slide: function( event, ui ) {
-		         
-		          $("#val").html(ui.value);
-		       }	
+				   $("#val"+$(this).attr("id")).val(ui.value);
+		    }	
 		}).slider('pips');
-		
+
+		$('.textVal').change(function () {
+		   // var value = this.value,
+		     //   selector = $(this).parent('p').next();  
+		    //selector.slider("value", value);
+		    //alert(this.id)
+		})
 	});
 
 </script>
