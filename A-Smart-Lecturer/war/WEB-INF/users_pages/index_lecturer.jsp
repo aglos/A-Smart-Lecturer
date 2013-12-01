@@ -30,7 +30,7 @@
         data.addRows([
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: <%=i%>, f: '<%=i%>'}, true,
-         			   '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>'],
+         			   '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>&nbsp;<a href="/Lecturer/Show/<%=i%>">צפה</a>'],
         	     	  <% } %>
         ]);
 
@@ -54,17 +54,11 @@
             
 
             <div id="warp">	
-                		<ul class="menuDiv">
-                            <li>
-                            	<div class="menuTitle">סטטיסטיקות וציונים</div>
-                                <ul class="subMenu1" style="list-style-type: none;margin:0;padding:0;">
-                                    <li class="menuItem"><a href="/Lecturer/Statistics"><span>צפייה בסטטיסטיקות</span></a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                		
                     
                         
-                        <div class="mainContent">
+                        <div class="mainContent"  style="width:971px;float:right;padding:10px;">
+                       
                             <div id='table_div'></div>
                         </div>
                         

@@ -42,7 +42,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 		<servlet-mapping>
 	    <servlet-name>LecturerStatistics</servlet-name>
-	    <url-pattern>/Lecturer/Statistics</url-pattern>
+	    <url-pattern>/Lecturer/Show/*</url-pattern>
 	</servlet-mapping>
 	
 

@@ -25,8 +25,8 @@
         data.addRows([
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
-         			   '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>'],
-        	     	  <% } %>
+         			  '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>&nbsp;<a href="/Checker/Show/<%=i%>">צפה</a>'],
+         			  <% } %>
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
@@ -44,13 +44,10 @@
             
             <!-- START SITE MAIN -->   
             <div id="warp">	
-                
-                        <div class="menuDiv">
-                            <div class="menuTitle">מדדי ציונים</div>
-                            <a href="/Checker/Add"><div class="menuItem">הוספת מדדים לתרגיל חדש</div></a>                          
-                        </div>
+               
                         
-                        <div class="mainContent">
+                        <div class="mainContent"  style="width:971px;float:right;padding:10px;">
+                       
                             <div id='table_div'></div>
                         </div>
                         

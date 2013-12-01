@@ -29,14 +29,9 @@
             <!-- START SITE MAIN -->   
             <div id="warp">	
                 
-                        <div class="menuDiv">
-                            <div class="menuTitle">מדדי ציונים</div>
-                            <div class="SelectedmenuItem">הוספת מדדים לתרגיל חדש</div>
-                            <a href="checker/edit_grades.html"><div class="menuItem">עריכת מדדי תרגיל קודם</div></a>                           
-                        </div>
-                        
-                        <div class="mainContent">
-                        	<h2>הוספת ציונים לתרגיל בית חדש</h2>
+                
+                        <div class="mainContent"  style="width:971px;float:right;padding:0 10px 10px 10px;">
+                        	<h2>הזנת ציונים</h2>
                                    
          					<div class="exericse_filterDiv">
                                 <h3>חוג: &nbsp;&nbsp;&nbsp;
@@ -64,17 +59,25 @@
                                 </h3>
                              </div>
                              <br />
+                             <hr />
+                             <br />
                              <form id="formcontact"  method="post">
                              
                                 <table  border="0" cellpadding="0" cellspacing="0" width="100%" style="border-bottom:1px dotted #999">
                                     <% for (int i=0;i<10;i++) {%>
                                     <tr>
-                                        <td width="15%" style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999">000000000</td>
-                                        <td width="75%" style="padding:20px;border-top:1px dotted #999"">
-                                        	<div class="slider" id="<%=i%>"></div>	
+                                        <td align="center" width="15%" style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999<%
+                                        
+                                        if (i==0) { %>;border-top-right-radius: 25px 25px;<%}
+                                        %>">000000000</td>
+                                        <td width="77%" style="padding:20px;border-top:1px dotted #999"">
+                                        	<div class="slider" id="s<%=i%>"></div>	
                                        </td>
-                                       <td width="10%" style="border-left:1px dotted #999;border-top:1px dotted #999">
-                                       		<input class="textVal" type="text" align="center" id="val<%=i%>" style="width:60px;text-align:center;" />
+                                       <td width="8%" align="center" style="border-left:1px dotted #999;border-top:1px dotted #999<%
+                                        
+                                        if (i==0) { %>;border-top-left-radius: 25px 25px;<%}
+                                        %>">
+                                       		<input class="textVal" maxlength="3" value="0" type="text" align="center" id="val<%=i%>" style="width:30px;text-align:center;" />
                                        </td>
                                     </tr>
 									 <% } %>
@@ -109,22 +112,34 @@
 	<script>
 	$(document).ready( function() {
 
+		$.extend( $.ui.slider.prototype.options, { animate: true });
 		$('.slider').slider({ 
 			max: 100, 
 			min: 0, 
 			value: 0,
+			range: "min",
 			slide: function( event, ui ) {
-				   $("#val"+$(this).attr("id")).val(ui.value);
+
+					var id = $(this).attr("id");
+					id = id.substring(1,id.length);
+				    $("#val"+id).val(ui.value);
 		    }	
 		}).slider('pips');
 
 		$('.textVal').change(function () {
-		   // var value = this.value,
-		     //   selector = $(this).parent('p').next();  
-		    //selector.slider("value", value);
-		    //alert(this.id)
+			var obj = this.id;
+			var id = obj.substring(3,obj.length);
+		    var value = this.value;
+		    selector = $("#s"+id);
+		    selector.slider("value", value);
 		})
+
+
+		
+
 	});
+
+	
 
 </script>
 </body>

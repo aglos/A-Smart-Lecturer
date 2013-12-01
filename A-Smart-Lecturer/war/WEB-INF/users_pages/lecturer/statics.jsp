@@ -30,9 +30,9 @@
         ]);
 
         var options = {
-        		width: 800,
+        		width: 970,
         		height: 400,
-        		chartArea: {left:185},
+        		
         	    
         	    
         };
@@ -53,12 +53,8 @@
             <!-- START SITE MAIN -->   
             <div id="warp">	
                 
-                         <div class="menuDiv">
-                            <div class="menuTitle">מדדי ציונים</div>
-                            <div class="SelectedmenuItem">צפייה במדדים</div>                         
-                        </div>
                         
-                        <div class="mainContent">
+                        <div class="mainContent"  style="width:971px;float:right;padding:10px;">
                         	<h2>צפייה בסטטיסטיקות</h2>
                                    
          					<div class="exericse_filterDiv">
