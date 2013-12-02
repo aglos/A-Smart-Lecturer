@@ -637,6 +637,7 @@ button.ui-button::-moz-focus-inner {
 
 .ui-slider-horizontal {
 	height: .5em;
+	
 }
 .ui-slider-horizontal .ui-slider-handle {
 	width: 0.8em;
@@ -770,6 +771,7 @@ button.ui-button::-moz-focus-inner {
 	border-width: 0;
 	padding: 1em 1.4em;
 	background: none;
+	
 }
 .ui-tooltip {
 	padding: 8px;
@@ -801,7 +803,7 @@ body .ui-tooltip {
 }
 .ui-widget-content {
 	border: 1px solid #dddddd;
-	background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+	background: #e6f2ff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
 	color: #444444;
 }
 .ui-widget-content a {

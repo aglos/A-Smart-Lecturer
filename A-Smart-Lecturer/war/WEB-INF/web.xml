@@ -34,8 +34,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Lecturer</url-pattern>
 	</servlet-mapping>
 	
-	
-	
 	<servlet>
 		<servlet-name>LecturerStatistics</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/lecturer/statics.jsp</jsp-file>
@@ -85,6 +83,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 	    <servlet-name>AdminIndex</servlet-name>
 	    <url-pattern>/Admin</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>GetCourses</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/getCourses.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>GetCourses</servlet-name>
+	    <url-pattern>/getCourse</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

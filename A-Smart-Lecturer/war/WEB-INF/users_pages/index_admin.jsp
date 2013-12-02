@@ -19,7 +19,7 @@
 
 	<div id="main_site_div">
 
-        	<%@ include file="../header.jsp" %>
+        	<%@ include file="../inc/header.jsp" %>
             
             <!-- START SITE MAIN -->   
             <div id="warp">	
@@ -51,7 +51,7 @@
             </div>
             <!-- END SITE MAIN -->   
        
-            <%@ include file="../footer.jsp" %>
+            <%@ include file="../inc/footer.jsp" %>
     
     
 	</div>

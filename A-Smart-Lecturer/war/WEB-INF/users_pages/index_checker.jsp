@@ -25,7 +25,7 @@
         data.addRows([
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
-         			  '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>&nbsp;<a href="/Checker/Show/<%=i%>">צפה</a>'],
+         			  '<a href="/Checker/Show/<%=i%>">צפה</a>'],
          			  <% } %>
         ]);
 
@@ -39,7 +39,7 @@
 
 	<div id="main_site_div">
 
-           <%@ include file="../header.jsp" %>
+           <%@ include file="../inc/header.jsp" %>
         	
             
             <!-- START SITE MAIN -->   
@@ -47,23 +47,21 @@
                
                         
                         <div class="mainContent"  style="width:971px;float:right;padding:10px;">
-                       
+                       		<div align="left">
+                       			<a href="#"><img src="images/search.jpg" width="20" height="20" alt="" /></a>
+                       			<a href="Checker/Add"><img src="images/plus.jpg" width="20" height="20" alt="" /></a>
+                       		</div>
                             <div id='table_div'></div>
                         </div>
-                        
-                        <div style="clear:both"></div>
-			
+                     
                 
             </div>
             <!-- END SITE MAIN -->   
        
-            <%@ include file="../footer.jsp" %>
+            <%@ include file="../inc/footer.jsp" %>
     
     
 	</div>
-    </div>
-    
-    <script type="text/javascript" src="script/jquery.easing.1.3.js.js"></script>
-  	<script type="text/javascript" src="script/jquery-ui.js"></script>
+  
 </body>
 </html>

@@ -1,23 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
-<head>   
-	<link href="../style/main.css" rel="stylesheet" type="text/css" media="screen" />
-   	<link href="../style/index.css" rel="stylesheet" type="text/css" media="screen" />
-    
-    <meta name="viewport" content="width=1031, maximum-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="Content-Language" content="he" />
-    
-	<title>A Smart Lecturer</title>
-    
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he"
+	dir="rtl">
+<head>
+<link href="../style/main.css" rel="stylesheet" type="text/css"
+	media="screen" />
+<link href="../style/index.css" rel="stylesheet" type="text/css"
+	media="screen" />
 
-	<script type="text/javascript" src="../script/jquery.js"></script>  
-	<script type="text/javascript" src="../script/jquery-ui.js"></script>  
+<meta name="viewport" content="width=1031, maximum-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="he" />
+
+<title>A Smart Lecturer</title>
 
 
-	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type='text/javascript'>
+<script type="text/javascript" src="../script/jquery.js"></script>
+<script type="text/javascript" src="../script/jquery-ui.js"></script>
+
+
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
       google.load('visualization', '1', {packages:['table']});
       google.setOnLoadCallback(drawTable);
       function drawTable() {
@@ -30,12 +34,17 @@
         data.addRows([
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: <%=i%>, f: '<%=i%>'}, true,
-         			   '<a href="Edit/<%=i%>">ערוך</a>&nbsp;<a href="Delete/<%=i%>">מחק</a>&nbsp;<a href="/Lecturer/Show/<%=i%>">צפה</a>'],
+         			   '<a href="/Lecturer/Show/<%=i%>">צפה</a>'],
         	     	  <% } %>
+
+        	     	 <% for (int i=0;i<10;i++) { %>
+        			  ['אותות ומערכות', 'הנדסת תוכנה',  {v: <%=i%>, f: '<%=i%>'}, true,
+        			   '<a href="/Lecturer/Show/<%=i%>">צפה</a>'],
+       	     	  <% } %>
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
-        table.draw(data, {allowHtml: true});
+        table.draw(data, {allowHtml: true} );
       }
     </script>
 
@@ -47,32 +56,33 @@
 
 	<div id="main_site_div">
 
-          <%@ include file="../header.jsp" %>
-        	
-            
-            <!-- START SITE MAIN -->   
-            
+		<%@ include file="../inc/header.jsp"%>
 
-            <div id="warp">	
-                		
-                    
-                        
-                        <div class="mainContent"  style="width:971px;float:right;padding:10px;">
-                       
-                            <div id='table_div'></div>
-                        </div>
-                        
-                        <div style="clear:both"></div>
-			
-                
-            </div>
-            <!-- END SITE MAIN -->   
-       
-            <%@ include file="../footer.jsp" %>
-    
-    
+
+		<!-- START SITE MAIN -->
+
+
+		<div id="warp">
+
+
+
+			<div class="mainContent"
+				style="width: 971px; float: right; padding: 10px;">
+
+				<div id='table_div'></div>
+			</div>
+
+			<div style="clear: both"></div>
+
+
+		</div>
+		<!-- END SITE MAIN -->
+
+		<%@ include file="../inc/footer.jsp"%>
+
+
 	</div>
-    
+
 
 </body>
 </html>

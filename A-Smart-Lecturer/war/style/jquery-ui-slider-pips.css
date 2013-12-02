@@ -3,7 +3,7 @@
 
 	/* ui slider pips */
 	
-	.ui-slider-horizontal.ui-slider-pips { margin-bottom: 1.4em; }
+	.ui-slider-horizontal.ui-slider-pips { margin-bottom: 1.4em;}
 	.ui-slider-pips .ui-slider-label,
 	.ui-slider-pips .ui-slider-pip-hide { display: none; }
 	.ui-slider-pips .ui-slider-pip-label .ui-slider-label { display: block; }
@@ -22,7 +22,7 @@
 
 
 
-	.ui-slider-vertical.ui-slider-pips { margin-bottom: 0; margin-right: 2em; }
+	.ui-slider-vertical.ui-slider-pips { margin-bottom: 0; margin-right: 2em;  }
 	.ui-slider-vertical.ui-slider-pips .ui-slider-pip { 
 		text-align: left; top: 20px; left: 20px; margin-left: 0; margin-top: -0.5em;
 	}
