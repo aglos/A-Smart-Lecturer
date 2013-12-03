@@ -6,7 +6,13 @@
 <!-- START HEADER -->
 <div id="header">
 	<div class="headerTitle">
-		<h3>שלום אורח,</h3>
+		<h3>שלום <%
+		
+		if(session.getAttribute("user")!= null) {%>
+		
+		<%=session.getAttribute("user").toString() %>
+		<%} %>
+		,</h3>
 		יום ראשון, 22 לנובמבר 2013, 22:00
 	</div>
 </div>

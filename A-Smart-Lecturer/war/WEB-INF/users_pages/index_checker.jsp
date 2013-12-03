@@ -25,7 +25,7 @@
         data.addRows([
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
-         			  '<a href="/Checker/Show/<%=i%>">צפה</a>'],
+         			  '<a href="/Checker/Show/?id=1&year=2013">צפה</a>'],
          			  <% } %>
         ]);
 

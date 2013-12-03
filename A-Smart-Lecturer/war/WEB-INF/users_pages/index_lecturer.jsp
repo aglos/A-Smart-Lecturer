@@ -34,7 +34,7 @@
         data.addRows([
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: <%=i%>, f: '<%=i%>'}, true,
-         			   '<a href="/Lecturer/Show/<%=i%>">צפה</a>'],
+         			   '<a href="/Lecturer/Show/?exId=1&courseId=1&year=2013<%=i%>">צפה</a>'],
         	     	  <% } %>
 
         	     	 <% for (int i=0;i<10;i++) { %>
