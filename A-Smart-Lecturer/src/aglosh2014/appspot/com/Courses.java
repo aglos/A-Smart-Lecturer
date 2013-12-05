@@ -3,7 +3,7 @@ package aglosh2014.appspot.com;
 public class Courses {
 
 //this class represent a list of courses & a course object
- static final int NUM_OF_STUDENTS_IN_COURSE=3;
+ static final int NUM_OF_STUDENTS_IN_COURSE=8;
 	
 	public int new_course_id; //next course to be created
 	public Course Courses_table[]; //list of courses

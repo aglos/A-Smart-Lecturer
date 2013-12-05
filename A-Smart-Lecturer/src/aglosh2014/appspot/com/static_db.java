@@ -22,9 +22,9 @@ public class static_db {
 		
 		
 		//add 3 courses to each circle
-		circles[0].add_new_course("מבוא לתכנות", "תשעג", "שי תבור", "דן חמדן");
+		circles[0].add_new_course("מבוא לתכנות", "תשעג", "שי שבור", "דן חמדן");
 		circles[0].add_new_course("אלגברה ליניארית 1", "תשעג", "אלכס אייזנדברגיסקי", "ביאנה שטיינבוכפלצת");
-		circles[0].add_new_course("מבוא לחדוא", "תשעג", "מרים בנק", "אבי לוי");
+		circles[0].add_new_course("מבוא לחדוא", "תשעג", "מרים בנג", "אבי לוי");
 		
 		circles[1].add_new_course("מבוא לחומרים", "תשעג", "ברי סחרוף", "דן חמדן");
 		circles[1].add_new_course("אלגברה חומרנית 1", "תשעג", "אלכס אייזנדברגיסקי", "ביאנה שטיינבוכפלצת");
@@ -35,6 +35,12 @@ public class static_db {
 		circles[0].add_new_student_to_course(300393121, "מבוא לתכנות");
 		circles[0].add_new_student_to_course(123331231, "מבוא לתכנות");
 		circles[0].add_new_student_to_course(993221232, "מבוא לתכנות");
+		circles[0].add_new_student_to_course(123132132, "מבוא לתכנות");
+		circles[0].add_new_student_to_course(234343333, "מבוא לתכנות");
+		circles[0].add_new_student_to_course(444445555, "מבוא לתכנות");
+		circles[0].add_new_student_to_course(324234343, "מבוא לתכנות");
+		circles[0].add_new_student_to_course(667677676, "מבוא לתכנות");
+		
 		
 		circles[0].add_new_student_to_course(300393121, "אלגברה ליניארית 1");
 		circles[0].add_new_student_to_course(123331231, "אלגברה ליניארית 1");

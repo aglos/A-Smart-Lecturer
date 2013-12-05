@@ -17,7 +17,7 @@
 		courseId = Integer.parseInt(request.getParameter("courseId"));
 		
 		
-		Student_array = new int[3];
+		Student_array = new int[8];
 		
 		Student_array = studentdb.get_students_in_course(circleId, courseId);
 	} else { 
