@@ -45,9 +45,12 @@ public class Courses {
 		
 		String course_list="";
 		
-		for(int i=0; i<new_course_id; i++)
-			course_list+=get_course_name(i) + ",";
-		
+		for(int i=0; i<new_course_id; i++) {
+			course_list+=get_course_name(i);
+			
+			if (i < new_course_id-1)
+				course_list+= ",";
+		}
 		return course_list;
 			
 	}

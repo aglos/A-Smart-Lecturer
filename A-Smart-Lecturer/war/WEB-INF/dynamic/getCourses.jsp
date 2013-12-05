@@ -1,15 +1,17 @@
+<%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <%
+	
+
 	if (request.getParameter("circleId")!=null) {
 		
 		int id = Integer.parseInt(request.getParameter("circleId"));
 	
-		if (id==2) { %>
-			הנדסת תוכנה,מערכות הפעלה,מתמטיקה להנדסה,מבוא לתכנות מדעי,חדוא 1, אלגורתמיקה 1
-		<% }  if (id==1) {  %>
-		מבוא לתעשייה וניהול,מבוא לכלכלה,כימיה,פיזיקה
-	<% }
-	}
-%>
+		static_db db = new static_db();
+		String s = db.get_courses_in_circle(id); %>
+		
+		<%=s %>
+		
+	<%  }
+	%>
 		

@@ -135,7 +135,11 @@
 	  			//var _ret;
 	  			var dataString = 'circleId='+ this.value;
 
-	  			
+	  			if (this.value=='n') {
+
+	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+		  			return false;
+	  			}
 	  			
 	  			$.ajax({
 	  				async: false,

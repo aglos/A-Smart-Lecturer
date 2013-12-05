@@ -15,8 +15,8 @@ public class static_db {
 		//init db
 		
 		//add 2 circles
-		circles[0]=new Circles(13, "הנדסת תוכנה");
-		circles[1]=new Circles(15, "הנדסת חומרים");
+		circles[0]=new Circles(0, "הנדסת תוכנה");
+		circles[1]=new Circles(1, "הנדסת חומרים");
 		
 		//add 3 courses to each circle
 		circles[0].add_new_course("מבוא לתכנות", "תשעג", "שי תבור", "דן חמדן");
@@ -60,15 +60,16 @@ public class static_db {
 		
 		for(int i=0; i<circles.length; i++)
 			if(circles[i]!=null)
-				list+=circles[i].get_name() + ",";
-		
+				list+=circles[i].get_name()+ ",";
+			
+		list = list.substring(0,list.length()-1);
 		return list;
 	}
 	
-	public String get_courses_in_circle(String circle)
+	public String get_courses_in_circle(int circle)
 	{
 		for(int i=0; i<circles.length; i++)
-			if(circles[i]!=null && circles[i].get_name().equals(circle))
+			if(circles[i]!=null && circles[i].get_id() == circle)
 				return circles[i].get_courses_in_circle();
 						
 		return null;
