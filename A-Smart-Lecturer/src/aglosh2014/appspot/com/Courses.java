@@ -3,7 +3,7 @@ package aglosh2014.appspot.com;
 public class Courses {
 
 //this class represent a list of courses & a course object
- static final int NUM_OF_STUDENTS_IN_COURSE=20;
+ static final int NUM_OF_STUDENTS_IN_COURSE=8;
 	
 	public int new_course_id; //next course to be created
 	public Course Courses_table[]; //list of courses
@@ -45,9 +45,12 @@ public class Courses {
 		
 		String course_list="";
 		
-		for(int i=0; i<new_course_id; i++)
-			course_list+=get_course_name(i) + ",";
-		
+		for(int i=0; i<new_course_id; i++) {
+			course_list+=get_course_name(i);
+			
+			if (i < new_course_id-1)
+				course_list+= ",";
+		}
 		return course_list;
 			
 	}
@@ -68,12 +71,12 @@ public class Courses {
 		return -1;
 	}
 	
-	public int[] get_student_list_in_course(String course_name)
+	public int[] get_student_list_in_course(int course_id)
 	{
-		if(course_name.isEmpty())
-			return null;
+		//if(course_name.isEmpty())
+			//return null;
 		
-		int course_id=get_course_id(course_name);
+		//int course_id=get_course_id(course_name);
 		
 		if(course_id<0)
 			return null;
@@ -165,6 +168,7 @@ public class Courses {
 		private String course_year;
 		private int students_in_course[];
 		private String lecturer, checker;
+		
 		
 		public Course(String course_name, String year, String lecturer, String checker)
 		{

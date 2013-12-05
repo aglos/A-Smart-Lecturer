@@ -73,7 +73,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Checker/Add</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>ViewGrades</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>ViewGrades</servlet-name>
+	    <url-pattern>/Checker/Show/</url-pattern>
+	</servlet-mapping>
+	
 
+	<servlet>
+		<servlet-name>ViewResults</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/checker/results.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>ViewResults</servlet-name>
+	    <url-pattern>/Checker/Results</url-pattern>
+	</servlet-mapping>
+	
 	
 	
 	<servlet>
@@ -94,6 +112,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 	    <servlet-name>GetCourses</servlet-name>
 	    <url-pattern>/getCourse</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>getStudentsInCourse</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/getStudentsInCourse.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>getStudentsInCourse</servlet-name>
+	    <url-pattern>/getStudentsInCourse</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
