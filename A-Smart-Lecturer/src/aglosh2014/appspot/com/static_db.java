@@ -5,8 +5,10 @@ package aglosh2014.appspot.com;
 public class static_db {
 	
 	public final int NUM_OF_CIRCLES=3;
+	public final int NUM_OF_COURSES=5;
 	
 	public Circles circles[];
+	public Courses courses[];
 	
 	public static_db() //set a static db
 	{
@@ -17,6 +19,7 @@ public class static_db {
 		//add 2 circles
 		circles[0]=new Circles(0, "הנדסת תוכנה");
 		circles[1]=new Circles(1, "הנדסת חומרים");
+		
 		
 		//add 3 courses to each circle
 		circles[0].add_new_course("מבוא לתכנות", "תשעג", "שי תבור", "דן חמדן");
@@ -75,14 +78,20 @@ public class static_db {
 		return null;
 	}
 	
-	public int[] get_students_in_course(String circle, String course)
+	public int[] get_students_in_course(int circle, int course)
 	{
 		for(int i=0; i<circles.length; i++)
-			if(circles[i]!=null && circles[i].get_name().equals(circle))
+			if(circles[i]!=null && circles[i].get_id() == circle)
 				return circles[i].get_student_list_in_course(course);
 		
 		return null;
 	}
+	
+	
+	//public String get_course(int course)
+	//{
+		//return circles[course].g
+	//}
 	
 //	public static void main(String[] args) {
 //		static_db db=new static_db();

@@ -12,9 +12,13 @@
 <!-- START FILTER -->
 <div class="exericse_filterDiv">
 	<h3>
-		חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
+	
+		מחזור: &nbsp;&nbsp;&nbsp; <select name="year"
+			id="year" class="formField">
+			<option value="0" style="background-color: #CCCfff">בחר מחזור</option>
+		</select>&nbsp;&nbsp;&nbsp חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
 			class="formField">
-			<option value="n" style="background-color: #CCCfff">בחר חוג</option>
+			<option value="n" style="background-color: #CCCfff">בחר מחזור</option>
 			<%
 				
 			for (int i=0;i<circles.length;i++) { %>
@@ -23,15 +27,9 @@
 			
 		</select> &nbsp;&nbsp;&nbsp;קורס: &nbsp;&nbsp;&nbsp; <select name="course"
 			id="course" class="formField">
-			<option value="0" style="background-color: #CCCfff">בחר קורס</option>
-
-		</select> &nbsp;&nbsp;&nbsp; תרגיל מספר: &nbsp;&nbsp;&nbsp; <select
-			name="subject" id="subject" class="formField" style="width: 100px">
-			<option value="0" style="background-color: #CCCfff">בחר
-				תרגיל</option>
-			<option id="1" value="">1</option>
-			<option id="2" value="">2</option>
+			<option value="0" style="background-color: #CCCfff">בחר מחזור</option>
 		</select>
+
 	</h3>
 </div>
 <br />

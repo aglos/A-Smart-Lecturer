@@ -1,5 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
+<%
+	boolean isView;
+	static_db studentdb = new static_db();
+	int[] Student_array = null ;
+	int circleId,courseId;
+	
+	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null) {
+	
+		// View grades
+		isView = true;
+		
+		circleId = Integer.parseInt(request.getParameter("circleId"));
+		courseId = Integer.parseInt(request.getParameter("courseId"));
+		
+		
+		Student_array = new int[3];
+		
+		Student_array = studentdb.get_students_in_course(circleId, courseId);
+	} else { 
+		// Add new grades
+		isView = false;
+		Student_array = new int[0];
+	}
+%>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he"
 	dir="rtl">
@@ -37,61 +65,53 @@
 
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 0 10px 10px 10px;">
-				<h2>הזנת ציונים</h2>
-
+				<h2><%=((isView==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
+				<% if(isView==false) { %>
 				<%@ include file="../../inc/ExecriseFilter.jsp"%>
-
-				<form id="formcontact" method="post">
-
-					<table border="0" cellpadding="0" cellspacing="0" width="100%"
-						style="border-bottom: 1px dotted #999">
-						<% for (int i=0;i<10;i++) {%>
-						<tr>
-							<td align="center" width="15%"
-								style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999<%
-                                        
-                                        if (i==0) { %>;border-top-right-radius: 25px 25px;<%}
-                                        %>">000000000</td>
-							<td width="77%"
-								style="padding: 20px; border-top: 1px dotted #999"">
-								<div class="slider" id="s<%=i%>"></div>
-							</td>
-							<td width="8%" align="center"
-								style="border-left:1px dotted #999;border-top:1px dotted #999<%
-                                        
-                                        if (i==0) { %>;border-top-left-radius: 25px 25px;<%}
-                                        %>">
-								<input class="textVal" maxlength="3" value="0" type="text"
-								align="center" id="val<%=i%>"
-								style="width: 30px; text-align: center;" />
-							</td>
-						</tr>
-						<% } %>
-					</table>
-					<br />
-					<br /> הערות למתרגל:<br />
-					<textarea id="context" name="context" dir="rtl"></textarea>
-					<br />
-					<br /> <input type="submit" id="cmdsend" name="cmdsend"
-						value="שלח" class="form_button"
-						onClick="javascript:alert('אישור הפרטים');" /> <input
-						type="reset" id="cmdreset" name="reset" value="נקה"
-						class="form_button" />
-				</form>
+				<% } else { %> <br/> <% } %>
+				<div id="gradeContent" class="gradeContent">
+				
+				<% if (Student_array.length >0) { %>
+	
+						<table border="0" cellpadding="0" cellspacing="0" width="100%"
+							style="border-bottom: 1px dotted #999">
+							<% for (int i=0;i<Student_array.length;i++) {%>
+							<tr>
+								<td align="center" width="15%"
+									style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999<%
+	                                        
+	                                        if (i==0) { %>;border-top-right-radius: 25px 25px;<%}
+	                                        %>"><%=Student_array[i]%></td>
+								<td width="77%"
+									style="padding: 20px; border-top: 1px dotted #999"">
+									<div class="slider" id="s<%=i%>"></div>
+								</td>
+								<td width="8%" align="center"
+									style="border-left:1px dotted #999;border-top:1px dotted #999<%
+	                                        
+	                                        if (i==0) { %>;border-top-left-radius: 25px 25px;<%} %>">
+									<input class="textVal" maxlength="3" value="0" type="text"
+									align="center" id="val<%=i%>"
+									style="width: 30px; text-align: center;" />
+								</td>
+							</tr>
+							<% } %>
+						</table>			
+				
+				<% }  %>
+				</div>
 			</div>
-
-			<div style="clear: both"></div>
-
-
 		</div>
 		<!-- END SITE MAIN -->
+		<div style="clear: both"></div>
 
-		<%@ include file="../../inc/footer.jsp"%>
 
+	
+	
 
-	</div>
-	</div>
+	<%@ include file="../../inc/footer.jsp"%>
 
+</div>
 
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
@@ -100,29 +120,35 @@
 
 
 	<script>
+
+	 function initSliders () {
+			
+			$.extend( $.ui.slider.prototype.options, { animate: true });
+			$('.slider').slider({ 
+				max: 100, 
+				min: 0, 
+				value: 0,
+				range: "min",
+				slide: function( event, ui ) {
+	
+						var id = $(this).attr("id");
+						id = id.substring(1,id.length);
+					    $("#val"+id).val(ui.value);
+			    }	
+			}).slider('pips');
+	
+			$('.textVal').change(function () {
+				var obj = this.id;
+				var id = obj.substring(3,obj.length);
+			    var value = this.value;
+			    selector = $("#s"+id);
+			    selector.slider("value", value);
+			})
+		}
+	
 	$(document).ready( function() {
 
-		$.extend( $.ui.slider.prototype.options, { animate: true });
-		$('.slider').slider({ 
-			max: 100, 
-			min: 0, 
-			value: 0,
-			range: "min",
-			slide: function( event, ui ) {
-
-					var id = $(this).attr("id");
-					id = id.substring(1,id.length);
-				    $("#val"+id).val(ui.value);
-		    }	
-		}).slider('pips');
-
-		$('.textVal').change(function () {
-			var obj = this.id;
-			var id = obj.substring(3,obj.length);
-		    var value = this.value;
-		    selector = $("#s"+id);
-		    selector.slider("value", value);
-		})
+		 initSliders();
 
 	});
 
@@ -130,14 +156,12 @@
 
   	$(document).ready(function() {
 	  	$( "#circle" ).change(function() {
-	  	  
-				//////////////////////////////////////////////////
-	  			//var _ret;
+
 	  			var dataString = 'circleId='+ this.value;
 
 	  			if (this.value=='n') {
 
-	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
 		  			return false;
 	  			}
 	  			
@@ -149,24 +173,44 @@
 	  				success: function(ret){
 	  					// success
 	  					
-	  					//_ret=ret;
-	  					//
 	  					var res = ret.split(",");
-	  					var options = '';
+	  					var options = '<option value="n">בחר קורס</option>';
 	  					for (var i = 0; i < res.length; i++) {
   							options += '<option value="' + i + '">' + res[i] + '</option>';
   							
   						}
-  						$("#course").html(options);
-  						//$('#ctlPerson option:first').attr('selected', 'selected');
-	  					
+  						$("#course").html(options);	  					
 	  				}
 	  			});
-	  		
-				//////////////////////////////////////////////////
-
-	  		
 	  	});
+		$( "#course" ).change(function() {
+			<% if (isView==false) { %>
+
+				
+				var circleId =  $("#circle").val();
+				var courseId =  $("#course").val();
+				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
+
+				if (courseId=='n') {
+
+					$(".gradeContent").html("");
+		  			return false;
+	  			}
+				
+				$.ajax({
+	  				async: false,
+	  				type: "POST",
+	  				url: "/getStudentsInCourse",
+	  				data: dataString,
+	  				success: function(ret){
+	  					// success
+
+  						$(".gradeContent").html(ret);	
+  						initSliders();  					
+	  				}
+	  			});
+			<% } %>
+		});
   	});
   	
 

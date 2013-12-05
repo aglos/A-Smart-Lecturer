@@ -32,9 +32,9 @@ public class Circles {
 		courses.add_new_course(course_name, course_year, lecturer, checker);
 	}
 	
-	public int[] get_student_list_in_course(String course_name)
+	public int[] get_student_list_in_course(int course_id)
 	{
-		return courses.get_student_list_in_course(course_name);
+		return courses.get_student_list_in_course(course_id);
 	}
 	
 	public void add_new_student_to_course(int id, String course_name)

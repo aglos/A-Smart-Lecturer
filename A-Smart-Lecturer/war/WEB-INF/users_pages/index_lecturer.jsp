@@ -1,6 +1,15 @@
+<%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+
+	static_db db = new static_db();
+
+
+%>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he"
 	dir="rtl">
 <head>
