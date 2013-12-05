@@ -28,35 +28,59 @@
 <script type="text/javascript" src="../script/jquery.js"></script>
 <script type="text/javascript" src="../script/jquery-ui.js"></script>
 
-
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-<script type='text/javascript'>
-      google.load('visualization', '1', {packages:['table']});
-      google.setOnLoadCallback(drawTable);
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'שם קורס');
-        data.addColumn('string', 'שם חוג');
-        data.addColumn('number', 'מספר תרגיל');
-        data.addColumn('boolean', 'הוזנו ציונים');
-        data.addColumn('string', 'ניהול');
-        data.addRows([
-                      <% for (int i=0;i<10;i++) { %>
-         			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: <%=i%>, f: '<%=i%>'}, true,
-         			   '<a href="/Lecturer/Show/?exId=1&courseId=1&year=2013<%=i%>">צפה</a>'],
-        	     	  <% } %>
-
-        	     	 <% for (int i=0;i<10;i++) { %>
-        			  ['אותות ומערכות', 'הנדסת תוכנה',  {v: <%=i%>, f: '<%=i%>'}, true,
-        			   '<a href="/Lecturer/Show/<%=i%>">צפה</a>'],
-       	     	  <% } %>
-        ]);
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-        table.draw(data, {allowHtml: true} );
-      }
+ <script type="text/javascript" src="//www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['table']});
     </script>
+    <script type="text/javascript">
+	    var visualization;
+	    var data;
+	
+	    var options = {'showRowNumber': true};
+	    function drawVisualization() {
+	      // Create and populate the data table.
+	      var dataAsJson =
+	      {cols:[
+	        {id:'A',label:'שם קורס',type:'string'},
+	        {id:'B',label:'שם חוג',type:'string'},
+	        {id:'C',label:'מספר תרגיל',type:'number'},
+	        {id:'D',label:'נבדק',type:'boolean'},
+	        {id:'E',label:'כלים',type:'string'}],
+	      rows:[
+				<% for (int i=0;i<10;i++) { %>
+	      		{c:[{v:'הנדסת תוכנה'},{v:'תקשורת מחשבים'}, {v:<%=i%>,f:'<%=i%>'},{v:true,f:'TRUE'},{v:'<a href="/Lecturer/Show/?exId=<%=i%>&courseId=1&year=2013">צפה</a>'}]},
+	      		<% } %>
 
+	      		<% for (int i=0;i<10;i++) { %>
+	      		{c:[{v:'הנדסת תוכנה'},{v:'אותות ומערכות'}, {v:<%=i%>,f:'<%=i%>'},{v:true,f:'TRUE'},{v:'<a href="/Lecturer/Show/?exId=<%=i%>&courseId=2&year=2013">צפה</a>'}]},
+	      		<% } %>
+	      ]};
+	      data = new google.visualization.DataTable(dataAsJson);
+	    
+	      // Set paging configuration options
+	      // Note: these options are changed by the UI controls in the example.
+	      options['page'] = 'enable';
+	      options['pageSize'] = 10;
+	      options['allowHtml'] = 'true';
+	      options['pagingSymbols'] = {prev: 'הקודם', next: 'הבא'};
+	      options['pagingButtonsConfiguration'] = 'auto';
+	      
+	    
+	      // Create and draw the visualization.
+	      visualization = new google.visualization.Table(document.getElementById('table'));
+	      draw();
+	    }
+	    
+	    function draw() {
+	      visualization.draw(data, options);
+	    }
+	    
+	
+	    google.setOnLoadCallback(drawVisualization);
+	
+
+    
+    </script>
 </head>
 <body>
 
@@ -78,7 +102,7 @@
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 10px;">
 
-				<div id='table_div'></div>
+				<div id='table'></div>
 			</div>
 
 			<div style="clear: both"></div>
