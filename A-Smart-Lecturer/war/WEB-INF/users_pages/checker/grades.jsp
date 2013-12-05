@@ -142,7 +142,13 @@
 				var id = obj.substring(3,obj.length);
 			    var value = this.value;
 			    selector = $("#s"+id);
+			    valSelector = $("#val"+id);
+			   
+			   
+			    if (value < 0) valSelector.val(0);
+			    if (value > 100) valSelector.val(100);
 			    selector.slider("value", value);
+			    
 			})
 		}
 	
