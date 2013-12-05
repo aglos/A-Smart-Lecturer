@@ -8,6 +8,7 @@ html, head, body{
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	background-color:#e9ebec;
+	overflow-y: scroll;
 }
 
 
