@@ -6,7 +6,7 @@
 	boolean isView;
 	static_db studentdb = new static_db();
 	int[] Student_array = null ;
-	int circleId,courseId;
+	int circleId=0,courseId=0;
 	
 	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null) {
 	
@@ -66,6 +66,7 @@
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 0 10px 10px 10px;">
 				<h2><%=((isView==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
+				<h4 class="pageDesc"><%=((isView==true)?("קורס: "+courseId+" | שנה: ____ | חוג: "+circleId):"בחר קורס")%></h4>
 				<% if(isView==false) { %>
 				<%@ include file="../../inc/ExecriseFilter.jsp"%>
 				<% } else { %> <br/> <% } %>
@@ -161,13 +162,38 @@
 	
 
   	$(document).ready(function() {
+
+
+  		$( "#year" ).change(function() {
+
+  			$("#gradeContent").html('');
+  			var dataString = 'year='+ this.value;
+
+  			if (this.value=='n') {
+
+  				//$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
+  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+  				$("#course").attr("disabled", "disabled");
+  				$("#circle").attr("disabled", "disabled");
+	  			return false;
+  			}
+
+  			$(".pageDesc").html("בחר קורס");
+  			$("#circle").removeAttr("disabled");	
+  			
+  			
+  	});
+  	  	
 	  	$( "#circle" ).change(function() {
 
+	  			$(".pageDesc").html("בחר קורס");
+	  			$("#gradeContent").html('');
 	  			var dataString = 'circleId='+ this.value;
 
 	  			if (this.value=='n') {
 
-	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
+	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+	  				$("#course").attr("disabled", "disabled");
 		  			return false;
 	  			}
 	  			
@@ -185,20 +211,21 @@
   							options += '<option value="' + i + '">' + res[i] + '</option>';
   							
   						}
-  						$("#course").html(options);	  					
+  						$("#course").html(options);
+  						$("#course").removeAttr("disabled");				
 	  				}
 	  			});
 	  	});
 		$( "#course" ).change(function() {
 			<% if (isView==false) { %>
 
-				
+				$("#gradeContent").html('');
 				var circleId =  $("#circle").val();
 				var courseId =  $("#course").val();
 				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
 
 				if (courseId=='n') {
-
+					$(".pageDesc").html("בחר קורס");
 					$(".gradeContent").html("");
 		  			return false;
 	  			}
@@ -212,6 +239,7 @@
 	  					// success
 
   						$(".gradeContent").html(ret);	
+  						$(".pageDesc").html("קורס: "+courseId+" | שנה: ____ | חוג: "+circleId);
   						initSliders();  					
 	  				}
 	  			});
