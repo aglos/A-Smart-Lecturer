@@ -5,7 +5,8 @@
 <%
 	static_db db = new static_db();
 	String s = db.get_circles_list();
-
+	String y = db.get_circles_year_list();
+	String[] years = y.split(",");
 	String[] circles = s.split(",");
 %>
 
@@ -16,23 +17,16 @@
 		מחזור: &nbsp;&nbsp;&nbsp; <select name="year"
 			id="year" class="formField">
 			<option value="n" style="background-color: #CCCfff">בחר מחזור</option>
-			<option value="2011">2011</option>
-			<option value="2012">2012</option>
-			<option value="2013">2013</option>
-			<option value="2014">2014</option>
-		</select>&nbsp;&nbsp;&nbsp חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
-			class="formField" disabled="disabled">
-			<option value="n" style="background-color: #CCCfff">בחר חוג</option>
-			<%
-				
-			for (int i=0;i<circles.length;i++) { %>
-				<option id="<%=i%>" value="<%=i%>"><%=circles[i]%></option>
+			<%for (int i=0;i<years.length;i++) { %>
+			<option value="<%=years[i]%>"><%=years[i]%></option>
 			<%}%>
-			
+		</select>&nbsp;&nbsp;&nbsp; חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
+			class="formField" disabled="disabled">
+			<option value="n" style="background-color: #CCCfff">בחר חוג</option>		
 		</select> &nbsp;&nbsp;&nbsp;קורס: &nbsp;&nbsp;&nbsp; <select name="course"
 			id="course" class="formField" disabled="disabled">
-			<option value="0" style="background-color: #CCCfff">בחר חוג</option>
-		</select>
+			<option value="0" style="background-color: #CCCfff">בחר קורס</option>
+		</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="exnum"></span>
 
 	</h3>
 </div>

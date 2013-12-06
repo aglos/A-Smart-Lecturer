@@ -166,17 +166,45 @@
 
   		$( "#year" ).change(function() {
 
+  			$("#exnum").html('');
+  			$("#course").attr("disabled", "disabled");
+  			$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+  			$(".pageDesc").html("בחר קורס");
   			$("#gradeContent").html('');
   			var dataString = 'year='+ this.value;
 
   			if (this.value=='n') {
 
-  				//$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
-  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-  				$("#course").attr("disabled", "disabled");
+  				$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
+  				
   				$("#circle").attr("disabled", "disabled");
 	  			return false;
   			}
+
+
+  			$.ajax({
+  				async: false,
+  				type: "POST",
+  				url: "/getCircles",
+  				data: dataString,
+  				success: function(ret){
+  					// success
+  					
+  					
+  					var mat = ret.split("|");
+  					var res = mat[0].split(",");
+  					var res_id = mat[1].split(",");
+  					
+  					var options = '<option value="n">בחר חוג</option>';
+  					for (var i = 0; i < res.length; i++) {
+  	  					options += '<option value="' + res_id[i].trim() + '">' + res[i] + '</option>';
+							
+					}
+						
+						$("#circle").html(options);
+						$("#circle").removeAttr("disabled");				
+  				}
+  			});
 
   			$(".pageDesc").html("בחר קורס");
   			$("#circle").removeAttr("disabled");	
@@ -185,15 +213,17 @@
   	});
   	  	
 	  	$( "#circle" ).change(function() {
-
+		  	
+	  			$("#exnum").html('');
 	  			$(".pageDesc").html("בחר קורס");
 	  			$("#gradeContent").html('');
 	  			var dataString = 'circleId='+ this.value;
 
+	  			
+	  			$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+	  			$("#course").attr("disabled", "disabled");
+	  			
 	  			if (this.value=='n') {
-
-	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-	  				$("#course").attr("disabled", "disabled");
 		  			return false;
 	  			}
 	  			
@@ -205,25 +235,32 @@
 	  				success: function(ret){
 	  					// success
 	  					
-	  					var res = ret.split(",");
-	  					var options = '<option value="n">בחר קורס</option>';
-	  					for (var i = 0; i < res.length; i++) {
-  							options += '<option value="' + i + '">' + res[i] + '</option>';
-  							
-  						}
-  						$("#course").html(options);
-  						$("#course").removeAttr("disabled");				
+	  					
+	  					if (ret.trim() != '') {
+	  						
+		  					var mat = ret.split("|");
+		  					var res = mat[0].split(",");
+		  					var res_id = mat[1].split(",");
+		  					var options = '<option value="n">בחר קורס</option>';
+		  					for (var i = 0; i < res.length; i++) {
+		  						options += '<option value="' + res_id[i].trim() + '">' + res[i] + '</option>';
+	  							
+	  						}
+	
+	  						$("#course").html(options);
+	  						$("#course").removeAttr("disabled");	
+	  					}			
 	  				}
 	  			});
 	  	});
 		$( "#course" ).change(function() {
 			<% if (isView==false) { %>
 
-				$("#gradeContent").html('');
+				$("#gradeContent").html('<div style="width:990px;height:auto;" align="center"><img src="../../../images/ajax-loader.gif" alt="" /></div>');
 				var circleId =  $("#circle").val();
 				var courseId =  $("#course").val();
 				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
-
+				
 				if (courseId=='n') {
 					$(".pageDesc").html("בחר קורס");
 					$(".gradeContent").html("");
@@ -237,9 +274,14 @@
 	  				data: dataString,
 	  				success: function(ret){
 	  					// success
-
-  						$(".gradeContent").html(ret);	
-  						$(".pageDesc").html("קורס: "+courseId+" | שנה: ____ | חוג: "+circleId);
+  						
+					
+						$("#exnum").html("תרגיל מספר: #");	
+						$(".gradeContent").html(ret);	
+						var courseName = $("#courseName").val();
+						var circleName = $("#circleName").val();
+						var year = $("#year").val();
+  						$(".pageDesc").html("קורס: "+courseName+" | שנה: "+year+" | חוג: "+circleName);
   						initSliders();  					
 	  				}
 	  			});

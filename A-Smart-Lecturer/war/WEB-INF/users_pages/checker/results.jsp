@@ -28,9 +28,10 @@
 	int courseId = Integer.parseInt(request.getParameter("courseId"));
 	int circleId = Integer.parseInt(request.getParameter("circleId"));
 	
-	//static_db db = new static_db();
-	
-	//.g
+	String courseName = request.getParameter("courseName");
+	String circleName = request.getParameter("circleName");
+	String year = request.getParameter("year");
+
 	
 %>
 
@@ -97,7 +98,7 @@
                         
                         <div class="mainContent"  style="width:971px;float:right;padding:10px;">
                         	<h2>צפייה בסטטיסטיקות</h2>
-                        	<h4>קורס: <%=courseId%> | שנה: ____ | חוג: <%=circleId%></h4>
+                        	<h4>קורס: <%=courseName%> | שנה: <%=year%> | חוג: <%=circleName%></h4>
                                    
          					<%// include file="../../inc/ExecriseFilter.jsp" %>
                             

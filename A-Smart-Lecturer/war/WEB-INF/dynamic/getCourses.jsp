@@ -8,10 +8,12 @@
 		int id = Integer.parseInt(request.getParameter("circleId"));
 	
 		static_db db = new static_db();
-		String s = db.get_courses_in_circle(id); %>
-		
-		<%=s %>
+		String s = db.get_courses_in_circle(id);
+		String cid = db.get_courses_id_in_circle(id);
+		if (!(s == null && cid == null)) { %>
+		<%=s%>|<%=cid%>
 		
 	<%  }
+	}
 	%>
 		

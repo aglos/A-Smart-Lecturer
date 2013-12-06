@@ -6,14 +6,15 @@ public class Circles {
 	
 	private int circle_id;
 	private String  circle_name;
+	private int circle_year;
 	
 	private Courses courses;
 	
-	public Circles(int id , String name)
+	public Circles(int id , String name, int year)
 	{
 		circle_id = id;
 		circle_name = name;
-		
+		circle_year = year;
 		courses = new Courses(NUM_OF_COURSES);
 	}
 	
@@ -27,9 +28,19 @@ public class Circles {
 		return circle_name;
 	}
 	
-	public void add_new_course(String course_name, String course_year, String lecturer, String checker)
+	public int get_year() 
 	{
-		courses.add_new_course(course_name, course_year, lecturer, checker);
+		return circle_year;
+	}
+	
+	public String get_course_name(int course)
+	{
+		return this.courses.get_course_name(course);
+	}
+	
+	public void add_new_course(String course_name, String lecturer, String checker)
+	{
+		courses.add_new_course(course_name, lecturer, checker);
 	}
 	
 	public int[] get_student_list_in_course(int course_id)
@@ -65,6 +76,11 @@ public class Circles {
 	public String get_courses_in_circle()
 	{
 		return courses.get_courses_list();
+	}
+	
+	public String get_courses_id_in_circle()
+	{
+		return courses.get_courses_id_list();
 	}
 		
 

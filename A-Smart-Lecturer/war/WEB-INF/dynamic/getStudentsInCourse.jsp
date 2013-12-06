@@ -12,6 +12,9 @@
 		static_db db = new static_db();
 		int[] Student_array = new int[3];
 		
+		String courseName = db.get_course_name(courseId,circleId);
+		String circleName = db.get_circle_name(circleId);
+		int year = db.get_circle_year(circleId);
 		Student_array = db.get_students_in_course(circleId, courseId);  %>
 
 
@@ -19,6 +22,10 @@
 	<input type="hidden" id="count" name="count" value="<%=Student_array.length%>" />
 	<input type="hidden" id="circle" name="circleId" value="<%=circleId%>" />
 	<input type="hidden" id="course" name="courseId" value="<%=courseId%>" />
+	<input type="hidden" id="courseName" name="courseName" value="<%=courseName%>" />
+	<input type="hidden" id="circleName" name="circleName" value="<%=circleName%>" />
+	<input type="hidden" id="year" name="year" value="<%=year%>" />
+	
 	<table border="0" cellpadding="0" cellspacing="0" width="100%"
 		style="border-bottom: 1px dotted #999">
 		<% for (int i=0;i<Student_array.length;i++) {%>
