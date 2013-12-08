@@ -2,10 +2,10 @@ package aglosh2014.appspot.com;
 
 public class Users {
 
-	private int user_id;
-	private int password;
-	private String name;
-	private int user_type;	// '1 = student' '2 = lecturer' '3 = tester'
+	protected int user_id;
+	protected int password;
+	protected String name;
+	protected int user_type;	// '1 = student' '2 = lecturer' '3 = tester'
 	
 	public Users(int id, int password, String name, int type)
 	{
