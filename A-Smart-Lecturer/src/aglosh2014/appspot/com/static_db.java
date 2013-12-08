@@ -7,18 +7,18 @@ public class static_db {
 	public final int NUM_OF_CIRCLES=3;
 	public final int NUM_OF_COURSES=5;
 	
-	public Circles circles[];
+	public Circle circles[];
 	public Courses courses[];
 	
 	public static_db() //set a static db
 	{
-		circles=new Circles[NUM_OF_CIRCLES];
+		circles=new Circle[NUM_OF_CIRCLES];
 		
 		//init db
 		
 		//add 2 circles
-		circles[0]=new Circles(0, "הנדסת תוכנה");
-		circles[1]=new Circles(1, "הנדסת חומרים");
+		circles[0]=new Circle(0, "הנדסת תוכנה");
+		circles[1]=new Circle(1, "הנדסת חומרים");
 		
 		
 		//add 3 courses to each circle
