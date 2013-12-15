@@ -20,7 +20,7 @@
 			<option value="2012">2012</option>
 			<option value="2013">2013</option>
 			<option value="2014">2014</option>
-		</select>&nbsp;&nbsp;&nbsp חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
+		</select>&nbsp;&nbsp;&nbsp; חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
 			class="formField" disabled="disabled">
 			<option value="n" style="background-color: #CCCfff">בחר חוג</option>
 			<%

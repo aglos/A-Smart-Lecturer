@@ -204,6 +204,8 @@
 	  				success: function(ret){
 	  					// success
 	  					
+	  					alert(ret);
+	  					
 	  					var res = ret.split(",");
 	  					var options = '<option value="n">בחר קורס</option>';
 	  					for (var i = 0; i < res.length; i++) {

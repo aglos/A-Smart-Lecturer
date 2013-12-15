@@ -62,6 +62,22 @@ public class Academy
 		return list;
 	}
 	
+	public String get_courses_name_list_in_circle(int circle_id)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+		
+		System.out.println(circle_index);
+		
+		if(circle_index==-1)
+			return null;
+		
+		String courses = circles[circle_index].get_courses_in_circle_as_string();
+		
+		System.out.println("The courses are:" + courses);
+		return courses;
+
+	}
+	
 	public int[] get_students_id_in_course(int circle_id, int course_id)
 	{
 		int circle_index=get_circle_index_in_array(circle_id);

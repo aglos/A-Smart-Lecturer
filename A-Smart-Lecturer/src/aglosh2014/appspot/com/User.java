@@ -45,9 +45,9 @@ public class User {
 			return;
 		}
 		//type verification
-		if(user_type!=LECTURER && user_type!=CHECKER && user_type!=STUDENT)
+		if(type!=LECTURER && type!=CHECKER && type!=STUDENT)
 		{
-			System.out.println("User type is undifiend");
+			System.out.println("User type: " + user_type + " is undifiend");
 			return;
 		}
 		

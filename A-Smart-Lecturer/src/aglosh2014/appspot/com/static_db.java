@@ -15,29 +15,29 @@ public class static_db {
 	{
 		jce=new Academy("Jerusalem collage of engineering", 8, 100);
 
-		jce.add_new_circle_to_academy(15, "הנדסת תוכנה", 2013, 5);
-		jce.add_new_circle_to_academy(18, "הנדסת חומרים", 2013, 5);
-		jce.add_new_circle_to_academy(19, "הנדסת תרופות", 2010, 5);
+		jce.add_new_circle_to_academy(0, "הנדסת תוכנה", 2013, 5);
+		jce.add_new_circle_to_academy(1, "הנדסת חומרים", 2013, 5);
+		jce.add_new_circle_to_academy(2, "הנדסת תרופות", 2010, 5);
 
 		Lecturer lecturer;
 		Checker checker;
 		Student student;
 
-		lecturer=jce.add_new_lecturer(300300303, "שי תבור", "bla", 3);
-		checker=jce.add_new_checker(300312123, "יוסי כהן", "blahh", 3);
+		lecturer=jce.add_new_lecturer(300300303, "שי תבור", "blaaaaaa", 3);
+		checker=jce.add_new_checker(300312123, "יוסי כהן", "blahaaaah", 3);
 
-		jce.circles[0].add_new_course_to_circle("מבוא לחדוא", 123, lecturer, checker, 30);
-		jce.circles[0].add_new_course_to_circle("חדוא 2", 122, lecturer, checker, 20);
+		jce.circles[0].add_new_course_to_circle("מבוא לחדוא", 0, lecturer, checker, 30);
+		jce.circles[0].add_new_course_to_circle("חדוא 2", 1, lecturer, checker, 20);
 
-		student=jce.add_new_student(123333333, "חיים דוידו", "keke", 5, 20);
+		student=jce.add_new_student(123333333, "חיים דוידו", "kekeeeeee", 5, 20);
 
 		if(student==null)
 			System.out.println("kaki on ma face");
 
-		jce.circles[0].add_new_student_to_course(123, student);
+		jce.circles[0].add_new_student_to_course(0, student);
 
-		student=jce.add_new_student(123333333, "יוני מותק", "kekee", 5, 20);
-		jce.circles[0].add_new_student_to_course(123, student);
+		student=jce.add_new_student(125555555, "יוני מותק", "kekeeeeeeeeee", 5, 20);
+		jce.circles[0].add_new_student_to_course(1, student);
 
 		System.out.println(jce.get_circles_in_academy_as_string());
 
