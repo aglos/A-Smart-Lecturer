@@ -62,6 +62,29 @@ public class Academy
 		return list;
 	}
 	
+	public int user_login(int user_id, String password) //returns user-type, otherwise -1
+	{
+		for(int i=0; i<num_of_users_in_academy; i++)
+		{
+			if(users[i].get_id()==user_id)
+				if(users[i].valid_password(password))
+					return users[i].get_user_type();
+		}
+		
+		return -1;
+	}
+	
+	public String get_user_name_by_id(int user_id)
+	{
+		for(int i=0; i<num_of_users_in_academy; i++)
+		{
+			if(users[i].get_id()==user_id)
+				return users[i].get_name();
+		}
+		
+		return null;
+	}
+	
 	public String get_courses_name_list_in_circle(int circle_id)
 	{
 		int circle_index=get_circle_index_in_array(circle_id);

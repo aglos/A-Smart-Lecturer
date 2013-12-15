@@ -77,12 +77,12 @@ public class User {
 		return password;
 	}
 	
-	public int valid_password(String pass)
+	public boolean valid_password(String pass)
 	{
 		if(this.password.equals(pass))
-			return 0;
+			return true;
 		
-		return -1;
+		return false;
 		
 	}
 	
