@@ -6,9 +6,12 @@
 	if (request.getParameter("circleId")!=null) {
 		
 		int id = Integer.parseInt(request.getParameter("circleId"));
+		
+		System.out.println(id);
 	
 		static_db db = new static_db();
-		String s = db.get_courses_in_circle(id); %>
+		String s = db.jce.get_courses_name_list_in_circle(id); 
+		 %>
 		
 		<%=s %>
 		

@@ -1,15 +1,13 @@
 package aglosh2014.appspot.com;
 
-import aglosh2014.appspot.com.Courses.Course;
-
-public class Checker extends Users {
+public class Checker extends User {
 
 	private Course Courses[];
 	private int number_of_courses;
 	
-	public Checker(int id, int password, String name, int type, int num_of_Courses)
+	public Checker(int id, String name, String password, int num_of_Courses)
 	{
-		super(id,password,name,type);
+		super(id,name,password, CHECKER);
 		Courses = new Course[num_of_Courses];
 		for(int i = 0; i < Courses.length; i++)
 			Courses[i] = null;

@@ -10,9 +10,7 @@
 		int circleId = Integer.parseInt(request.getParameter("circleId"));
 	
 		static_db db = new static_db();
-		int[] Student_array = new int[3];
-		
-		Student_array = db.get_students_in_course(circleId, courseId);  %>
+		int[] Student_array = db.jce.get_students_id_in_course(circleId, courseId);  %>
 
 
 <form id="formcontact" method="post" action="Results">
