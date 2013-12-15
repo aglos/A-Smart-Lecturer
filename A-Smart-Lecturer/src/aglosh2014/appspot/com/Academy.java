@@ -26,6 +26,21 @@ public class Academy
 		users=new User[max_num_of_users];
 		circles=new Circle[max_num_of_circles];
 	}
+	
+	public String get_academy_name()
+	{
+		return academy_name;
+	}
+	
+	public int get_num_of_users_in_academy()
+	{
+		return this.num_of_users_in_academy;
+	}
+	
+	public int get_num_of_circles_in_academy()
+	{
+		return this.num_of_circles;
+	}
 
 	public Circle[] get_circles_in_academy()
 	{
@@ -47,6 +62,16 @@ public class Academy
 		return list;
 	}
 	
+	public int[] get_students_id_in_course(int circle_id, int course_id)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+		
+		if(circle_index==-1)
+			return null;
+		
+		return circles[circle_index].get_student_id_list_in_course(course_id);
+	}
+	
 	private int get_circle_index_in_array(int circle_id) //return -1 if not found
 	{	
 		for(int i=0; i<num_of_circles; i++)
@@ -63,21 +88,47 @@ public class Academy
 
 		//check if course already exist
 		int circle_index=get_circle_index_in_array(circle_id);
-
+		
 		if(circle_index!=-1)
 			return 0; //circle exist
 
-		this.circles[circle_index]=new Circle(circle_id, circle_name, circle_year, max_num_of_courses_in_circle);
+		this.circles[num_of_circles]=new Circle(circle_id, circle_name, circle_year, max_num_of_courses_in_circle);
 
 		this.num_of_circles++;
 
 		return 1; //course added
 	}
 	
+	public Lecturer add_new_lecturer(int id, String name, String password, int num_of_Courses)
+	{
+		if(num_of_users_in_academy>=max_num_of_users_in_academy)
+			return null;
+		
+		users[num_of_users_in_academy]=new Lecturer(id, name, password, num_of_Courses);
+		
+		
+		return (Lecturer)users[num_of_users_in_academy++];
+	}
 	
 
+	public Student add_new_student(int id, String name, String password, int num_of_Courses, int num_of_grades)
+	{
+		if(num_of_users_in_academy>=max_num_of_users_in_academy)
+			return null;
+		
+		users[num_of_users_in_academy]=new Student(id, name, password, num_of_Courses, num_of_grades);
+		
+		return (Student)users[num_of_users_in_academy++];
+	}
+	
 
-
-
-
+	public Checker add_new_checker(int id, String name, String password, int num_of_Courses)
+	{
+		if(num_of_users_in_academy>=max_num_of_users_in_academy)
+			return null;
+		
+		users[num_of_users_in_academy]=new Checker(id, name, password, num_of_Courses);
+		
+		return (Checker)users[num_of_users_in_academy++];
+	}
 }

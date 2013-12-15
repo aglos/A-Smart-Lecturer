@@ -1,7 +1,5 @@
 package aglosh2014.appspot.com;
 
-import com.google.appengine.api.search.query.ExpressionParser.num_return;
-
 public class Course 
 {
 	public static final int MAX_NUM_OF_EXERCISES=30;
@@ -67,7 +65,7 @@ public class Course
 	
 	public int get_course_id()
 	{
-		this.course_id;
+		return this.course_id;
 	}
 	
 	public int add_student_to_course(Student student) //return -1 if no room, return 0 if already in course, return 1 if added to course

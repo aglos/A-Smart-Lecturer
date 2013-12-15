@@ -1,112 +1,58 @@
 package aglosh2014.appspot.com;
 
+import java.util.ArrayList;
+
 //all String data is returned with ',' between each element
 
 public class static_db {
-	
+
 	public final int NUM_OF_CIRCLES=3;
 	public final int NUM_OF_COURSES=5;
-	
-	public Circle circles[];
-	public Courses courses[];
-	
+
+	public Academy jce;
+
 	public static_db() //set a static db
 	{
-		circles=new Circle[NUM_OF_CIRCLES];
-		
-		//init db
-		
-		//add 2 circles
-		circles[0]=new Circle(0, "הנדסת תוכנה");
-		circles[1]=new Circle(1, "הנדסת חומרים");
-		
-		
-		//add 3 courses to each circle
-		circles[0].add_new_course("מבוא לתכנות", "תשעג", "שי שבור", "דן חמדן");
-		circles[0].add_new_course("אלגברה ליניארית 1", "תשעג", "אלכס אייזנדברגיסקי", "ביאנה שטיינבוכפלצת");
-		circles[0].add_new_course("מבוא לחדוא", "תשעג", "מרים בנג", "אבי לוי");
-		
-		circles[1].add_new_course("מבוא לחומרים", "תשעג", "ברי סחרוף", "דן חמדן");
-		circles[1].add_new_course("אלגברה חומרנית 1", "תשעג", "אלכס אייזנדברגיסקי", "ביאנה שטיינבוכפלצת");
-		circles[1].add_new_course("מבוא לחדוא חומרים", "תשעג", "מרים בנק", "אבי לוי");
-		
-		//add 3 students to each course :(
-		
-		circles[0].add_new_student_to_course(300393121, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(123331231, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(993221232, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(123132132, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(234343333, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(444445555, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(324234343, "מבוא לתכנות");
-		circles[0].add_new_student_to_course(667677676, "מבוא לתכנות");
-		
-		
-		circles[0].add_new_student_to_course(300393121, "אלגברה ליניארית 1");
-		circles[0].add_new_student_to_course(123331231, "אלגברה ליניארית 1");
-		circles[0].add_new_student_to_course(993221232, "אלגברה ליניארית 1");
-		
-		circles[0].add_new_student_to_course(300393121, "מבוא לחדוא");
-		circles[0].add_new_student_to_course(123331231, "מבוא לחדוא");
-		circles[0].add_new_student_to_course(993221232, "מבוא לחדוא");
-		//
-		circles[1].add_new_student_to_course(300393121, "מבוא לחומרים");
-		circles[1].add_new_student_to_course(123331231, "מבוא לחומרים");
-		circles[1].add_new_student_to_course(993221232, "מבוא לחומרים");
-		
-		circles[1].add_new_student_to_course(300393121, "אלגברה חומרנית 1");
-		circles[1].add_new_student_to_course(123331231, "אלגברה חומרנית 1");
-		circles[1].add_new_student_to_course(993221232, "אלגברה חומרנית 1");
-		
-		circles[1].add_new_student_to_course(300393121, "מבוא לחדוא חומרים");
-		circles[1].add_new_student_to_course(123331231, "מבוא לחדוא חומרים");
-		circles[1].add_new_student_to_course(993221232, "מבוא לחדוא חומרים");
-	}
-	
-	public String get_circles_list()
-	{
-		String list="";
-		
-		for(int i=0; i<circles.length; i++)
-			if(circles[i]!=null)
-				list+=circles[i].get_name()+ ",";
-			
-		list = list.substring(0,list.length()-1);
-		return list;
-	}
-	
-	public String get_courses_in_circle(int circle)
-	{
-		for(int i=0; i<circles.length; i++)
-			if(circles[i]!=null && circles[i].get_id() == circle)
-				return circles[i].get_courses_in_circle();
-						
-		return null;
-	}
-	
-	public int[] get_students_in_course(int circle, int course)
-	{
-		for(int i=0; i<circles.length; i++)
-			if(circles[i]!=null && circles[i].get_id() == circle)
-				return circles[i].get_student_list_in_course(course);
-		
-		return null;
-	}
-	
-	
-	//public String get_course(int course)
-	//{
-		//return circles[course].g
-	//}
-	
-//	public static void main(String[] args) {
-//		static_db db=new static_db();
-//		
-//		System.out.println(db.get_circles_list());
-//		System.out.println(db.get_courses_in_circle("הנדסת תוכנה"));
-//		int blah[]=db.get_students_in_course("הנדסת תוכנה", "מבוא לתכנות");
-//		for(int i=0; i<blah.length; i++)
-//			System.out.println(blah[i]);
-//	}
+		jce=new Academy("Jerusalem collage of engineering", 8, 100);
 
+		jce.add_new_circle_to_academy(15, "הנדסת תוכנה", 2013, 5);
+		jce.add_new_circle_to_academy(18, "הנדסת חומרים", 2013, 5);
+		jce.add_new_circle_to_academy(19, "הנדסת תרופות", 2010, 5);
+
+		Lecturer lecturer;
+		Checker checker;
+		Student student;
+
+		lecturer=jce.add_new_lecturer(300300303, "שי תבור", "bla", 3);
+		checker=jce.add_new_checker(300312123, "יוסי כהן", "blahh", 3);
+
+		jce.circles[0].add_new_course_to_circle("מבוא לחדוא", 123, lecturer, checker, 30);
+		jce.circles[0].add_new_course_to_circle("חדוא 2", 122, lecturer, checker, 20);
+
+		student=jce.add_new_student(123333333, "חיים דוידו", "keke", 5, 20);
+
+		if(student==null)
+			System.out.println("kaki on ma face");
+
+		jce.circles[0].add_new_student_to_course(123, student);
+
+		student=jce.add_new_student(123333333, "יוני מותק", "kekee", 5, 20);
+		jce.circles[0].add_new_student_to_course(123, student);
+
+		System.out.println(jce.get_circles_in_academy_as_string());
+
+		System.out.println(jce.circles[0].get_courses_in_circle_as_string());
+	}
+	
 }
+
+
+//	public static void main(String[] args) {
+//		static_db a=new static_db();
+//
+//		ArrayList<Circle> b=new ArrayList<>();
+//		System.out.println(b.size());
+//		b.add(a.jce.circles[0]);
+//		System.out.println(b.size());
+//	}
+//}

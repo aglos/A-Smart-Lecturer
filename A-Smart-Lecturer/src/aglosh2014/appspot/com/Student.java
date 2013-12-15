@@ -1,18 +1,16 @@
 package aglosh2014.appspot.com;
 
-import aglosh2014.appspot.com.Courses.Course;
-
-public class Student extends Users{
+public class Student extends User{
 
 	private Course Courses[];
 	private Grade Grades[];
 	private int number_of_courses;
 	private int number_of_grades;
 	
-	public Student(int id, int password, String name, int type, int num_of_Courses,int num_of_grade)
+	public Student(int id, String name, String password, int num_of_Courses,int num_of_grade)
 	{
 		
-		super(id,password,name,type);
+		super(id,name, password, STUDENT);
 		Courses = new Course[num_of_Courses];
 		Grades = new Grade[num_of_grade];
 		

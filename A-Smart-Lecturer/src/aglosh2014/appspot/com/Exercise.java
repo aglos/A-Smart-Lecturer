@@ -11,6 +11,11 @@ public class Exercise {
 		this.exercise_id=new_id;
 	}
 	
+	public int get_exercise_id()
+	{
+		return this.exercise_id;
+	}
+	
 	public double get_exercise_avg()
 	{
 		return exercise_avg;

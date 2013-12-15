@@ -4,7 +4,7 @@
 	
 <%
 	static_db db = new static_db();
-	String s = db.get_circles_list();
+	String s = db.jce.get_circles_in_academy_as_string();
 
 	String[] circles = s.split(",");
 %>

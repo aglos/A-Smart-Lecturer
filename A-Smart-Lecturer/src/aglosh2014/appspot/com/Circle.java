@@ -21,6 +21,11 @@ public class Circle {
 
 		courses = new Course[max_num_of_courses];
 	}
+	
+	public int get_circle_year()
+	{
+		return this.circle_year;
+	}
 
 	public int get_circle_id()
 	{
@@ -68,6 +73,23 @@ public class Circle {
 
 		return courses[course_index].get_students_in_course();
 	}
+	
+	public int[] get_student_id_list_in_course(int course_id)
+	{
+		int course_index=get_course_index_in_array(course_id);
+
+		if(course_index==-1) //if not in courses
+			return null;
+		
+		Student students[]=courses[course_index].get_students_in_course();
+		int students_id_list[]=new int[courses[course_index].get_num_of_students_in_course()];
+		
+		for(int i=0; i<courses[course_index].get_num_of_students_in_course(); i++)
+			students_id_list[i]=students[i].get_id();
+		
+		return students_id_list;
+
+	}
 
 	public int add_new_student_to_course(int course_id, Student student)
 	{
@@ -106,7 +128,7 @@ public class Circle {
 		if(course_index==-1)
 			return null;
 
-		return courses[course_index].get_course_lecturer.get_name();
+		return courses[course_index].get_course_lecturer().get_name();
 	}
 
 	public String get_course_checker_name(int course_id)
@@ -116,7 +138,7 @@ public class Circle {
 		if(course_index==-1)
 			return null;
 
-		return courses[course_index].get_course_checker.get_name();
+		return courses[course_index].get_course_checker().get_name();
 	}
 
 	public Course[] get_courses_in_circle()
