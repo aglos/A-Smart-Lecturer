@@ -1,3 +1,4 @@
+<%@page import="aglosh2014.appspot.com.static_db"%>
 <%@page import="org.apache.tools.ant.filters.TokenFilter.Trim"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,19 +14,36 @@
 		username = request.getParameter("username").trim();
 		pass = request.getParameter("pass").trim();
 		
+		static_db db=new static_db();
+		int user_type=-1;
+		int user_id=0;
 		
-		UserSession.setAttribute("user", username);
+		try{
+		user_id=Integer.parseInt(username);
+		}
+		catch (Exception e)
+		{
+			redirectURL="/Login";
+			response.sendRedirect(redirectURL);
+		}
 		
+		user_type=db.jce.user_login(user_id, pass);
 		
-		
-		if (username.equals("l"))
-			redirectURL="/Lecturer";
-		else if (username.equals("c"))
-			redirectURL="/Checker";
-		else if (username.equals("a"))
-			redirectURL="/Admin";
-		else if (username.equals("s"))
+		if (user_type==1) //student
 			redirectURL="/Student";
+		else if (user_type==2) //lecturer
+			redirectURL="/Lecturer";
+		else if (user_type==3) //checker
+			redirectURL="/Checker";
+		else if (user_type==4) //admin
+			redirectURL="/Admin";
+		else if (user_type==-1) //error in login
+			redirectURL="/Login";
+		
+		String real_user_name=db.jce.get_user_name_by_id(user_id);
+		
+		if(real_user_name!=null)
+			UserSession.setAttribute("user", real_user_name);
 		
 	    response.sendRedirect(redirectURL);
 	}

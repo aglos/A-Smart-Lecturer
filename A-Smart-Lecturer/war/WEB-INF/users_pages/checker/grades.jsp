@@ -17,9 +17,8 @@
 		courseId = Integer.parseInt(request.getParameter("courseId"));
 		
 		
-		Student_array = new int[8];
+		Student_array = studentdb.jce.get_students_id_in_course(circleId, courseId);
 		
-		Student_array = studentdb.get_students_in_course(circleId, courseId);
 	} else { 
 		// Add new grades
 		isView = false;
@@ -204,6 +203,8 @@
 	  				data: dataString,
 	  				success: function(ret){
 	  					// success
+	  					
+	  					alert(ret);
 	  					
 	  					var res = ret.split(",");
 	  					var options = '<option value="n">בחר קורס</option>';
