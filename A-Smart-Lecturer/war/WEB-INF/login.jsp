@@ -48,9 +48,6 @@
 		
 	    response.sendRedirect(redirectURL);
 	}
-
-
-
 %>
 
 <!DOCTYPE html>

@@ -1,4 +1,5 @@
 package aglosh2014.appspot.com;
+import java.util.Arrays;
 
 public class Academy 
 {	
@@ -169,5 +170,63 @@ public class Academy
 		users[num_of_users_in_academy]=new Checker(id, name, password, num_of_Courses);
 		
 		return (Checker)users[num_of_users_in_academy++];
+	}
+	
+	public int[] get_circles_years()
+	{
+		if(num_of_circles==0)
+			return null;
+		
+		int years[]=new int[num_of_circles];
+		int next_year_index=0;
+		boolean is_exist=false;
+		
+		for(int i=0; i<num_of_circles; i++)
+		{
+			int new_year=circles[i].get_circle_year(); //get year
+			
+			for(int j=0; j<next_year_index; j++) //check if year 
+			{
+				if(new_year==years[j]) //if year already exist 
+				{
+					is_exist=true;
+					break;
+				}
+			}
+			
+			if(is_exist==false)
+			{
+				years[next_year_index]=new_year;
+				next_year_index++;
+			}
+			else
+				is_exist=false;
+		}
+		
+		int new_years[]=new int[next_year_index];
+		
+		for(int i=0; i< next_year_index; i++)
+			new_years[i]=years[i];
+		
+		Arrays.sort(new_years);
+
+		return new_years;
+	}
+	
+	public String get_circles_years_as_string()
+	{
+		int years[]=get_circles_years();
+		
+		if(years==null)
+			return null;
+		
+		String years_as_string="";
+		
+		for(int i=0; i<years.length; i++)
+				years_as_string+=years[i] + ",";
+		
+		years_as_string = years_as_string.substring(0, years_as_string.length()-1);
+		
+		return years_as_string;
 	}
 }
