@@ -1,3 +1,4 @@
+<%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
@@ -26,7 +27,7 @@
                       <% for (int i=0;i<10;i++) { %>
          			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
          			  '<a href="/Checker/Show/?exId=1&circleId=0&courseId=0&year=2013">צפה</a>'],
-         			  <% } %>
+         			  <% }%>
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));

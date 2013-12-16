@@ -36,7 +36,21 @@ public class Circle {
 	{
 		return this.circle_name;
 	}
+	
+	public int get_num_of_courses_in_circle()
+	{
+		return num_of_courses;
+	}
 
+	public int get_course_id_by_name(String name)
+	{
+		for(int i=0; i<num_of_courses; i++)
+			if(name.equals(courses[i].get_course_name()))
+				return courses[i].get_course_id();
+		
+		return -1;
+	}
+	
 	private int get_course_index_in_array(int course_id) //return -1 if not found
 	{
 		for(int i=0; i<num_of_courses; i++)

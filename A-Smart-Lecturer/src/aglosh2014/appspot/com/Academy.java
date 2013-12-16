@@ -109,15 +109,23 @@ public class Academy
 			return null;
 		
 		String courses = circles[circle_index].get_courses_in_circle_as_string();
-		
-		System.out.println("The courses are:" + courses);
+				
 		return courses;
 
+	}
+	
+	public int get_course_id_by_name_circle_and_year(String course_name, int circle_id, int year)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+		
+		return circles[circle_index].get_course_id_by_name(course_name);
 	}
 	
 	public int[] get_students_id_in_course(int circle_id, int course_id)
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
+		
+		System.out.println(circle_id + " " + course_id);
 		
 		if(circle_index==-1)
 			return null;
@@ -242,4 +250,14 @@ public class Academy
 		
 		return years_as_string;
 	}
+	
+	public int get_circle_id_by_name_and_year(String circle_name, int year)
+	{
+		for(int i=0; i<num_of_circles; i++)
+			if(circle_name.equals(circles[i].get_circle_name()) && year==circles[i].get_circle_year())
+				return circles[i].get_circle_id();
+		
+		return -1;
+	}
+	
 }

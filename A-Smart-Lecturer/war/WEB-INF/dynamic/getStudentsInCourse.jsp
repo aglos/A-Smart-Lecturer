@@ -6,8 +6,8 @@
 
 	if (request.getParameter("circleId")!=null && request.getParameter("courseId")!=null) {
 		
-		int courseId = Integer.parseInt(request.getParameter("courseId"));
-		int circleId = Integer.parseInt(request.getParameter("circleId"));
+		int courseId = Integer.parseInt(request.getParameter("courseId").trim());
+		int circleId = Integer.parseInt(request.getParameter("circleId").trim());
 	
 		static_db db = new static_db();
 		int[] Student_array = db.jce.get_students_id_in_course(circleId, courseId);  %>
