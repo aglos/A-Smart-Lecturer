@@ -237,7 +237,6 @@
 	  					var options = '<option value="n">בחר קורס</option>';
 	  					for (var i = 0; i < res.length; i++) {
 							var dataString2 = dataString + '&courseName=' +  res[i] + '&year=' + year;
-				  			alert(res[i]);
 				  			$.ajax({
 				  				async: false,
 				  				type: "POST",
@@ -260,6 +259,7 @@
 				$("#gradeContent").html('');
 				var circleId =  $("#circle").val();
 				var courseId =  $("#course").val();
+				var year = $("#year").val();
 				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
 
 				if (courseId=='n') {
@@ -277,7 +277,7 @@
 	  					// success
 
   						$(".gradeContent").html(ret);	
-  						$(".pageDesc").html("קורס: "+courseId+" | שנה: ____ | חוג: "+circleId);
+  						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
   						initSliders();  					
 	  				}
 	  			});
