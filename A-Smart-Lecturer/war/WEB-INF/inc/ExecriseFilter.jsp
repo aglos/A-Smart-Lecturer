@@ -4,8 +4,10 @@
 	
 <%
 	static_db db = new static_db();
-	String s = db.jce.get_circles_in_academy_as_string();
 
+	int years[]=db.jce.get_circles_years(); //get years
+
+	String s = db.jce.get_circles_in_academy_as_string(); //get circles
 	String[] circles = s.split(",");
 %>
 
@@ -16,10 +18,14 @@
 		מחזור: &nbsp;&nbsp;&nbsp; <select name="year"
 			id="year" class="formField">
 			<option value="n" style="background-color: #CCCfff">בחר מחזור</option>
-			<option value="2011">2011</option>
-			<option value="2012">2012</option>
-			<option value="2013">2013</option>
-			<option value="2014">2014</option>
+			
+			<%
+				
+			if(years!=null) //must login first!
+				for (int i=0;i<years.length;i++) { %>
+					<option value="<%=years[i]%>"><%=years[i]%></option>
+				<%}%>
+			
 		</select>&nbsp;&nbsp;&nbsp; חוג: &nbsp;&nbsp;&nbsp; <select name="circle" id="circle"
 			class="formField" disabled="disabled">
 			<option value="n" style="background-color: #CCCfff">בחר חוג</option>
