@@ -63,6 +63,19 @@ public class Academy
 		return list;
 	}
 	
+	public String get_circles_in_spec_year(int year)
+	{
+		String circles="";
+		
+		for(int i=0; i<num_of_circles; i++)
+			if(this.circles[i].get_circle_year()==year)
+				circles+=this.circles[i].get_circle_name() + ",";
+		
+		circles=circles.substring(0, circles.length()-1); //remove last ','
+		
+		return circles;
+	}
+	
 	public int user_login(int user_id, String password) //returns user-type, otherwise -1
 	{
 		for(int i=0; i<num_of_users_in_academy; i++)

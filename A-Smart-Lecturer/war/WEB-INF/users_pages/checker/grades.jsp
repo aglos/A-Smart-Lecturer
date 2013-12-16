@@ -176,11 +176,25 @@
   				$("#circle").attr("disabled", "disabled");
 	  			return false;
   			}
-
-  			$(".pageDesc").html("בחר קורס");
-  			$("#circle").removeAttr("disabled");	
   			
-  			
+  			$.ajax({
+  				async: false,
+  				type: "POST",
+  				url: "/getCircle",
+  				data: dataString,
+  				success: function(ret){
+  					// success
+  					
+  					var res = ret.split(",");
+  					var options = '<option value="n">בחר קורס</option>';
+  					for (var i = 0; i < res.length; i++) {
+							options += '<option value="' + i + '">' + res[i] + '</option>';
+							
+						}
+						$("#circle").html(options);
+						$("#circle").removeAttr("disabled");				
+  				}
+  			});
   	});
   	  	
 	  	$( "#circle" ).change(function() {
@@ -203,8 +217,6 @@
 	  				data: dataString,
 	  				success: function(ret){
 	  					// success
-	  					
-	  					alert(ret);
 	  					
 	  					var res = ret.split(",");
 	  					var options = '<option value="n">בחר קורס</option>';
