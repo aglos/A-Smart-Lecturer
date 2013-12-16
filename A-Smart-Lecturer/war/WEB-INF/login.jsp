@@ -14,10 +14,11 @@
 		username = request.getParameter("username").trim();
 		pass = request.getParameter("pass").trim();
 		
-		static_db db=new static_db();
+		//static_db db=new static_db();
+		static_db.db_init();
 		int user_type=-1;
 		int user_id=0;
-		
+	
 		try{
 		user_id=Integer.parseInt(username);
 		}
@@ -27,7 +28,7 @@
 			response.sendRedirect(redirectURL);
 		}
 		
-		user_type=db.jce.user_login(user_id, pass);
+		user_type=static_db.jce.user_login(user_id, pass);
 		
 		if (user_type==1) //student
 			redirectURL="/Student";
@@ -40,7 +41,7 @@
 		else if (user_type==-1) //error in login
 			redirectURL="/Login";
 		
-		String real_user_name=db.jce.get_user_name_by_id(user_id);
+		String real_user_name=static_db.jce.get_user_name_by_id(user_id);
 		
 		if(real_user_name!=null)
 			UserSession.setAttribute("user", real_user_name);
