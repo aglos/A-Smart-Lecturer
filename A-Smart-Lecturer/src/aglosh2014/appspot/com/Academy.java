@@ -1,4 +1,5 @@
 package aglosh2014.appspot.com;
+import java.util.Arrays;
 
 public class Academy 
 {	
@@ -62,6 +63,19 @@ public class Academy
 		return list;
 	}
 	
+	public String get_circles_in_spec_year(int year)
+	{
+		String circles="";
+		
+		for(int i=0; i<num_of_circles; i++)
+			if(this.circles[i].get_circle_year()==year)
+				circles+=this.circles[i].get_circle_name() + ",";
+		
+		circles=circles.substring(0, circles.length()-1); //remove last ','
+		
+		return circles;
+	}
+	
 	public int user_login(int user_id, String password) //returns user-type, otherwise -1
 	{
 		for(int i=0; i<num_of_users_in_academy; i++)
@@ -95,15 +109,23 @@ public class Academy
 			return null;
 		
 		String courses = circles[circle_index].get_courses_in_circle_as_string();
-		
-		System.out.println("The courses are:" + courses);
+				
 		return courses;
 
+	}
+	
+	public int get_course_id_by_name_circle_and_year(String course_name, int circle_id, int year)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+		
+		return circles[circle_index].get_course_id_by_name(course_name);
 	}
 	
 	public int[] get_students_id_in_course(int circle_id, int course_id)
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
+		
+		System.out.println(circle_id + " " + course_id);
 		
 		if(circle_index==-1)
 			return null;
@@ -170,4 +192,72 @@ public class Academy
 		
 		return (Checker)users[num_of_users_in_academy++];
 	}
+	
+	public int[] get_circles_years()
+	{
+		if(num_of_circles==0)
+			return null;
+		
+		int years[]=new int[num_of_circles];
+		int next_year_index=0;
+		boolean is_exist=false;
+		
+		for(int i=0; i<num_of_circles; i++)
+		{
+			int new_year=circles[i].get_circle_year(); //get year
+			
+			for(int j=0; j<next_year_index; j++) //check if year 
+			{
+				if(new_year==years[j]) //if year already exist 
+				{
+					is_exist=true;
+					break;
+				}
+			}
+			
+			if(is_exist==false)
+			{
+				years[next_year_index]=new_year;
+				next_year_index++;
+			}
+			else
+				is_exist=false;
+		}
+		
+		int new_years[]=new int[next_year_index];
+		
+		for(int i=0; i< next_year_index; i++)
+			new_years[i]=years[i];
+		
+		Arrays.sort(new_years);
+
+		return new_years;
+	}
+	
+	public String get_circles_years_as_string()
+	{
+		int years[]=get_circles_years();
+		
+		if(years==null)
+			return null;
+		
+		String years_as_string="";
+		
+		for(int i=0; i<years.length; i++)
+				years_as_string+=years[i] + ",";
+		
+		years_as_string = years_as_string.substring(0, years_as_string.length()-1);
+		
+		return years_as_string;
+	}
+	
+	public int get_circle_id_by_name_and_year(String circle_name, int year)
+	{
+		for(int i=0; i<num_of_circles; i++)
+			if(circle_name.equals(circles[i].get_circle_name()) && year==circles[i].get_circle_year())
+				return circles[i].get_circle_id();
+		
+		return -1;
+	}
+	
 }

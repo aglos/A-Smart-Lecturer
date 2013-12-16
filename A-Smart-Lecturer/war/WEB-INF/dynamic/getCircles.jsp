@@ -3,15 +3,14 @@
 <%
 	
 
-	if (request.getParameter("circleId")!=null) {
+	if (request.getParameter("year")!=null) {
 		
-		String circle_id=request.getParameter("circleId");
-		circle_id=circle_id.trim();
-		int id = Integer.parseInt(circle_id);
+		int year = Integer.parseInt(request.getParameter("year"));
 		
 		static_db db = new static_db();
-		String s = db.jce.get_courses_name_list_in_circle(id);
+		String s = db.jce.get_circles_in_spec_year(year); 
 		 %>
+		
 		<%=s %>
 		
 	<%  }

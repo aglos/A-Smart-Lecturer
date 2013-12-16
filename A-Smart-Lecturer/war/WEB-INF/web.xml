@@ -103,6 +103,36 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Admin</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>GetCircles</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/getCircles.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>GetCircles</servlet-name>
+	    <url-pattern>/getCircle</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>GetCourseIds</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/getCourseId.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>GetCourseIds</servlet-name>
+	    <url-pattern>/getCourseId</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetCircleIds</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/getCircleId.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>GetCircleIds</servlet-name>
+	    <url-pattern>/getCircleId</url-pattern>
+	</servlet-mapping>
+	
 	
 	<servlet>
 		<servlet-name>GetCourses</servlet-name>

@@ -5,21 +5,22 @@
 	
 <%
 	String redirectURL="";
-	String username="";
+	String user_id_as_string="";
 	String pass="";
 	
 	
-	if (request.getParameter("username")!=null) { // &&  request.getParameter("pass") != null) {
+	if (request.getParameter("user_id_as_string")!=null) { // &&  request.getParameter("pass") != null) {
 		HttpSession UserSession = request.getSession();
-		username = request.getParameter("username").trim();
+		user_id_as_string = request.getParameter("user_id_as_string").trim();
 		pass = request.getParameter("pass").trim();
 		
-		static_db db=new static_db();
+		//static_db db=new static_db();
+		static_db.db_init();
 		int user_type=-1;
 		int user_id=0;
-		
+	
 		try{
-		user_id=Integer.parseInt(username);
+		user_id=Integer.parseInt(user_id_as_string);
 		}
 		catch (Exception e)
 		{
@@ -27,7 +28,7 @@
 			response.sendRedirect(redirectURL);
 		}
 		
-		user_type=db.jce.user_login(user_id, pass);
+		user_type=static_db.jce.user_login(user_id, pass);
 		
 		if (user_type==1) //student
 			redirectURL="/Student";
@@ -40,16 +41,13 @@
 		else if (user_type==-1) //error in login
 			redirectURL="/Login";
 		
-		String real_user_name=db.jce.get_user_name_by_id(user_id);
+		String username=static_db.jce.get_user_name_by_id(user_id);
 		
-		if(real_user_name!=null)
-			UserSession.setAttribute("user", real_user_name);
+		if(username!=null)
+			UserSession.setAttribute("user", username);
 		
 	    response.sendRedirect(redirectURL);
 	}
-
-
-
 %>
 
 <!DOCTYPE html>
@@ -73,18 +71,18 @@
 			$('#login').click(function() {
 	
 				/* To copy imei number to the currect form
-				var username = $("#username").val();
+				var user_id_as_string = $("#user_id_as_string").val();
 				var password = $("#pass").val();
 				var div = $("#loginMsg");
 				var msg = '';
 	
-				if (username == "")
+				if (user_id_as_string == "")
 					msg = 'הכנס שם משתמש תקין';
 	
 				if (password == "")
 					msg = 'הכנס סיסמה תקינה';
 	
-				if (username == "" && password == "")
+				if (user_id_as_string == "" && password == "")
 					msg = 'שדות שם משתמש וסיסמה דרושים';
 	
 				if (msg != '') {
@@ -116,8 +114,8 @@
 					<div class="loginBoxHeader">הזן שם משתמש וסיסמה תקינים</div>
 
 					<div class="fieldTitle">שם משתמש:</div>
-					<input type="text" autocomplete="off" name="username" id="username" dir="ltr"
-						id="username" class="formField" />
+					<input type="text" autocomplete="off" name="user_id_as_string" id="user_id_as_string" dir="ltr"
+						id="user_id_as_string" class="formField" />
 
 
 					<div style="clear: both"></div>

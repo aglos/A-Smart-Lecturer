@@ -5,6 +5,7 @@
 <%
 	boolean isView;
 	static_db studentdb = new static_db();
+	static_db.db_init();
 	int[] Student_array = null ;
 	int circleId=0,courseId=0;
 	
@@ -176,19 +177,47 @@
   				$("#circle").attr("disabled", "disabled");
 	  			return false;
   			}
-
-  			$(".pageDesc").html("בחר קורס");
-  			$("#circle").removeAttr("disabled");	
   			
-  			
+  			$.ajax({
+  				async: false,
+  				type: "POST",
+  				url: "/getCircle",
+  				data: dataString,
+  				success: function(ret){
+  					// success
+  					
+  					var res = ret.split(",");
+  					var options = '<option value="n">בחר קורס</option>';
+  					
+  					for (var i = 0; i < res.length; i++) {
+				  			var dataString2 = dataString + '&circleName=' + res[i];
+				  			
+				  			$.ajax({
+				  				async: false,
+				  				type: "POST",
+				  				url: "/getCircleId",
+				  				data: dataString2,
+				  				success: function(ret2){
+				  					// success
+									options += '<option value="' + ret2 + '">' + res[i] + '</option>';
+				  				}
+				  			});
+				  			
+						}
+						$("#circle").html(options);
+						$("#circle").removeAttr("disabled");
+  				}
+  			});
   	});
   	  	
 	  	$( "#circle" ).change(function() {
 
 	  			$(".pageDesc").html("בחר קורס");
 	  			$("#gradeContent").html('');
+	  			var circleId =  $("#circle").val();
+	  			var year= $("#year").val();
 	  			var dataString = 'circleId='+ this.value;
-
+	  			
 	  			if (this.value=='n') {
 
 	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
@@ -204,16 +233,24 @@
 	  				success: function(ret){
 	  					// success
 	  					
-	  					alert(ret);
-	  					
 	  					var res = ret.split(",");
 	  					var options = '<option value="n">בחר קורס</option>';
 	  					for (var i = 0; i < res.length; i++) {
-  							options += '<option value="' + i + '">' + res[i] + '</option>';
-  							
+							var dataString2 = dataString + '&courseName=' +  res[i] + '&year=' + year;
+				  			alert(res[i]);
+				  			$.ajax({
+				  				async: false,
+				  				type: "POST",
+				  				url: "/getCourseId",
+				  				data: dataString2,
+				  				success: function(ret2){
+				  					// success
+									options += '<option value="' + ret2 + '">' + res[i] + '</option>';
+				  				}
+				  			});
   						}
-  						$("#course").html(options);
-  						$("#course").removeAttr("disabled");				
+	  						$("#course").html(options);
+  							$("#course").removeAttr("disabled");
 	  				}
 	  			});
 	  	});
