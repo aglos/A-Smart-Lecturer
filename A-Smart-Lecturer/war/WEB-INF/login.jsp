@@ -46,9 +46,7 @@
 		if(username!=null)
 			UserSession.setAttribute("user", username);
 		
-	    response.sendRedirect(redirectURL);
-	    
-	    
+	    response.sendRedirect(redirectURL);   
 	}
 %>
 
