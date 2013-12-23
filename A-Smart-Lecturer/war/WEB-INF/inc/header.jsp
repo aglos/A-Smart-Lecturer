@@ -4,16 +4,20 @@
 	
 %>
 <!-- START HEADER -->
+<script type="text/javascript" src="/script/clock.js"></script>
 <div id="header">
 	<div class="headerTitle">
 		<h3>שלום <%
-		
 		if(session.getAttribute("user")!= null) {%>
 		
 		<%=session.getAttribute("user").toString() %>
-		<%} %>
+		<%}
+		else
+		{%>
+		אורח
+		<%}%>
 		,</h3>
-		יום ראשון, 22 לנובמבר 2013, 22:00
+		<p id="displayDate"></p>
 	</div>
 </div>
 <!-- END HEADER -->

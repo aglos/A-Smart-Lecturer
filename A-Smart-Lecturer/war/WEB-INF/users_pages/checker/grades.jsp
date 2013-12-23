@@ -43,6 +43,9 @@
 	media="screen" />
 <link href="../../style/index.css" rel="stylesheet" type="text/css"
 	media="screen" />
+	
+<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/clock.js"></script>
 
 
 
