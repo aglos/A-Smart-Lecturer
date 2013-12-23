@@ -16,6 +16,9 @@
 	type="image/x-icon" />
 <link rel="image_src" href="images/share.png" />
 
+<script type="text/javascript" src="../script/clock.js"></script>
+<script type="text/javascript" src="../script/jquery.js"></script>
+
 
 </head>
 <body>

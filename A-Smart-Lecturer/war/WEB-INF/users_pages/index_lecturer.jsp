@@ -27,6 +27,7 @@
 
 <script type="text/javascript" src="../script/jquery.js"></script>
 <script type="text/javascript" src="../script/jquery-ui.js"></script>
+<script type="text/javascript" src="../script/clock.js"></script>
 
  <script type="text/javascript" src="//www.google.com/jsapi"></script>
     <script type="text/javascript">

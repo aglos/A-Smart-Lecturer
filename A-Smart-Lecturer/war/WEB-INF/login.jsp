@@ -18,7 +18,7 @@
 		static_db.db_init();
 		int user_type=-1;
 		int user_id=0;
-	
+
 		try{
 		user_id=Integer.parseInt(user_id_as_string);
 		}
@@ -47,6 +47,8 @@
 			UserSession.setAttribute("user", username);
 		
 	    response.sendRedirect(redirectURL);
+	    
+	    
 	}
 %>
 
@@ -64,38 +66,9 @@
 <title>A Smart Lecturer</title>
 
 <script type="text/javascript" src="script/jquery.js"></script>
+<script type="text/javascript" src="script/login_script.js"></script>
+<script type="text/javascript" src="script/clock.js"></script>
 
-<script type="text/javascript">
-		$(document).ready(function() {
-			
-			$('#login').click(function() {
-	
-				/* To copy imei number to the currect form
-				var user_id_as_string = $("#user_id_as_string").val();
-				var password = $("#pass").val();
-				var div = $("#loginMsg");
-				var msg = '';
-	
-				if (user_id_as_string == "")
-					msg = 'הכנס שם משתמש תקין';
-	
-				if (password == "")
-					msg = 'הכנס סיסמה תקינה';
-	
-				if (user_id_as_string == "" && password == "")
-					msg = 'שדות שם משתמש וסיסמה דרושים';
-	
-				if (msg != '') {
-					div.html(msg);
-					return false;
-				}
-
-				 */
-							
-				return true;
-			});
-		});
-	</script>
 </head>
 <body>
 
@@ -108,13 +81,13 @@
 		<div id="warp">
 
 			<h2>ברוכים הבאים למערכת מרצה חכם</h2>
-			<form id="loginForm" action="" method="post">
+			<form id="loginForm" action="" method="post" name="loginForm">
 				<div class="loginBox">
 
-					<div class="loginBoxHeader">הזן שם משתמש וסיסמה תקינים</div>
+					<div class="loginBoxHeader">הזן תעודת זהות וסיסמה תקינים</div>
 
-					<div class="fieldTitle">שם משתמש:</div>
-					<input type="text" autocomplete="off" name="user_id_as_string" id="user_id_as_string" dir="ltr"
+					<div class="fieldTitle">תעודת זהות:</div>
+					<input type="text" autocomplete="off" name="user_id_as_string" dir="ltr"
 						id="user_id_as_string" class="formField" />
 
 
@@ -122,7 +95,7 @@
 
 					<div class="fieldTitle">סיסמה:</div>
 					<input type="password" autocomplete="off" name="pass" id="pass" dir="ltr"
-						id="pass" class="formField" />
+						 class="formField" />
 
 					<div style="clear: both"></div>
 
@@ -135,7 +108,6 @@
 
 					<div class="loginBoxFooter" id="loginMsg">שדות שם משתמש
 						וסיסמה דרושים</div>
-
 				</div>
 			</form>
 		</div>
