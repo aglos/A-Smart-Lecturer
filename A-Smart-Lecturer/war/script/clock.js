@@ -6,7 +6,8 @@ $(document).ready(function() {
 	newDate+=days[d.getDay()] + ", ";
 	newDate+=d.getDate() + " ";
 	newDate+="ב" + months[d.getMonth()] + " ";
-	newDate+=d.getFullYear();
+	newDate+=d.getFullYear() + ", ";
+	newDate+=d.getHours() + ":" + d.getMinutes();
 	
 	$('#displayDate').html(newDate);
 });
