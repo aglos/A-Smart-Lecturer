@@ -2,10 +2,8 @@ $(document).ready(function() {
 	$('#user_id_as_string').focus(); //set focus on user_name
 	$('#loginMsg').html("");
 	$('#loginForm').hide();
-	$('#loginForm').left
 	$('#loginForm').fadeIn('slow');
-	
-	
+
 	$('form').submit(function() {
 		var $user_name = $.trim($('#user_id_as_string').val());
 		var $password = $.trim($('#pass').val());

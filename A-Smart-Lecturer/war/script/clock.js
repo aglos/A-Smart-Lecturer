@@ -7,7 +7,12 @@ $(document).ready(function() {
 	newDate+=d.getDate() + " ";
 	newDate+="ב" + months[d.getMonth()] + " ";
 	newDate+=d.getFullYear() + ", ";
-	newDate+=d.getHours() + ":" + d.getMinutes();
+	newDate+=d.getHours() + ":";
+	
+	if(d.getMinutes()<10)
+		newDate+="0";
+	
+	newDate+=d.getMinutes();
 	
 	$('#displayDate').html(newDate);
 });
