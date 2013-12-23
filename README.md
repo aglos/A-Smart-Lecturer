@@ -2,6 +2,7 @@ A-Smart-Lecturer
 ================
 <img src="http://s16.postimg.org/n9008q1et/Owl_logo_03.jpg">
 
+<a href="http://http://aglosh2014.appspot.com/">Check out the project!</a>
 <a href="https://github.com/aglos/A-Smart-Lecturer/wiki">A-Smart-Lecturer Wiki </a>
 
 
