@@ -11,13 +11,14 @@
 	
 	if (request.getParameter("user_id_as_string")!=null) { // &&  request.getParameter("pass") != null) {
 		HttpSession UserSession = request.getSession();
+		
 		user_id_as_string = request.getParameter("user_id_as_string").trim();
 		pass = request.getParameter("pass").trim();
 		
 		//static_db db=new static_db();
 		static_db.db_init();
-		int user_type=-1;
 		int user_id=0;
+		int user_type=-1;
 
 		try{
 		user_id=Integer.parseInt(user_id_as_string);
@@ -30,25 +31,37 @@
 		
 		user_type=static_db.jce.user_login(user_id, pass);
 		
-		if (user_type==1) //student
-			redirectURL="/Student";
-		else if (user_type==2) //lecturer
-			redirectURL="/Lecturer";
-		else if (user_type==3) //checker
-			redirectURL="/Checker";
-		else if (user_type==4) //admin
-			redirectURL="/Admin";
-		else if (user_type==-1) //error in login
-			redirectURL="/Login";
+		redirectURL=redirect_to_user_page(user_type);
 		
 		String username=static_db.jce.get_user_name_by_id(user_id);
 		
 		if(username!=null)
+		{
 			UserSession.setAttribute("user", username);
+			UserSession.setAttribute("id", user_id);
+			UserSession.setAttribute("type", user_type);
+		}
 		
 	    response.sendRedirect(redirectURL);   
 	}
 %>
+
+<%!public String redirect_to_user_page(int user_type){
+	String redirectURL="";
+	
+	if (user_type==1) //student
+		redirectURL="/Student";
+	else if (user_type==2) //lecturer
+		redirectURL="/Lecturer";
+	else if (user_type==3) //checker
+		redirectURL="/Checker";
+	else if (user_type==4) //admin
+		redirectURL="/Admin";
+	else if (user_type==-1) //error in login
+		redirectURL="/Login";
+	
+	return redirectURL;
+}%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he"
@@ -73,8 +86,16 @@
 	<div id="main_site_div">
 
 		<%@ include file="inc/header.jsp"%>
-
-
+		
+		<%
+		if(session.getAttribute("user")!=null){ //if already connected
+			int user_type=Integer.parseInt(session.getAttribute("type").toString()); //get user type
+			
+			redirectURL=redirect_to_user_page(user_type); //where should it be redirect?
+			
+		    response.sendRedirect(redirectURL);
+		}
+		%>
 		<!-- START SITE MAIN -->
 		<div id="warp">
 

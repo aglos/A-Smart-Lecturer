@@ -8,6 +8,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<servlet-class>aglosh2014.appspot.com.A_smart_lecturerServlet</servlet-class>
 	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>A_smart_lecturer</servlet-name>
+		<url-pattern>/a_smart_lecturer</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>LoginJSP</servlet-name>
@@ -17,11 +22,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 	    <servlet-name>LoginJSP</servlet-name>
 	    <url-pattern>/Login</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>A_smart_lecturer</servlet-name>
-		<url-pattern>/a_smart_lecturer</url-pattern>
 	</servlet-mapping>
 
 	
@@ -43,9 +43,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Lecturer/Show/*</url-pattern>
 	</servlet-mapping>
 	
-
-	
-		
 	<servlet>
 		<servlet-name>StudentIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_student.jsp</jsp-file>
@@ -55,6 +52,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Student</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>ExitSession</servlet-name>
+		<jsp-file>/WEB-INF/inc/exitSession.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>ExitSession</servlet-name>
+	    <url-pattern>/ExitSession</url-pattern>
+	</servlet-mapping>
+		
 	<servlet>
 		<servlet-name>CheckerIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_checker.jsp</jsp-file>

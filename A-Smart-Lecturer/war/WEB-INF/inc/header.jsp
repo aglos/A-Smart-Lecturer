@@ -19,6 +19,9 @@
 		,</h3>
 		<div id="displayDate"></div>
 	</div>
+	<div id="exitButton">
+		<a href="/ExitSession">התנתק מהמערכת</a>
+	</div>
 </div>
 <!-- END HEADER -->
 
@@ -32,4 +35,15 @@
 </div>
 
 <div class="header_fade"></div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#exitButton').hide();
+		
+		<%if(session.getAttribute("user")!=null){%>
+			$('#exitButton').show();
+		<%}%>
+	});
+
+</script>
 <!-- END HEADER -->
