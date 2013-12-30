@@ -43,12 +43,12 @@ public class Academy
 		return this.num_of_circles;
 	}
 
-	public Circle[] get_circles_in_academy()
+	public Circle[] get_circles_in_academy() //returns an array of the circles (as objects)
 	{
 		return this.circles;
 	}
 
-	public String get_circles_in_academy_as_string() //separated by comma ","
+	public String get_circles_in_academy_as_string() //separated by comma "," returns: circle1_name, circle_id1,...
 	{
 		String list="";
 
@@ -57,19 +57,23 @@ public class Academy
 			if(i!=0)
 				list+=","; //add comma
 
-			list+=circles[i].get_circle_name();
+			list+=circles[i].get_circle_name(); //adds circle name to string
+			
+			list+="," + circles[i].get_circle_id(); //add circle id
 		}
 
 		return list;
 	}
 	
-	public String get_circles_in_spec_year(int year)
+	public String get_circles_in_spec_year(int year) //returns circle1_name, circle1_id, ... 
 	{
 		String circles="";
 		
 		for(int i=0; i<num_of_circles; i++)
-			if(this.circles[i].get_circle_year()==year)
-				circles+=this.circles[i].get_circle_name() + ",";
+			if(this.circles[i].get_circle_year()==year){
+				circles+=this.circles[i].get_circle_name() + ","; //add name to string
+				circles+=this.circles[i].get_circle_id() + ","; //add id to string
+			}
 		
 		circles=circles.substring(0, circles.length()-1); //remove last ','
 		
@@ -99,7 +103,7 @@ public class Academy
 		return null;
 	}
 	
-	public String get_courses_name_list_in_circle(int circle_id)
+	public String get_courses_name_list_in_circle(int circle_id) //returns name & id, course1_name, course1_id
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
 		

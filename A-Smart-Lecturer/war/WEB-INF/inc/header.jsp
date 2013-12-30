@@ -17,7 +17,7 @@
 		אורח
 		<%}%>
 		,</h3>
-		<p id="displayDate"></p>
+		<div id="displayDate"></div>
 	</div>
 </div>
 <!-- END HEADER -->

@@ -160,7 +160,7 @@ public class Circle {
 		return courses;
 	}
 	
-	public String get_courses_in_circle_as_string() //separated by comma ','
+	public String get_courses_in_circle_as_string() //separated by comma ',' returns name & id, course1_name, course1_id
 	{
 		String list="";
 		
@@ -169,7 +169,8 @@ public class Circle {
 			if(i!=0)
 				list+=","; //add comma
 			
-			list+=courses[i].get_course_name();
+			list+=courses[i].get_course_name() + ",";
+			list+=courses[i].get_course_id();
 		}
 		
 		return list;
