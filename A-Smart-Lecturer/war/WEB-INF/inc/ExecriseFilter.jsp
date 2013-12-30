@@ -14,7 +14,7 @@
 <!-- START FILTER -->
 <div class="exericse_filterDiv">
 	<h3>
-	
+	<script type="text/javascript" src="/script/ExecriseFilter.js"></script>
 		מחזור: &nbsp;&nbsp;&nbsp; <select name="year"
 			id="year" class="formField">
 			<option value="n" style="background-color: #CCCfff">בחר מחזור</option>
