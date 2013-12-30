@@ -37,7 +37,7 @@
 			
 		</select> &nbsp;&nbsp;&nbsp;קורס: &nbsp;&nbsp;&nbsp; <select name="course"
 			id="course" class="formField" disabled="disabled">
-			<option value="0" style="background-color: #CCCfff">בחר חוג</option>
+			<option value="0" style="background-color: #CCCfff">בחר קורס</option>
 		</select>
 
 	</h3>

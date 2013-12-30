@@ -159,16 +159,20 @@
 
   	$(document).ready(function() {
 
-		 initSliders();
+		initSliders();
+		$(".pageDesc").html("בחר שנה");
 		 
   		$( "#year" ).change(function() {
 
+  			$(".pageDesc").html("בחר חוג");
   			$("#gradeContent").html('');
   			var dataString = 'year='+ this.value;
 
   			if (this.value=='n') {
 
-  				//$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
+  				$(".pageDesc").html("בחר שנה");
+  				
+  				$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
   				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
   				$("#course").attr("disabled", "disabled");
   				$("#circle").attr("disabled", "disabled");
@@ -184,7 +188,7 @@
   					// success
   					
   					var res = ret.split(","); //res[i]=name, res[i+1]=id
-  					var options = '<option value="n">בחר קורס</option>';
+  					var options = '<option value="n">בחר חוג</option>';
   					
   					for (var i = 0; i < res.length; i+=2) {
 				  		// success
@@ -206,6 +210,7 @@
 	  			
 	  			if (this.value=='n') {
 
+	  				$(".pageDesc").html("בחר חוג");
 	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
 	  				$("#course").attr("disabled", "disabled");
 		  			return false;
@@ -218,8 +223,15 @@
 	  				data: dataString,
 	  				success: function(ret){
 	  					// success
-	  					
 	  					var res = ret.split(",");
+	  					
+	  					if(res.length === 1) //if no courses in circle
+	  						{
+	  						$("#course").html('<option value="0" style="background-color: #CCCfff">אין קורסים בחוג</option>');
+	  							$("#course").attr("disabled", "disabled");
+	  							return false;
+	  						}
+	  					
 	  					var options = '<option value="n">בחר קורס</option>';
 	  					for (var i = 0; i < res.length; i+=2) {
 				  					// success
