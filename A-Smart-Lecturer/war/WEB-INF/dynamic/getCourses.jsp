@@ -11,6 +11,7 @@
 		
 		static_db db = new static_db();
 		String s = db.jce.get_courses_name_list_in_circle(id);
+		
 		 %>
 		<%=s %>
 		

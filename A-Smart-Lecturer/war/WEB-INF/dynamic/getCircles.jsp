@@ -9,10 +9,12 @@
 		
 		static_db db = new static_db();
 		String s = db.jce.get_circles_in_spec_year(year); 
+		 System.out.println(year);
 		 %>
+		 
 		
 		<%=s %>
-		
+
 	<%  }
 	%>
 		

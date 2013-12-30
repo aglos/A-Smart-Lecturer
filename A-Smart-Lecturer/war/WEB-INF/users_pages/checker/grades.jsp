@@ -59,7 +59,7 @@
 
 	<div id="main_site_div">
 
-		<%@ include file="../../inc/header.jsp"%>
+		<%@ include file="/WEB-INF/inc/header.jsp"%>
 
 
 		<!-- START SITE MAIN -->
@@ -71,7 +71,7 @@
 				<h2><%=((isView==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
 				<h4 class="pageDesc"><%=((isView==true)?("קורס: "+courseId+" | שנה: ____ | חוג: "+circleId):"בחר קורס")%></h4>
 				<% if(isView==false) { %>
-				<%@ include file="../../inc/ExecriseFilter.jsp"%>
+				<%@ include file="/WEB-INF/inc/ExecriseFilter.jsp"%>
 				<% } else { %> <br/> <% } %>
 				<div id="gradeContent" class="gradeContent">
 				
@@ -156,17 +156,11 @@
 			})
 		}
 	
-	$(document).ready( function() {
-
-		 initSliders();
-
-	});
-
-	
 
   	$(document).ready(function() {
 
-
+		 initSliders();
+		 
   		$( "#year" ).change(function() {
 
   			$("#gradeContent").html('');
@@ -189,23 +183,12 @@
   				success: function(ret){
   					// success
   					
-  					var res = ret.split(",");
+  					var res = ret.split(","); //res[i]=name, res[i+1]=id
   					var options = '<option value="n">בחר קורס</option>';
   					
-  					for (var i = 0; i < res.length; i++) {
-				  			var dataString2 = dataString + '&circleName=' + res[i];
-				  			
-				  			$.ajax({
-				  				async: false,
-				  				type: "POST",
-				  				url: "/getCircleId",
-				  				data: dataString2,
-				  				success: function(ret2){
-				  					// success
-									options += '<option value="' + ret2 + '">' + res[i] + '</option>';
-				  				}
-				  			});
-				  			
+  					for (var i = 0; i < res.length; i+=2) {
+				  		// success
+						options += '<option value="' + res[i+1] + '">' + res[i] + '</option>';
 						}
 						$("#circle").html(options);
 						$("#circle").removeAttr("disabled");
@@ -238,19 +221,10 @@
 	  					
 	  					var res = ret.split(",");
 	  					var options = '<option value="n">בחר קורס</option>';
-	  					for (var i = 0; i < res.length; i++) {
-							var dataString2 = dataString + '&courseName=' +  res[i] + '&year=' + year;
-				  			$.ajax({
-				  				async: false,
-				  				type: "POST",
-				  				url: "/getCourseId",
-				  				data: dataString2,
-				  				success: function(ret2){
+	  					for (var i = 0; i < res.length; i+=2) {
 				  					// success
-									options += '<option value="' + ret2 + '">' + res[i] + '</option>';
+									options += '<option value="' + res[i+1] + '">' + res[i] + '</option>';
 				  				}
-				  			});
-  						}
 	  						$("#course").html(options);
   							$("#course").removeAttr("disabled");
 	  				}
