@@ -10,7 +10,6 @@
 	
 	
 	if (request.getParameter("user_id_as_string")!=null) { // &&  request.getParameter("pass") != null) {
-		HttpSession UserSession = request.getSession();
 		
 		user_id_as_string = request.getParameter("user_id_as_string").trim();
 		pass = request.getParameter("pass").trim();
@@ -25,18 +24,20 @@
 		}
 		catch (Exception e)
 		{
-			redirectURL="/Login";
+			redirectURL="";
 			response.sendRedirect(redirectURL);
 		}
 		
+		
 		user_type=static_db.jce.user_login(user_id, pass);
+		
 		
 		redirectURL=redirect_to_user_page(user_type);
 		
-		String username=static_db.jce.get_user_name_by_id(user_id);
-		
-		if(username!=null)
+		if(user_type!=-1)
 		{
+			String username=static_db.jce.get_user_name_by_id(user_id);
+			HttpSession UserSession = request.getSession();
 			UserSession.setAttribute("user", username);
 			UserSession.setAttribute("id", user_id);
 			UserSession.setAttribute("type", user_type);
@@ -54,11 +55,11 @@
 	else if (user_type==2) //lecturer
 		redirectURL="/Lecturer";
 	else if (user_type==3) //checker
-		redirectURL="/Checker";
+		redirectURL="/Checker/Add";
 	else if (user_type==4) //admin
 		redirectURL="/Admin";
 	else if (user_type==-1) //error in login
-		redirectURL="/Login";
+		redirectURL="";
 	
 	return redirectURL;
 }%>

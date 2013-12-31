@@ -69,10 +69,8 @@
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 0 10px 10px 10px;">
 				<h2><%=((isView==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
-				<h4 class="pageDesc"><%=((isView==true)?("קורס: "+courseId+" | שנה: ____ | חוג: "+circleId):"בחר קורס")%></h4>
-				<% if(isView==false) { %>
+				<h4 class="pageDesc"></h4>
 				<%@ include file="/WEB-INF/inc/ExecriseFilter.jsp"%>
-				<% } else { %> <br/> <% } %>
 				<div id="gradeContent" class="gradeContent">
 				
 				<% if (Student_array.length >0) { %>

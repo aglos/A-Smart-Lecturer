@@ -1,31 +1,19 @@
 package aglosh2014.appspot.com;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Academy 
 {	
 	private String academy_name;
-
-	public Circle circles[]; //list of circles in academy
-	private int num_of_circles;
-	private int max_num_of_circles_in_academy;
-
-	private User users[];
-	private int max_num_of_users_in_academy;
-	private int num_of_users_in_academy;
-
+	public ArrayList<Circle> circles; //list of circles in academy
+	private ArrayList<User> users;
 
 	public Academy(String academy_name, int max_num_of_circles, int max_num_of_users)
 	{
 		this.academy_name=academy_name;
 
-		this.max_num_of_users_in_academy=max_num_of_users;
-		this.num_of_users_in_academy=0;
-
-		this.max_num_of_circles_in_academy=max_num_of_circles;
-		this.num_of_circles=0;
-		
-		users=new User[max_num_of_users];
-		circles=new Circle[max_num_of_circles];
+		users=new ArrayList<>();
+		circles=new ArrayList<>();
 	}
 	
 	public String get_academy_name()
@@ -35,44 +23,56 @@ public class Academy
 	
 	public int get_num_of_users_in_academy()
 	{
-		return this.num_of_users_in_academy;
+		return users.size();
 	}
 	
 	public int get_num_of_circles_in_academy()
 	{
-		return this.num_of_circles;
+		return circles.size();
 	}
 
 	public Circle[] get_circles_in_academy() //returns an array of the circles (as objects)
 	{
-		return this.circles;
+		Circle[] array = circles.toArray(new Circle[circles.size()]);
+		return array;
 	}
 
 	public String get_circles_in_academy_as_string() //separated by comma "," returns: circle1_name, circle_id1,...
 	{
 		String list="";
 
-		for(int i=0; i<num_of_circles; i++)
+		for(int i=0; i<circles.size(); i++)
 		{
 			if(i!=0)
 				list+=","; //add comma
 
-			list+=circles[i].get_circle_name(); //adds circle name to string
+			list+=circles.get(i).get_circle_name(); //adds circle name to string
 			
-			list+="," + circles[i].get_circle_id(); //add circle id
+			list+="," + circles.get(i).get_circle_id(); //add circle id
 		}
 
 		return list;
+	}
+	
+	public User get_user_by_id(int id)
+	{
+		for(int i=0; i<users.size(); i++)
+		{
+			if(users.get(i).get_id()==id)
+				return users.get(i);
+		}
+		
+		return null;
 	}
 	
 	public String get_circles_in_spec_year(int year) //returns circle1_name, circle1_id, ... 
 	{
 		String circles="";
 		
-		for(int i=0; i<num_of_circles; i++)
-			if(this.circles[i].get_circle_year()==year){
-				circles+=this.circles[i].get_circle_name() + ","; //add name to string
-				circles+=this.circles[i].get_circle_id() + ","; //add id to string
+		for(int i=0; i<this.circles.size(); i++)
+			if(this.circles.get(i).get_circle_year()==year){
+				circles+=this.circles.get(i).get_circle_name() + ","; //add name to string
+				circles+=this.circles.get(i).get_circle_id() + ","; //add id to string
 			}
 		
 		circles=circles.substring(0, circles.length()-1); //remove last ','
@@ -82,11 +82,11 @@ public class Academy
 	
 	public int user_login(int user_id, String password) //returns user-type, otherwise -1
 	{
-		for(int i=0; i<num_of_users_in_academy; i++)
+		for(int i=0; i<users.size(); i++)
 		{
-			if(users[i].get_id()==user_id)
-				if(users[i].valid_password(password))
-					return users[i].get_user_type();
+			if(users.get(i).get_id()==user_id)
+				if(users.get(i).valid_password(password))
+					return users.get(i).get_user_type();
 		}
 		
 		return -1;
@@ -94,11 +94,10 @@ public class Academy
 	
 	public String get_user_name_by_id(int user_id)
 	{
-		for(int i=0; i<num_of_users_in_academy; i++)
-		{
-			if(users[i].get_id()==user_id)
-				return users[i].get_name();
-		}
+		User user=get_user_by_id(user_id);
+		
+		if(user!=null)
+			return user.get_name();
 		
 		return null;
 	}
@@ -107,22 +106,13 @@ public class Academy
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
 		
-		System.out.println(circle_index);
-		
 		if(circle_index==-1)
 			return null;
 		
-		String courses = circles[circle_index].get_courses_in_circle_as_string();
+		String courses = circles.get(circle_index).get_courses_in_circle_as_string();
 				
 		return courses;
 
-	}
-	
-	public int get_course_id_by_name_circle_and_year(String course_name, int circle_id, int year)
-	{
-		int circle_index=get_circle_index_in_array(circle_id);
-		
-		return circles[circle_index].get_course_id_by_name(course_name);
 	}
 	
 	public int[] get_students_id_in_course(int circle_id, int course_id)
@@ -134,13 +124,13 @@ public class Academy
 		if(circle_index==-1)
 			return null;
 		
-		return circles[circle_index].get_student_id_list_in_course(course_id);
+		return circles.get(circle_index).get_student_id_list_in_course(course_id);
 	}
 	
 	private int get_circle_index_in_array(int circle_id) //return -1 if not found
 	{	
-		for(int i=0; i<num_of_circles; i++)
-			if(circle_id==circles[i].get_circle_id())
+		for(int i=0; i<circles.size(); i++)
+			if(circle_id==circles.get(i).get_circle_id())
 				return i;
 
 		return -1;
@@ -148,67 +138,71 @@ public class Academy
 	
 	public int add_new_circle_to_academy(int circle_id , String circle_name, int circle_year, int max_num_of_courses_in_circle) //return -1 if no room
 	{
-		if(this.num_of_circles>=max_num_of_circles_in_academy) //no more room for a new circle
-			return -1;
-
-		//check if course already exist
 		int circle_index=get_circle_index_in_array(circle_id);
 		
 		if(circle_index!=-1)
 			return 0; //circle exist
 
-		this.circles[num_of_circles]=new Circle(circle_id, circle_name, circle_year, max_num_of_courses_in_circle);
-
-		this.num_of_circles++;
+		this.circles.add(new Circle(circle_id, circle_name, circle_year));
 
 		return 1; //course added
 	}
 	
-	public Lecturer add_new_lecturer(int id, String name, String password, int num_of_Courses)
+	public int add_new_course_to_circle(int circle_id, String course_name, int course_id, Lecturer lecturer, Checker checker, int max_num_of_students)
 	{
-		if(num_of_users_in_academy>=max_num_of_users_in_academy)
-			return null;
+		int circle_index=get_circle_index_in_array(circle_id);
+				
+		if(circle_index==-1)
+			return 0; //circle doesn't exist
+				
+		return this.circles.get(circle_index).add_new_course_to_circle(course_name, course_id, lecturer, checker, max_num_of_students);
+	}
+	
+	public int add_new_student_to_course(int circle_id, int course_id, Student student)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
 		
-		users[num_of_users_in_academy]=new Lecturer(id, name, password, num_of_Courses);
+		if(circle_index==-1)
+			return 0; //circle doesn't exist
 		
+		return this.circles.get(circle_index).add_new_student_to_course(course_id, student);
+	}
+	
+	public Lecturer add_new_lecturer(int id, String name, String password)
+	{
+		users.add(new Lecturer(id, name, password));
 		
-		return (Lecturer)users[num_of_users_in_academy++];
+		return (Lecturer)users.get(users.size()-1);
 	}
 	
 
-	public Student add_new_student(int id, String name, String password, int num_of_Courses, int num_of_grades)
+	public Student add_new_student(int id, String name, String password)
 	{
-		if(num_of_users_in_academy>=max_num_of_users_in_academy)
-			return null;
+		users.add(new Student(id, name, password));
 		
-		users[num_of_users_in_academy]=new Student(id, name, password, num_of_Courses, num_of_grades);
-		
-		return (Student)users[num_of_users_in_academy++];
+		return (Student)users.get(users.size()-1);
 	}
 	
 
-	public Checker add_new_checker(int id, String name, String password, int num_of_Courses)
+	public Checker add_new_checker(int id, String name, String password)
 	{
-		if(num_of_users_in_academy>=max_num_of_users_in_academy)
-			return null;
+		users.add(new Checker(id, name, password));
 		
-		users[num_of_users_in_academy]=new Checker(id, name, password, num_of_Courses);
-		
-		return (Checker)users[num_of_users_in_academy++];
+		return (Checker)users.get(users.size()-1);
 	}
 	
 	public int[] get_circles_years()
 	{
-		if(num_of_circles==0)
+		if(circles.isEmpty())
 			return null;
 		
-		int years[]=new int[num_of_circles];
+		int years[]=new int[circles.size()];
 		int next_year_index=0;
 		boolean is_exist=false;
 		
-		for(int i=0; i<num_of_circles; i++)
+		for(int i=0; i<circles.size(); i++)
 		{
-			int new_year=circles[i].get_circle_year(); //get year
+			int new_year=circles.get(i).get_circle_year(); //get year
 			
 			for(int j=0; j<next_year_index; j++) //check if year 
 			{
@@ -255,13 +249,30 @@ public class Academy
 		return years_as_string;
 	}
 	
-	public int get_circle_id_by_name_and_year(String circle_name, int year)
+	public Circle[] get_user_circles_in_spec_year(int user_id, int user_type, int year)
 	{
-		for(int i=0; i<num_of_circles; i++)
-			if(circle_name.equals(circles[i].get_circle_name()) && year==circles[i].get_circle_year())
-				return circles[i].get_circle_id();
+		Circle circle_list[]=null;
 		
-		return -1;
+		//continue here
+		
+		return circle_list;
 	}
 	
+	public String get_user_data_by_id(int user_id)
+	{
+		User user = get_user_by_id(user_id);
+		
+		String user_data="";
+		
+		for(int i=0; i>user.user_circles.size(); i++)
+		{
+			if(i!=0)
+				user_data+=",";
+			
+			user_data+=user.user_circles.get(i).get_circle_name() + "," + user.user_circles.get(i).get_circle_id();
+		}
+		
+		System.out.println("user:" + user.user_circles.size());
+		return user_data;
+	}
 }

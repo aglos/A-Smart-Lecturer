@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
 		$(".pageDesc").html("בחר שנה");
+		$(".pageDesc").css({"color": "#ff0000"});
 		 
   		$( "#year" ).change(function() {
-
+  			
   			$(".pageDesc").html("בחר חוג");
   			$("#gradeContent").html('');
   			var dataString = 'year='+ this.value;
