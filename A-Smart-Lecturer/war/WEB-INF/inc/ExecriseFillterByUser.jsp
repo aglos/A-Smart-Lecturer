@@ -6,7 +6,7 @@
 <%
 	static_db db = new static_db();
 	String user_data="";
-	String years[];
+	String years[]=null;
 
 	//get user data
 	if(session.getAttribute("id")!=null)

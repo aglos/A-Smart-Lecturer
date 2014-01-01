@@ -7,7 +7,6 @@ $(document).ready(function() {
   			
   			$(".pageDesc").html("בחר חוג");
   			$("#gradeContent").html('');
-  			var dataString = 'year='+ this.value;
 
   			if (this.value=='n') {
 
@@ -20,6 +19,7 @@ $(document).ready(function() {
 	  			return false;
   			}
   			
+  			var dataString = 'year='+ this.value;
   			$.ajax({
   				async: false,
   				type: "POST",
@@ -53,7 +53,6 @@ $(document).ready(function() {
 	  			$("#gradeContent").html('');
 	  			var circleId =  $("#circle").val();
 	  			var year= $("#year").val();
-	  			var dataString = 'circleId='+ this.value + 'year=' + year;
 	  			
 	  			if (this.value=='n') {
 
@@ -63,6 +62,7 @@ $(document).ready(function() {
 		  			return false;
 	  			}
 	  			
+	  			var dataString = 'circleId='+ this.value + '&year=' + year;
 	  			$.ajax({
 	  				async: false,
 	  				type: "POST",

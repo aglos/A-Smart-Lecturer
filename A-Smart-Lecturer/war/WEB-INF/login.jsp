@@ -19,18 +19,9 @@
 		int user_id=0;
 		int user_type=-1;
 
-		try{
 		user_id=Integer.parseInt(user_id_as_string);
-		}
-		catch (Exception e)
-		{
-			redirectURL="";
-			response.sendRedirect(redirectURL);
-		}
-		
 		
 		user_type=static_db.jce.user_login(user_id, pass);
-		
 		
 		redirectURL=redirect_to_user_page(user_type);
 		
@@ -43,7 +34,7 @@
 			UserSession.setAttribute("type", user_type);
 		}
 		
-	    response.sendRedirect(redirectURL);   
+	    response.sendRedirect(redirectURL);
 	}
 %>
 
@@ -107,9 +98,8 @@
 					<div class="loginBoxHeader">הזן תעודת זהות וסיסמה תקינים</div>
 
 					<div class="fieldTitle">תעודת זהות:</div>
-					<input type="text" autocomplete="off" name="user_id_as_string" dir="ltr"
+					<input type="text" autocomplete="off" name="user_id_as_string" dir="rtl"
 						id="user_id_as_string" class="formField" />
-
 
 					<div style="clear: both"></div>
 

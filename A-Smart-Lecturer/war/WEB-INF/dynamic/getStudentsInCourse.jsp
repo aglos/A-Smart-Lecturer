@@ -1,6 +1,7 @@
 <%@page import="java.util.Arrays"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%
 	
 
@@ -11,7 +12,6 @@
 	
 		static_db db = new static_db();
 		int[] Student_array = db.jce.get_students_id_in_course(circleId, courseId);  %>
-
 
 <form id="formcontact" method="post" action="Results">
 	<input type="hidden" id="count" name="count" value="<%=Student_array.length%>" />
