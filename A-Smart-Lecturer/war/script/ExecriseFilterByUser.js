@@ -6,10 +6,9 @@ $(document).ready(function() {
   		$( "#year" ).change(function() {
   			
   			$(".pageDesc").html("בחר חוג");
-  			$(".pageDesc").css({"color": "#ff0000"});
   			$("#gradeContent").html('');
 
-  			if (this.value==='n') {
+  			if (this.value=='n') {
 
   				$(".pageDesc").html("בחר שנה");
   				
@@ -20,12 +19,11 @@ $(document).ready(function() {
 	  			return false;
   			}
   			
-  			//ajax
   			var dataString = 'year='+ this.value;
   			$.ajax({
   				async: false,
   				type: "POST",
-  				url: "/getCircle",
+  				url: "/getCircleByUser",
   				data: dataString,
   				success: function(ret){
   					// success
@@ -51,8 +49,6 @@ $(document).ready(function() {
   	  	
 	  	$( "#circle" ).change(function() {
 
-	  			$(".pageDesc").css({"color": "#ff0000"});
-
 	  			$(".pageDesc").html("בחר קורס");
 	  			$("#gradeContent").html('');
 	  			var circleId =  $("#circle").val();
@@ -66,11 +62,11 @@ $(document).ready(function() {
 		  			return false;
 	  			}
 	  			
-	  			var dataString = 'circleId='+ this.value;
+	  			var dataString = 'circleId='+ this.value + '&year=' + year;
 	  			$.ajax({
 	  				async: false,
 	  				type: "POST",
-	  				url: "/getCourse",
+	  				url: "/getCourseByUser",
 	  				data: dataString,
 	  				success: function(ret){
 	  					// success
@@ -93,7 +89,6 @@ $(document).ready(function() {
 	  				}
 	  			});
 	  	});
-	  	
 		$( "#course" ).change(function() {
 			//<% if (isView==false) { %>
 
@@ -101,6 +96,7 @@ $(document).ready(function() {
 				var circleId =  $("#circle").val();
 				var courseId =  $("#course").val();
 				var year = $("#year").val();
+				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
 
 				if (courseId=='n') {
 					$(".pageDesc").html("בחר קורס");
@@ -108,7 +104,6 @@ $(document).ready(function() {
 		  			return false;
 	  			}
 				
-				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
 				$.ajax({
 	  				async: false,
 	  				type: "POST",
@@ -117,10 +112,7 @@ $(document).ready(function() {
 	  				success: function(ret){
 	  					// success
 
-  						$(".gradeContent").html(ret);
-  						$(".pageDesc").css({"color":"green"
-  							
-  						});
+  						$(".gradeContent").html(ret);	
   						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
   						initSliders();  					
 	  				}

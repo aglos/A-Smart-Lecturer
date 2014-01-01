@@ -1,5 +1,7 @@
 package aglosh2014.appspot.com;
 
+import java.util.ArrayList;
+
 public class User {
 	//user types
 	public static final int STUDENT=1, LECTURER=2, CHECKER=3;
@@ -8,6 +10,9 @@ public class User {
 	public static final int MIN_PASSWORD_LEGNTH=6;
 	public static final int ID_LEGNTH=9; //if less than 9, put zeros
 
+	public ArrayList<Circle> user_circles;
+	public ArrayList<Course> user_courses;
+	
 	protected int user_id;
 	protected String password;
 	protected String name;
@@ -55,6 +60,9 @@ public class User {
 		this.password = password;
 		this.name = name;
 		user_type = type;
+		
+		user_circles=new ArrayList<>(); //create new circles list
+		user_courses=new ArrayList<>();
 	}
 	
 	public String get_name()
@@ -79,11 +87,24 @@ public class User {
 	
 	public boolean valid_password(String pass)
 	{
+		
 		if(this.password.equals(pass))
 			return true;
-		
+
 		return false;
 		
+	}
+	
+	public void add_circle(Circle circle)
+	{
+		if(!user_circles.contains(circle)) //if user dont have that cirlce
+			user_circles.add(circle);
+	}
+	
+	public void add_course(Course course)
+	{
+		if(!user_courses.contains(course)) //if user dont have that course
+			user_courses.add(course);
 	}
 	
 }

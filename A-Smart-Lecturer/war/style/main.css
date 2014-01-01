@@ -69,6 +69,11 @@ a, .div_link {
 	width:auto;
 }
 
+#exitButton {
+	float:left;
+	width:auto;
+}
+
 
 #top_bar, .header_fade {
 	

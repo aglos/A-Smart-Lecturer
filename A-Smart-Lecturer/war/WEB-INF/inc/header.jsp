@@ -7,9 +7,8 @@
 <script type="text/javascript" src="/script/clock.js"></script>
 <div id="header">
 	<div class="headerTitle">
-		<h3>שלום <%
-		if(session.getAttribute("user")!= null) {%>
-		
+		<h3>שלום 
+		<%if(session.getAttribute("user")!= null) {%>
 		<%=session.getAttribute("user").toString() %>
 		<%}
 		else
@@ -18,6 +17,9 @@
 		<%}%>
 		,</h3>
 		<div id="displayDate"></div>
+	</div>
+	<div id="exitButton">
+		<a href="/ExitSession">התנתק מהמערכת</a>
 	</div>
 </div>
 <!-- END HEADER -->
@@ -32,4 +34,15 @@
 </div>
 
 <div class="header_fade"></div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#exitButton').hide();
+		
+		<%if(session.getAttribute("user")!=null){%>
+			$('#exitButton').show();
+		<%}%>
+	});
+
+</script>
 <!-- END HEADER -->

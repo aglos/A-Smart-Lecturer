@@ -4,12 +4,11 @@ $(document).ready(function() {
 	$('#loginForm').fadeIn('slow');
 	$('#user_id_as_string').focus(); //set focus on user_name
 
-	$('form').submit(function() {
+	$('#loginForm').submit(function() {
 		var $user_name = $.trim($('#user_id_as_string').val());
 		var $password = $.trim($('#pass').val());
         var $msg = $("#loginMsg");
         
-//        var
 		if($user_name === '' && $password ==='')
 			{
 				$msg.html("שדות תעודת זהות וסיסמה ריקים");
