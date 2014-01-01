@@ -97,14 +97,14 @@ public class User {
 	
 	public void add_circle(Circle circle)
 	{
-		user_circles.add(circle);
+		if(!user_circles.contains(circle)) //if user dont have that cirlce
+			user_circles.add(circle);
 	}
 	
 	public void add_course(Course course)
 	{
-		user_courses.add(course);
-		
-//		System.out.println(user_courses.get(user_courses.size()-1).get_course_name());
+		if(!user_courses.contains(course)) //if user dont have that course
+			user_courses.add(course);
 	}
 	
 }

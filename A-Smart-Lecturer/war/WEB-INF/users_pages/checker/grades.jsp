@@ -70,7 +70,7 @@
 				style="width: 971px; float: right; padding: 0 10px 10px 10px;">
 				<h2><%=((isView==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
 				<h4 class="pageDesc"></h4>
-				<%@ include file="/WEB-INF/inc/ExecriseFilter.jsp"%>
+				<%@ include file="/WEB-INF/inc/ExecriseFilterByUser.jsp"%>
 				<div id="gradeContent" class="gradeContent">
 				
 				<% if (Student_array.length >0) { %>

@@ -8,7 +8,7 @@ public class Circle {
 	private int circle_year;
 	private String  circle_name;
 
-	private ArrayList<Course> courses;
+	public ArrayList<Course> courses;
 
 	public Circle(int id , String name, int year)
 	{
@@ -41,9 +41,9 @@ public class Circle {
 
 	public int get_course_id_by_name(String name)
 	{
-		for(int i=0; i<courses.size(); i++)
-			if(name.equals(courses.get(i).get_course_name()))
-				return courses.get(i).get_course_id();
+		for(Course course: courses)
+			if(name.equals(course.get_course_name()))
+				return course.get_course_id();
 		
 		return -1;
 	}
@@ -81,7 +81,7 @@ public class Circle {
 		int course_index=get_course_index_in_array(course_id);
 
 		if(course_index==-1) //if not in courses
-			return null;
+			return null;	
 
 		return courses.get(course_index).get_students_in_course();
 	}

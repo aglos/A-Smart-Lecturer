@@ -19,12 +19,6 @@ public class Course
 		set_course_checker(checker);
 		set_course_lecturer(lecturer);
 		
-		if(lecturer!=null) //add course to lecturer list
-			lecturer.add_course(this);
-		
-		if(checker!=null) //add course to checker list
-			checker.add_course(this);
-		
 		this.exercises_in_course=new ArrayList<>();
 		this.students_in_course=new ArrayList<>();
 	}
@@ -75,11 +69,8 @@ public class Course
 			return -1;
 		
 		//check if student is already in course
-		for(int i=0; i<students_in_course.size(); i++)
-		{
-			if(students_in_course.get(i)==student) //compare address, if student in course do nothing
-				return 0;
-		}
+		if(students_in_course.contains(student))
+			return 0;
 		
 		//add student
 		students_in_course.add(student);
