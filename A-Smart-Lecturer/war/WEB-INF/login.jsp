@@ -40,7 +40,7 @@
 
 <%!public String redirect_to_user_page(int user_type){
 	String redirectURL="";
-	
+	System.out.print(user_type);
 	if (user_type==1) //student
 		redirectURL="/Student";
 	else if (user_type==2) //lecturer
