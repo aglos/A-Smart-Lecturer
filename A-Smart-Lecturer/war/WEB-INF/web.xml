@@ -99,7 +99,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Checker/Results</url-pattern>
 	</servlet-mapping>
 	
-	
+
 	
 	<servlet>
 		<servlet-name>AdminIndex</servlet-name>
@@ -111,9 +111,101 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>AddUser</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/admin/Add_user.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>AddUser</servlet-name>
+	    <url-pattern>/Admin/addUser</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>DelUser</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/admin/del_user.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>DelUser</servlet-name>
+	    <url-pattern>/Admin/delUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddCourse</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/admin/Add_course.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>AddCourse</servlet-name>
+	    <url-pattern>/Admin/addCourse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DelCourse</servlet-name>
+		<jsp-file>\WEB-INF\users_pages\admin\del_Course.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>DelCourse</servlet-name>
+	    <url-pattern>/Admin/delCourse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DelCircle</servlet-name>
+		<jsp-file>\WEB-INF\users_pages\admin\del_Circle.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>DelCircle</servlet-name>
+	    <url-pattern>/Admin/delCircle</url-pattern>
+	</servlet-mapping>
+	
+		
+	<servlet>
+		<servlet-name>AddCircle</servlet-name>
+		<jsp-file>\WEB-INF\users_pages\admin\Add_Circle.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>AddCircle</servlet-name>
+	    <url-pattern>/Admin/AddCircle</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EditCourse</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/admin/Edit_Course.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>EditCourse</servlet-name>
+	    <url-pattern>/Admin/EditCourse</url-pattern>
+	 </servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EditCircle</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/admin/Edit_Circle.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>EditCircle</servlet-name>
+	    <url-pattern>/Admin/EditCircle</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>EditUser</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/admin/Edit_User.jsp</jsp-file>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>EditUser</servlet-name>
+	    <url-pattern>/Admin/EditUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>GetCircles</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getCircles.jsp</jsp-file>
 	</servlet>
+	
 	
 	<servlet-mapping>
 	    <servlet-name>GetCircles</servlet-name>
