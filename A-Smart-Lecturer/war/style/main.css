@@ -49,7 +49,9 @@ a, .div_link {
 
 
 #main_site_div {
-	width:991px; margin-left:auto; margin-right:auto;
+	width:991px;
+	margin-left:auto; 
+	margin-right:auto;
 }
 
 
@@ -242,17 +244,37 @@ a, .div_link {
 
 /*MENU*/
 
-.menuDiv {
-	background-color:#FFF;
-	width:280px;
+.menuDiv1 {
+	background-color:#14F;
+	width:700px;
 	margin-top:20px;
-	height:255px;
-	padding:0 20px;
-	border:1px solid #C3C3C3;
+	height:auto;
+	padding:0 200px;
 	line-height:40px;
+	float:left;
+}
+
+.menuDiv2 {
+	background-color:#14F;
+	width:700px;
+	margin-top:20px;
+	height:auto;
+	padding:0 200px;
+	line-height:40px;
+	float:left;
 
 }
 
+.menuDiv3 {
+	background-color:#14F;
+	width:700px;
+	margin-top:20px;
+	height:auto;
+	padding:0 200px;
+	
+	line-height:40px;
+	float:left;
+}
 /*END MENU*/
 
 

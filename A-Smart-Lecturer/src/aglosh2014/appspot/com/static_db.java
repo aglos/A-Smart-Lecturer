@@ -29,7 +29,7 @@ public class static_db {
 		
 		lecturer=jce.add_new_lecturer(300393121, "שי תבור", "hahaha");
 		checker=jce.add_new_checker(300664703, "יוסי כהן", "hahaha");
-		admin=jce.add_new_admin(201581436, "System administrator", "hahaha");
+		admin=jce.add_new_admin(201581436, "מנהל", "hahaha");
 		jce.add_new_course_to_circle(13,"מבוא לחדוא", 175, lecturer, checker, 30);
 		jce.add_new_course_to_circle(13, "חדוא 2", 136, lecturer, checker, 20);
 		

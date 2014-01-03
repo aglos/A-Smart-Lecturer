@@ -30,7 +30,7 @@
                             <div class="menuItem">עריכת פרטי משתמש קיים</div>  
                             <a href="/Admin/delUser"><div class="menuItem">מחיקת משתמש</div></a>     
                             <div class="menuTitle">ניהול קורסים</div>
-                          	 <a href="/Admin/AddCourse"><div class="menuItem">הוספת קורס חדש</div></a>
+                          	<a href="/Admin/addCourse"><div class="menuItem">הוספת קורס חדש</div></a>
                             <a href="/Admin/EditCourse"><div class="menuItem">עריכת פרטי קורס קיים</div></a>  
                             <a href="/Admin/delCourse"><div class="menuItem">מחיקת קורס</div></a>   
                             <div class="menuTitle">ניהול חוגים</div>
@@ -51,13 +51,13 @@
 					
 					<div class="fieldTitle"><b>תעודת זהות</b></div>
 					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
+						<input type="text" name="myText" value="Enter Your Name">
 					</form>
 
 					<div style="clear: both"></div>
 					
 							
-					<div class="fieldTitle"><b>מנהל/מרצה/בודק/סטודנט</b></div>
+					<div class="fieldTitle"><b>סוג משתמש</b></div>
 					<form name=myText>
 						<input type="text" name=myText value="Enter Your Name">
 					</form>
@@ -87,7 +87,7 @@
             <%@ include file="../../inc/footer.jsp" %>
     
     
-	</div>
+	
     </div>
     
     <script type="text/javascript" src="script/jquery.easing.1.3.js.js"></script>

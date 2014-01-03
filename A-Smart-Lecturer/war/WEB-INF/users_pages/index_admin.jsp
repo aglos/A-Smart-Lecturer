@@ -24,21 +24,25 @@
             <!-- START SITE MAIN -->   
             <div id="warp" >	
                 
-                        <div class="menuDiv">
+                        <div class="menuDiv1">
                             <div class="menuTitle">ניהול משתמשים</div>
                             <a href="/Admin/addUser"><div class="menuItem">הוספת משתמש חדש</div></a>
                             <a href="/Admin/EditUser"><div class="menuItem">עריכת פרטי משתמש קיים</div></a>  
                             <a href="/Admin/delUser"><div class="menuItem">מחיקת משתמש</div></a>     
+                        </div>
+                         <div class="menuDiv2">
                             <div class="menuTitle">ניהול קורסים</div>
                             <a href="/Admin/addCourse"><div class="menuItem">הוספת קורס חדש</div></a>
                             <a href="/Admin/EditCourse"><div class="menuItem">עריכת פרטי קורס קיים</div></a>  
                             <a href="/Admin/delCourse"><div class="menuItem">מחיקת קורס</div></a>   
+                        </div>
+                        <div class="menuDiv3">
                             <div class="menuTitle">ניהול חוגים</div>
                             <a href="/Admin/AddCircle"><div class="menuItem">הוספת חוג חדש</div></a>
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
-       <h1>בדיקההההההההההה</h1>
+     
                 
             </div>
             <!-- END SITE MAIN -->   
