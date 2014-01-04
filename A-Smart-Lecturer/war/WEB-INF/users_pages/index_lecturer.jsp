@@ -1,10 +1,18 @@
+<%@page import="aglosh2014.appspot.com.Exercise"%>
+<%@page import="aglosh2014.appspot.com.Circle"%>
+<%@page import="aglosh2014.appspot.com.Course"%>
+<%@page import="aglosh2014.appspot.com.Academy"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 
-	static_db db = new static_db();
+static_db studentdb = new static_db();
+static_db.db_init();
+
+Academy a = static_db.jce;
+Circle[] cs = a.get_circles_in_academy();
 
 
 %>
@@ -44,17 +52,27 @@
 	      {cols:[
 	        {id:'A',label:'שם קורס',type:'string'},
 	        {id:'B',label:'שם חוג',type:'string'},
-	        {id:'C',label:'מספר תרגיל',type:'number'},
+	        {id:'C',label:'מספר תרגיל',type:'string'},
 	        {id:'D',label:'נבדק',type:'boolean'},
 	        {id:'E',label:'כלים',type:'string'}],
 	      rows:[
-				<% for (int i=0;i<10;i++) { %>
-	      		{c:[{v:'הנדסת תוכנה'},{v:'תקשורת מחשבים'}, {v:<%=i%>,f:'<%=i%>'},{v:true,f:'TRUE'},{v:'<a href="/Lecturer/Show/?exId=<%=i%>&courseId=1&year=2013">צפה</a>'}]},
-	      		<% } %>
-
-	      		<% for (int i=0;i<10;i++) { %>
-	      		{c:[{v:'הנדסת תוכנה'},{v:'אותות ומערכות'}, {v:<%=i%>,f:'<%=i%>'},{v:true,f:'TRUE'},{v:'<a href="/Lecturer/Show/?exId=<%=i%>&courseId=2&year=2013">צפה</a>'}]},
-	      		<% } %>
+		
+   
+				<%for(int i=0;i<cs.length;i++) {
+                      	
+                      	Course[] cr = cs[i].get_courses_in_circle();
+                      	
+                      	for(int j=0;j<cr.length;j++) {
+                      		Exercise[] e = cr[j].get_exercises_in_course();
+                      		for(int k=0;k<e.length;k++) {%>
+                      		{c:[{v:'<%=cr[j].get_course_name()%>'},{v:'<%=cs[i].get_circle_name()%>'},
+								{v:'<%=e[k].get_exercise_title()%>  | <%=k+1%>'},{v:<%=((e[k].is_checked()==true)?"true":"false")%>},
+                			  	{v:'<a href="/Lecturer/Show/?exId=<%=e[k].get_exercise_id()%>&circleId=<%=cs[i].get_circle_id()%>&courseId=<%=cr[j].get_course_id()%>&year=<%=cs[i].get_circle_year()%>"><%=((e[k].is_checked()==true)?"צפייה":"")%></a>'}]},
+                      		<%}
+                      		 
+                      	}
+                      	
+                      } %>
 	      ]};
 	      data = new google.visualization.DataTable(dataAsJson);
 	    
@@ -102,7 +120,10 @@
 
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 10px;">
-
+				<div align="left">
+                	<a href="#"><img src="images/search.jpg" width="20" height="20" alt="" /></a>
+                	<a href="Lecturer/Add"><img src="images/plus.jpg" width="20" height="20" alt="" /></a>
+                </div>
 				<div id='table'></div>
 			</div>
 

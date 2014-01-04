@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+<<<<<<< HEAD
+=======
+//import org.datanucleus.store.types.sco.backed.Collection;
+>>>>>>> 69a9afdd8e28cc7cd9d63e8253478f294b220321
 
 public class Academy 
 {	
@@ -121,13 +125,27 @@ public class Academy
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
 
-		System.out.println(circle_id + " " + course_id);
+		System.out.println(circle_id + " " + course_id + " " + circle_index);
 
 		if(circle_index==-1)
 			return null;
 
 		return circles.get(circle_index).get_student_id_list_in_course(course_id);
 	}
+	
+	public Student[] get_students_array_in_course(int circle_id, int course_id)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+
+		System.out.println(circle_id + " " + course_id + " " +circle_index);
+
+		if(circle_index==-1)
+			return null;
+
+		return circles.get(circle_index).get_student_list_in_course(course_id);
+	}
+	
+	
 
 	private int get_circle_index_in_array(int circle_id) //return -1 if not found
 	{	
@@ -147,7 +165,7 @@ public class Academy
 
 		this.circles.add(new Circle(circle_id, circle_name, circle_year));
 
-		return 1; //course added
+		return circles.size()-1; //course added
 	}
 
 	public int add_new_course_to_circle(int circle_id, String course_name, int course_id, Lecturer lecturer, Checker checker, int max_num_of_students)

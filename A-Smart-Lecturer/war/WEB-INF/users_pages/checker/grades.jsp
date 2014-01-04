@@ -1,32 +1,66 @@
+<%@page import="aglosh2014.appspot.com.Exercise"%>
+<%@page import="aglosh2014.appspot.com.Circle"%>
+<%@page import="aglosh2014.appspot.com.Course"%>
+<%@page import="aglosh2014.appspot.com.Academy"%>
+<%@page import="aglosh2014.appspot.com.Student"%>
+<%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 
 <%
-	boolean isView;
+
+
 	static_db studentdb = new static_db();
 	static_db.db_init();
 	int[] Student_array = null ;
-	int circleId=0,courseId=0;
+	Student[] students =  null;
 	
-	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null) {
+	int circleId=0,courseId=0,exId=0;
+	Exercise ex = null;
+	Circle circle = null;
+	Course course = null;
+	
+	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null && request.getParameter("exId")!=null) {
 	
 		// View grades
-		isView = true;
 		
 		circleId = Integer.parseInt(request.getParameter("circleId"));
 		courseId = Integer.parseInt(request.getParameter("courseId"));
+		exId = Integer.parseInt(request.getParameter("exId"));
 		
 		
-		Student_array = studentdb.jce.get_students_id_in_course(circleId, courseId);
+		Circle[] circles = studentdb.jce.get_circles_in_academy();
+	
+	
+		
+		//Student_array = studentdb.jce.get_students_id_in_course(circleId, courseId);
+		
+		int k,j=-1;
+		 for(k=0;k<circles.length && course == null;k++) {
+			int id = circles[k].get_circle_id();
+			
+			if (id == circleId) {
+				circle = circles[k];
+				for(j=0;k<circles[k].courses.size();j++) {
+					id = circle.get_courses_in_circle()[j].get_course_id();
+					if (id == courseId) {
+						course = circle.get_courses_in_circle()[j];
+						break;
+					}
+				}
+			}
+		}
+		students =  studentdb.jce.get_students_array_in_course(circleId, courseId);
+		if (course != null)
+			ex = course.get_exercises_in_course()[exId];
+	
 		
 	} else { 
 		// Add new grades
-		isView = false;
 		Student_array = new int[0];
 	}
 %>
-
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he"
@@ -46,7 +80,9 @@
 	
 <script type="text/javascript" src="../../script/jquery.js"></script>
 <script type="text/javascript" src="../../script/clock.js"></script>
-
+<script type="text/javascript">
+	var state_mode=0;
+</script>
 
 
 <link rel="stylesheet" type="text/css"
@@ -68,22 +104,22 @@
 
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 0 10px 10px 10px;">
-				<h2><%=((isView==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
+				<h2><%=((ex != null && ex.is_checked()==true)?"צפייה בציונים":"הזנת ציונים") %></h2>
 				<h4 class="pageDesc"></h4>
-				<%@ include file="/WEB-INF/inc/ExecriseFillterByUser.jsp"%>
+				<% //@ include file="/WEB-INF/inc/ExecriseFillterByUser.jsp"%>
 				<div id="gradeContent" class="gradeContent">
 				
-				<% if (Student_array.length >0) { %>
-	
+				<% if (students.length >0) { %>
+					<form action="/Checker/<%=((ex != null && ex.is_checked()==true)?"Update":"Create")%>" method="post">
 						<table border="0" cellpadding="0" cellspacing="0" width="100%"
 							style="border-bottom: 1px dotted #999">
-							<% for (int i=0;i<Student_array.length;i++) {%>
+							<% for (int i=0;i<students.length;i++) {%>
 							<tr>
 								<td align="center" width="15%"
 									style="padding:10px;border-right:1px dotted #999;border-top:1px dotted #999<%
 	                                        
 	                                        if (i==0) { %>;border-top-right-radius: 25px 25px;<%}
-	                                        %>"><%=Student_array[i]%></td>
+	                                        %>"><%=students[i].get_id()%></td>
 								<td width="77%"
 									style="padding: 20px; border-top: 1px dotted #999"">
 									<div class="slider" id="s<%=i%>"></div>
@@ -98,7 +134,11 @@
 								</td>
 							</tr>
 							<% } %>
-						</table>			
+						</table>
+						<br/><br/>
+						<input type="submit" id="cmdsend" name="cmdsend"
+						value="שלח" class="form_button" />
+				</form>							
 				
 				<% }  %>
 				</div>
@@ -153,7 +193,16 @@
 			    
 			})
 		}
-	
+	 	initSliders();
+
+	 	
+	 	<% if (ex != null && ex.is_checked()==true) {
+			for (int i=0;i<students.length;i++) { %>
+			$("#val"+<%=i%>).val(<%=students[i].get_student_grade(ex).get_grade()%>);
+			selector = $("#s"+<%=i%>);
+			selector.slider("value", <%=students[i].get_student_grade(ex).get_grade()%>);
+			<% }
+		} %>
 
   	</script>
 

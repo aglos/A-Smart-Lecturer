@@ -70,13 +70,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/Checker</url-pattern>
 	</servlet-mapping>
 	
+	
 	<servlet>
-		<servlet-name>InsertGrades</servlet-name>
-		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
+		<servlet-name>AddExecrise</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/lecturer/add_execrise.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>InsertGrades</servlet-name>
-	    <url-pattern>/Checker/Add</url-pattern>
+	    <servlet-name>AddExecrise</servlet-name>
+	    <url-pattern>/Lecturer/Add</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -85,7 +86,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>ViewGrades</servlet-name>
-	    <url-pattern>/Checker/Show/</url-pattern>
+	    <url-pattern>/Checker/Show/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InsertGrades</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>InsertGrades</servlet-name>
+	    <url-pattern>/Checker/Insert/*</url-pattern>
 	</servlet-mapping>
 	
 

@@ -73,13 +73,14 @@ public class Circle {
 		if(checker!=null)
 			checker.add_circle(this);
 
-		return 1; //course added
+		return courses.size()-1; //course added
 	}
 
 	public Student[] get_student_list_in_course(int course_id)
 	{
 		int course_index=get_course_index_in_array(course_id);
 
+		
 		if(course_index==-1) //if not in courses
 			return null;	
 
