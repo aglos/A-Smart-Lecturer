@@ -38,12 +38,12 @@ public class static_db {
 			System.out.println("kaki on ma face");
 		
 		jce.add_new_student_to_course(13, 175, student);
-		jce.add_new_student_to_course(13, 175, student);
+		jce.add_new_student_to_course(13, 136, student);
 		
 		student=jce.add_new_student(125555555, "יוני מותק", "kekeeeeeeeeee");
 		jce.add_new_student_to_course(13, 175, student);
 
-		System.out.println(jce.get_user_data_by_id(300664703));
+	//	System.out.println(jce.get_user_data_by_id(300664703));
 //		System.out.println(jce.get_circles_in_academy_as_string());
 
 //		System.out.println(jce.circles[0].get_courses_in_circle_as_string());

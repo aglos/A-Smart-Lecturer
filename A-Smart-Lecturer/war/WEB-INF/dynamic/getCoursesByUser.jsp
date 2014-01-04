@@ -7,7 +7,7 @@
 		if(session.getAttribute("id")!=null)
 		{
 			static_db db = new static_db();
-			int user_id=Integer.parseInt((session.getAttribute("id").toString())); //get id from session
+			int user_id=Integer.parseInt((session.getAttribute("id").toString().trim())); //get id from session
 			int circle_id=Integer.parseInt(request.getParameter("circleId").trim());
 			int year=Integer.parseInt(request.getParameter("year").trim());
 		

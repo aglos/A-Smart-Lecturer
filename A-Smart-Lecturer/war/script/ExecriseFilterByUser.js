@@ -6,6 +6,7 @@ $(document).ready(function() {
   		$( "#year" ).change(function() {
   			
   			$(".pageDesc").html("בחר חוג");
+  			$(".pageDesc").css({"color": "#ff0000"});
   			$("#gradeContent").html('');
 
   			if (this.value=='n') {
@@ -50,6 +51,8 @@ $(document).ready(function() {
 	  	$( "#circle" ).change(function() {
 
 	  			$(".pageDesc").html("בחר קורס");
+	  			$(".pageDesc").css({"color": "#ff0000"});
+
 	  			$("#gradeContent").html('');
 	  			var circleId =  $("#circle").val();
 	  			var year= $("#year").val();
@@ -100,6 +103,7 @@ $(document).ready(function() {
 
 				if (courseId=='n') {
 					$(".pageDesc").html("בחר קורס");
+					$(".pageDesc").css({"color": "#ff0000"});
 					$(".gradeContent").html("");
 		  			return false;
 	  			}
@@ -112,7 +116,9 @@ $(document).ready(function() {
 	  				success: function(ret){
 	  					// success
 
-  						$(".gradeContent").html(ret);	
+  						$(".gradeContent").html(ret);
+  						$(".pageDesc").css({"color": "green"});
+
   						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
   						initSliders();  					
 	  				}
