@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.datanucleus.store.types.sco.backed.Collection;
+//import org.datanucleus.store.types.sco.backed.Collection;
 
 public class Academy 
 {	
@@ -148,7 +148,7 @@ public class Academy
 
 		this.circles.add(new Circle(circle_id, circle_name, circle_year));
 
-		return 1; //course added
+		return circles.size()-1; //course added
 	}
 
 	public int add_new_course_to_circle(int circle_id, String course_name, int course_id, Lecturer lecturer, Checker checker, int max_num_of_students)

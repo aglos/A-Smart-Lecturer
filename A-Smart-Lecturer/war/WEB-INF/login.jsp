@@ -46,7 +46,7 @@
 	else if (user_type==2) //lecturer
 		redirectURL="/Lecturer";
 	else if (user_type==3) //checker
-		redirectURL="/Checker/Add";
+		redirectURL="/Checker";
 	else if (user_type==4) //admin
 		redirectURL="/Admin";
 	else if (user_type==-1) //error in login
@@ -98,7 +98,7 @@
 					<div class="loginBoxHeader">הזן תעודת זהות וסיסמה תקינים</div>
 
 					<div class="fieldTitle">תעודת זהות:</div>
-					<input type="text" autocomplete="off" name="user_id_as_string" dir="rtl"
+					<input type="text" name="user_id_as_string" dir="rtl"
 						id="user_id_as_string" class="formField" />
 
 					<div style="clear: both"></div>

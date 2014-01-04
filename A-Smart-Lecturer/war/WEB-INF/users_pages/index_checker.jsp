@@ -1,5 +1,20 @@
+<%@page import="aglosh2014.appspot.com.Exercise"%>
+<%@page import="aglosh2014.appspot.com.Circle"%>
+<%@page import="aglosh2014.appspot.com.Course"%>
+<%@page import="aglosh2014.appspot.com.Academy"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%
+
+static_db studentdb = new static_db();
+static_db.db_init();
+
+Academy a = static_db.jce;
+Circle[] cs = a.get_circles_in_academy();
+
+
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
 <head>   
@@ -52,7 +67,6 @@
                         <div class="mainContent"  style="width:971px;float:right;padding:10px;">
                        		<div align="left">
                        			<a href="#"><img src="images/search.jpg" width="20" height="20" alt="" /></a>
-                       			<a href="Checker/Add"><img src="images/plus.jpg" width="20" height="20" alt="" /></a>
                        		</div>
                             <div id='table_div'></div>
                         </div>
@@ -63,7 +77,25 @@
        
             <%@ include file="../inc/footer.jsp" %>
     
-    
+    <%for(int i=0;i<cs.length;i++) {
+    	
+    	Course[] cr = cs[i].get_courses_in_circle();
+    	
+    	for(int j=0;j<cr.length;j++) {%><br/>
+    		קוד קורס: <%=cr[j].get_course_id() %>,<%=j%><br/>
+    		שם קורס: <%=cr[j].get_course_name() %><br/>
+    		קוד חוג: <%=cs[i].get_circle_id() %>,<%=i%><br/>
+    		שם חוג: <%=cs[i].get_circle_name() %><br/>
+    	<%
+    		Exercise[] e = cr[j].get_exercises_in_course();
+    		for(int k=0;k<e.length;k++) {%><br/>
+    			מספר תרגיל: <%=e[k].get_exercise_id() %>,
+    			שם תרגיל: <%=e[k].get_exercise_title() %>
+    		<%}
+    	
+    	}
+    	
+    } %>
 	</div>
   
 </body>
