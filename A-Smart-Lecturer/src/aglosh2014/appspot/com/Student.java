@@ -23,14 +23,14 @@ public class Student extends User{
 //		return Courses;
 //	}
 //
-//	public int add_grade(Grade grade)
-//	{
-//		if(number_of_grades >= Grades.length)
-//			return -1;
-//		Grades[number_of_grades] = grade;
-//		number_of_grades++;
-//		return 0;
-//	}
+	public int add_grade(Grade grade)
+	{
+		
+		
+		Grades.add(grade);
+		
+		return 0;
+	}
 	
 //	public int get_student_grade_by_exercise (Exercise ex)
 //	{
