@@ -113,6 +113,7 @@ a, .div_link {
 	height: 400px;
 	background:url(../images/login_bg.jpg) no-repeat left bottom white;
 	padding-bottom:20px;
+	
 }
 
 
@@ -131,7 +132,7 @@ a, .div_link {
 }
 
 .addUser {
-
+	margin-bottom:200px;
 	background-color:#FFF;
 	width:400px;
 	margin-top:40px;
@@ -144,7 +145,7 @@ a, .div_link {
 }
 
 .delUser{
-
+	margin-bottom:200px;
 	background-color:#FFF;
 	width:400px;
 	margin-top:40px;
@@ -156,7 +157,7 @@ a, .div_link {
 	float: right;
 }
 .addCourse {
-
+	margin-bottom:200px;
 	background-color:#FFF;
 	width:400px;
 	margin-top:40px;
@@ -170,7 +171,7 @@ a, .div_link {
 
 .addCicle{
 
-
+	margin-bottom:200px;
 	width:400px;
 	margin-top:40px;
 	margin-right:200px;
@@ -180,10 +181,11 @@ a, .div_link {
 	line-height:40px;
 	float: right;
 }
+
 .working{
 	background-color: blue;
 	margin:0px auto ;
-	
+		margin-bottom:200px;
 	padding: 20px;
 	font-size:150%;
 	line-height:20px;
@@ -233,7 +235,7 @@ a, .div_link {
 	margin-top:20px;
 }
 
-.loginMsg {
+.loginMsg  {
 	width:150px;
 	height:30px;
 	float:right;

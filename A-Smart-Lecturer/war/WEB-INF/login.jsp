@@ -68,9 +68,9 @@
 
 <title>A Smart Lecturer</title>
 
-<script type="text/javascript" src="script/jquery.js"></script>
-<script type="text/javascript" src="script/login_script.js"></script>
-<script type="text/javascript" src="script/clock.js"></script>
+	<script type="text/javascript" src="script/jquery.js"></script>
+	<script type="text/javascript" src="script/login_script.js"></script>
+	<script type="text/javascript" src="script/clock.js"></script>
 
 </head>
 <body>
