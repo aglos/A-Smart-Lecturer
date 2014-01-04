@@ -1,3 +1,5 @@
+package aglosh2014.appspot.com;
+
 import java.util.ArrayList;
 
 //all String data is returned with ',' between each element
@@ -20,7 +22,7 @@ public class static_db {
 		jce.add_new_circle_to_academy(21, "הנדסת חומרים", 2013, 5);
 		jce.add_new_circle_to_academy(5, "הנדסת תרופות", 2010, 5);
 
-
+		
 		Lecturer lecturer;
 		Checker checker;
 		Student student,st2;
@@ -50,14 +52,16 @@ public class static_db {
 
 
 		int k = jce.add_new_course_to_circle(13, "הנדסת תוכנה", 100, lecturer, checker, 100);
-		for(int i=0;i<10;i++){
-			int n = 111121110;
-			n+=i;
-			jce.add_new_student_to_course(13, 100, jce.add_new_student(n, "חיים דוידו", "hahaha"));
-		}
-	
-		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("ZFR");
+		System.out.println("**" + j + "**");
+		//for(int i=0;i<10;i++){
+		//	int n = 111121110;
+		//	n+=i;
+		//	jce.add_new_student_to_course(13, 100, jce.add_new_student(n, "חיים דוידו", "hahaha"));
+		//}
 		
+		
+		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("ZFR");
+		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("SRS");
 		
 		//	System.out.println(jce.get_user_data_by_id(300664703));
 		//		System.out.println(jce.get_circles_in_academy_as_string());

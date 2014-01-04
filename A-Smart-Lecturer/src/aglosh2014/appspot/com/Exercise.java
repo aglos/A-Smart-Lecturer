@@ -10,7 +10,7 @@ public class Exercise {
 	public Exercise(int new_id,String title)
 	{
 		this.exercise_id=new_id;
-		this.exercise_title=title;
+		this.exercise_title= new String(title);
 	}
 	
 	public int get_exercise_id()

@@ -98,7 +98,7 @@
 					<div class="loginBoxHeader">הזן תעודת זהות וסיסמה תקינים</div>
 
 					<div class="fieldTitle">תעודת זהות:</div>
-					<input type="text" autocomplete="off" name="user_id_as_string" dir="rtl"
+					<input type="text" name="user_id_as_string" dir="rtl"
 						id="user_id_as_string" class="formField" />
 
 					<div style="clear: both"></div>
