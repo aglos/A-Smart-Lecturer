@@ -122,13 +122,27 @@ public class Academy
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
 
-		System.out.println(circle_id + " " + course_id);
+		System.out.println(circle_id + " " + course_id + " " + circle_index);
 
 		if(circle_index==-1)
 			return null;
 
 		return circles.get(circle_index).get_student_id_list_in_course(course_id);
 	}
+	
+	public Student[] get_students_array_in_course(int circle_id, int course_id)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+
+		System.out.println(circle_id + " " + course_id + " " +circle_index);
+
+		if(circle_index==-1)
+			return null;
+
+		return circles.get(circle_index).get_student_list_in_course(course_id);
+	}
+	
+	
 
 	private int get_circle_index_in_array(int circle_id) //return -1 if not found
 	{	

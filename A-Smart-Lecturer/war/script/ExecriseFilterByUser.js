@@ -122,8 +122,8 @@ $(document).ready(function() {
 
   						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
   						if (state_mode==0) {
-  							initSliders();
   							$(".gradeContent").html(ret);
+  							initSliders();
 	  					} else if (state_mode==1) {
 	  						$(".gradeContent").html($("#hidden_add").html());
 	  						$("#courseId").val(courseId);

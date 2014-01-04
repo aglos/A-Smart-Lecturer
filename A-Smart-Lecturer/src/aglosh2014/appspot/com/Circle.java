@@ -80,6 +80,7 @@ public class Circle {
 	{
 		int course_index=get_course_index_in_array(course_id);
 
+		
 		if(course_index==-1) //if not in courses
 			return null;	
 

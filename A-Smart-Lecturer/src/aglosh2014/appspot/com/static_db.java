@@ -53,15 +53,43 @@ public class static_db {
 
 		int k = jce.add_new_course_to_circle(13, "הנדסת תוכנה", 100, lecturer, checker, 100);
 		System.out.println("**" + j + "**");
-		//for(int i=0;i<10;i++){
-		//	int n = 111121110;
-		//	n+=i;
-		//	jce.add_new_student_to_course(13, 100, jce.add_new_student(n, "חיים דוידו", "hahaha"));
-		//}
+		
+		for(int i=0;i<10;i++){
+			int n = 111121110;
+			n+=i;
+			jce.add_new_student_to_course(13, 100, jce.add_new_student(n, "חיים דוידו"+i, "hahaha"));
+		}
 		
 		
-		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("ZFR");
-		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("SRS");
+		int p = jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("ZFR",true);
+		Student[] students =  jce.get_students_array_in_course(13, 100);
+		
+		
+			for(int i=0;students != null && i<students.length;i++) {
+				Exercise e = jce.get_circles_in_academy()[j].get_courses_in_circle()[k].get_exercises_in_course()[p];
+				Grade g = new Grade(e);
+				g.set_grade((10*i + 10));
+					
+				System.out.println(students[i].Grades.add(g));
+				System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+			}
+			
+		
+		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("SRS",false);
+		
+		p = jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("SDS",true);
+		
+		students =  jce.get_students_array_in_course(13, 100);
+		
+		
+		for(int i=0;students != null && i<students.length;i++) {
+			Exercise e = jce.get_circles_in_academy()[j].get_courses_in_circle()[k].get_exercises_in_course()[p];
+			Grade g = new Grade(e);
+			g.set_grade((6*i + 10));
+				
+			System.out.println(students[i].Grades.add(g));
+			System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+		}
 		
 		//	System.out.println(jce.get_user_data_by_id(300664703));
 		//		System.out.println(jce.get_circles_in_academy_as_string());
