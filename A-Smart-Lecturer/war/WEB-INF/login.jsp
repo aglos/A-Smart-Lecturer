@@ -40,7 +40,7 @@
 
 <%!public String redirect_to_user_page(int user_type){
 	String redirectURL="";
-	
+	System.out.print(user_type);
 	if (user_type==1) //student
 		redirectURL="/Student";
 	else if (user_type==2) //lecturer
@@ -68,9 +68,9 @@
 
 <title>A Smart Lecturer</title>
 
-<script type="text/javascript" src="script/jquery.js"></script>
-<script type="text/javascript" src="script/login_script.js"></script>
-<script type="text/javascript" src="script/clock.js"></script>
+	<script type="text/javascript" src="script/jquery.js"></script>
+	<script type="text/javascript" src="script/login_script.js"></script>
+	<script type="text/javascript" src="script/clock.js"></script>
 
 </head>
 <body>

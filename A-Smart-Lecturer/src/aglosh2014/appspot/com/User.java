@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class User {
 	//user types
-	public static final int STUDENT=1, LECTURER=2, CHECKER=3;
+	public static final int STUDENT=1, LECTURER=2, CHECKER=3, ADMIN=4;
 	
 	public static final int MIN_NAME_LEGNTH=4;
 	public static final int MIN_PASSWORD_LEGNTH=6;
@@ -50,7 +50,7 @@ public class User {
 			return;
 		}
 		//type verification
-		if(type!=LECTURER && type!=CHECKER && type!=STUDENT)
+		if(type!=LECTURER && type!=CHECKER && type!=STUDENT &&type!=ADMIN)
 		{
 			System.out.println("User type: " + user_type + " is undifiend");
 			return;

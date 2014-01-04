@@ -178,6 +178,12 @@ public class Academy
 		return (Lecturer)users.get(users.size()-1);
 	}
 
+	public Admin add_new_admin(int id, String name, String password)
+	{
+		users.add(new Admin(id, name, password));
+
+		return (Admin)users.get(users.size()-1);
+	}
 
 	public Student add_new_student(int id, String name, String password)
 	{

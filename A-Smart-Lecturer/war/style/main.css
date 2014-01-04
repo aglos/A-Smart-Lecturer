@@ -49,7 +49,9 @@ a, .div_link {
 
 
 #main_site_div {
-	width:991px; margin-left:auto; margin-right:auto;
+	width:991px;
+	margin-left:auto; 
+	margin-right:auto;
 }
 
 
@@ -111,6 +113,7 @@ a, .div_link {
 	height: 400px;
 	background:url(../images/login_bg.jpg) no-repeat left bottom white;
 	padding-bottom:20px;
+	
 }
 
 
@@ -119,18 +122,80 @@ a, .div_link {
 .loginBox {
 
 	background-color:#FFF;
-	width:340px;
+	width:400px;
 	margin-top:20px;
-	height:255px;
+	height:300px;
 	padding:0 20px;
 	border:1px solid #C3C3C3;
 	line-height:40px;
 
 }
 
+.addUser {
+	margin-bottom:200px;
+	background-color:#FFF;
+	width:400px;
+	margin-top:40px;
+	margin-right:200px;
+	height:300px;
+	padding:0 20px;
+	border:1px solid #C3C3C3;
+	line-height:40px;
+	float: right;
+}
+
+.delUser{
+	margin-bottom:200px;
+	background-color:#FFF;
+	width:400px;
+	margin-top:40px;
+	margin-right:200px;
+	height:180px;
+	padding:0 20px;
+	border:1px solid #C3C3C3;
+	line-height:40px;
+	float: right;
+}
+.addCourse {
+	margin-bottom:200px;
+	background-color:#FFF;
+	width:400px;
+	margin-top:40px;
+	margin-right:200px;
+	height:300px;
+	padding:0 20px;
+	border:1px solid #C3C3C3;
+	line-height:40px;
+	float: right;
+}
+
+.addCicle{
+
+	margin-bottom:200px;
+	width:400px;
+	margin-top:40px;
+	margin-right:200px;
+	height:250px;
+	padding:0 20px;
+	border:1px solid #C3C3C3;
+	line-height:40px;
+	float: right;
+}
+
+.working{
+	background-color: blue;
+	margin:0px auto ;
+		margin-bottom:200px;
+	padding: 20px;
+	font-size:150%;
+	line-height:20px;
+	
+}
+
 .loginBoxHeader {
 	border-bottom:1px solid #C3C3C3;
 	margin-bottom:20px;
+	color:red;
 }
 
 .loginBoxFooter {
@@ -147,7 +212,7 @@ a, .div_link {
 	color: #666;
 	padding-bottom: 0px;
 	padding-top: 0px;
-	margin-right: 8px;
+	margin-left: 40px;
 
 	display: inline;
 	float: right;
@@ -170,7 +235,7 @@ a, .div_link {
 	margin-top:20px;
 }
 
-.loginMsg {
+.loginMsg  {
 	width:150px;
 	height:30px;
 	float:right;
@@ -181,17 +246,37 @@ a, .div_link {
 
 /*MENU*/
 
-.menuDiv {
-	background-color:#FFF;
-	width:280px;
+.menuDiv1 {
+	background-color:#14F;
+	width:700px;
 	margin-top:20px;
-	height:255px;
-	padding:0 20px;
-	border:1px solid #C3C3C3;
+	height:auto;
+	padding:0 200px;
 	line-height:40px;
+	float:left;
+}
+
+.menuDiv2 {
+	background-color:#14F;
+	width:700px;
+	margin-top:20px;
+	height:auto;
+	padding:0 200px;
+	line-height:40px;
+	float:left;
 
 }
 
+.menuDiv3 {
+	background-color:#14F;
+	width:700px;
+	margin-top:20px;
+	height:auto;
+	padding:0 200px;
+	
+	line-height:40px;
+	float:left;
+}
 /*END MENU*/
 
 
