@@ -37,14 +37,26 @@ Circle[] cs = a.get_circles_in_academy();
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'שם קורס');
         data.addColumn('string', 'שם חוג');
-        data.addColumn('number', 'מספר תרגיל');
+        data.addColumn('string', 'תרגיל');
         data.addColumn('boolean', 'הוזנו ציונים');
         data.addColumn('string', 'ניהול');
         data.addRows([
-                      <% for (int i=0;i<10;i++) { %>
-         			  ['תקשורת מחשבים', 'הנדסת תוכנה',  {v: 1, f: '1'}, true,
-         			  '<a href="/Checker/Show/?exId=1&circleId=0&courseId=0&year=2013">צפה</a>'],
-         			  <% }%>
+
+                      <%for(int i=0;i<cs.length;i++) {
+                      	
+                      	Course[] cr = cs[i].get_courses_in_circle();
+                      	
+                      	for(int j=0;j<cr.length;j++) {
+                      		Exercise[] e = cr[j].get_exercises_in_course();
+                      		for(int k=0;k<e.length;k++) {%>
+                      		[	'<%=cr[j].get_course_name()%>', '<%=cs[i].get_circle_name()%>',
+								'<%=e[k].get_exercise_title()%>  | <%=k+1%>', <%=((e[k].is_checked()==true)?"true":"false")%>,
+                			  	'<a href="/Checker/<%=((e[k].is_checked()==true)?"Show":"Insert")%>/?exId=<%=e[k].get_exercise_id()%>&circleId=<%=cs[i].get_circle_id()%>&courseId=<%=cr[j].get_course_id()%>&year=<%=cs[i].get_circle_year()%>"><%=((e[k].is_checked()==true)?"צפייה ועריכה":"הזנת מדדים")%></a>'],
+                      		<%}
+                      		 
+                      	}
+                      	
+                      } %>
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
@@ -77,25 +89,7 @@ Circle[] cs = a.get_circles_in_academy();
        
             <%@ include file="../inc/footer.jsp" %>
     
-    <%for(int i=0;i<cs.length;i++) {
-    	
-    	Course[] cr = cs[i].get_courses_in_circle();
-    	
-    	for(int j=0;j<cr.length;j++) {%><br/>
-    		קוד קורס: <%=cr[j].get_course_id() %>,<%=j%><br/>
-    		שם קורס: <%=cr[j].get_course_name() %><br/>
-    		קוד חוג: <%=cs[i].get_circle_id() %>,<%=i%><br/>
-    		שם חוג: <%=cs[i].get_circle_name() %><br/>
-    	<%
-    		Exercise[] e = cr[j].get_exercises_in_course();
-    		for(int k=0;k<e.length;k++) {%><br/>
-    			מספר תרגיל: <%=e[k].get_exercise_id() %>,
-    			שם תרגיל: <%=e[k].get_exercise_title() %>
-    		<%}
-    	
-    	}
-    	
-    } %>
+
 	</div>
   
 </body>
