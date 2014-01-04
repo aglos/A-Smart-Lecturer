@@ -118,11 +118,12 @@ $(document).ready(function() {
 	  					// success
 
   						$(".gradeContent").html(ret);
-  						$(".pageDesc").css({"color":"green"
-  							
-  						});
+  						$(".pageDesc").css({"color":"green"});
   						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
-  						initSliders();  					
+  						
+  				
+  						initSliders();
+
 	  				}
 	  			});
 			//<% } %>

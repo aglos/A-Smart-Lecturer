@@ -102,7 +102,10 @@
 
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 10px;">
-
+				<div align="left">
+                	<a href="#"><img src="images/search.jpg" width="20" height="20" alt="" /></a>
+                	<a href="Lecturer/Add"><img src="images/plus.jpg" width="20" height="20" alt="" /></a>
+                </div>
 				<div id='table'></div>
 			</div>
 

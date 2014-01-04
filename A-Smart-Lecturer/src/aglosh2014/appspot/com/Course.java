@@ -95,9 +95,9 @@ public class Course
 		return array;
 	}
 	
-	public int add_new_exercise_to_course() //return -1 if no more room for exercises, return 0 if added
+	public int add_new_exercise_to_course(String title) //return -1 if no more room for exercises, return 0 if added
 	{
-		exercises_in_course.add(new Exercise(exercises_in_course.size()));
+		exercises_in_course.add(new Exercise(exercises_in_course.size(), title));
 		
 		return 0;
 	}

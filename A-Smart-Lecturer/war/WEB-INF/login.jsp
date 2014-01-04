@@ -46,7 +46,7 @@
 	else if (user_type==2) //lecturer
 		redirectURL="/Lecturer";
 	else if (user_type==3) //checker
-		redirectURL="/Checker/Add";
+		redirectURL="/Checker";
 	else if (user_type==4) //admin
 		redirectURL="/Admin";
 	else if (user_type==-1) //error in login

@@ -7,16 +7,16 @@
 	static_db studentdb = new static_db();
 	static_db.db_init();
 	int[] Student_array = null ;
-	int circleId=0,courseId=0;
+	int circleId=0,courseId=0,exId=0;
 	
-	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null) {
+	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null && request.getParameter("exId")!=null) {
 	
 		// View grades
 		isView = true;
 		
 		circleId = Integer.parseInt(request.getParameter("circleId"));
 		courseId = Integer.parseInt(request.getParameter("courseId"));
-		
+		exId = Integer.parseInt(request.getParameter("exId"));
 		
 		Student_array = studentdb.jce.get_students_id_in_course(circleId, courseId);
 		
@@ -46,7 +46,9 @@
 	
 <script type="text/javascript" src="../../script/jquery.js"></script>
 <script type="text/javascript" src="../../script/clock.js"></script>
-
+<script type="text/javascript">
+	var state_mode=0;
+</script>
 
 
 <link rel="stylesheet" type="text/css"

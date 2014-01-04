@@ -99,6 +99,7 @@ $(document).ready(function() {
 				var circleId =  $("#circle").val();
 				var courseId =  $("#course").val();
 				var year = $("#year").val();
+				var execriseNum = 1;
 				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
 
 				if (courseId=='n') {
@@ -116,13 +117,21 @@ $(document).ready(function() {
 	  				success: function(ret){
 	  					// success
 
-  						$(".gradeContent").html(ret);
+  						
   						$(".pageDesc").css({"color": "green"});
 
   						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
-  						initSliders();  					
+  						if (state_mode==0) {
+  							initSliders();
+  							$(".gradeContent").html(ret);
+	  					} else if (state_mode==1) {
+	  						$(".gradeContent").html($("#hidden_add").html());
+	  						$("#courseId").val(courseId);
+	  						$("#exec_title").html("הינך הולך להוסיף תרגיל ב<br/>" + $(".pageDesc").html());
+  						} 					
 	  				}
 	  			});
 			//<% } %>
 		});
+		
   	});
