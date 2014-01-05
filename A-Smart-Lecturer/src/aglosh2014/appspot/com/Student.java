@@ -43,6 +43,16 @@ public class Student extends User{
 //		return Courses;
 //	}
 //
+
+	public int add_grade(Grade grade)
+	{
+		
+		
+		Grades.add(grade);
+		
+		return 0;
+	}
+
 //	public int add_grade(Grade grade)
 //	{
 	//	if(number_of_grades >= Grades.length)

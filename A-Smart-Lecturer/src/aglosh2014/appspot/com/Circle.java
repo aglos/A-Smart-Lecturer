@@ -57,7 +57,7 @@ public class Circle {
 		return -1;
 	}
 
-	public int add_new_course_to_circle(String course_name, int course_id, Lecturer lecturer, Checker checker, int max_num_of_students)
+	public int add_new_course_to_circle(String course_name, int course_id, Lecturer lecturer, Checker checker)
 	{
 		//check if course already exist
 		int course_index=get_course_index_in_array(course_id);
