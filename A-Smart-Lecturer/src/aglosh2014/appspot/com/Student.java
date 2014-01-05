@@ -43,7 +43,7 @@ public class Student extends User{
 //		return Courses;
 //	}
 //
-<<<<<<< HEAD
+
 	public int add_grade(Grade grade)
 	{
 		
@@ -52,7 +52,7 @@ public class Student extends User{
 		
 		return 0;
 	}
-=======
+
 //	public int add_grade(Grade grade)
 //	{
 	//	if(number_of_grades >= Grades.length)
@@ -61,7 +61,6 @@ public class Student extends User{
 	//	number_of_grades++;
 //		return 0;
 	//}
->>>>>>> 69a9afdd8e28cc7cd9d63e8253478f294b220321
 	
 //	public int get_student_grade_by_exercise (Exercise ex)
 //	{

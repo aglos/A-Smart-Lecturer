@@ -3,18 +3,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-<<<<<<< HEAD
-=======
-//import org.datanucleus.store.types.sco.backed.Collection;
->>>>>>> 69a9afdd8e28cc7cd9d63e8253478f294b220321
-
 public class Academy 
 {	
 	private String academy_name;
 	public ArrayList<Circle> circles; //list of circles in academy
 	private ArrayList<User> users;
 
-	public Academy(String academy_name, int max_num_of_circles, int max_num_of_users)
+	public Academy(String academy_name)
 	{
 		this.academy_name=academy_name;
 
@@ -156,7 +151,7 @@ public class Academy
 		return -1;
 	}
 
-	public int add_new_circle_to_academy(int circle_id , String circle_name, int circle_year, int max_num_of_courses_in_circle) //return -1 if no room
+	public int add_new_circle_to_academy(int circle_id , String circle_name, int circle_year) //return -1 if no room
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
 
@@ -168,14 +163,14 @@ public class Academy
 		return circles.size()-1; //course added
 	}
 
-	public int add_new_course_to_circle(int circle_id, String course_name, int course_id, Lecturer lecturer, Checker checker, int max_num_of_students)
+	public int add_new_course_to_circle(int circle_id, String course_name, int course_id, Lecturer lecturer, Checker checker)
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
 
 		if(circle_index==-1)
 			return 0; //circle doesn't exist
 
-		return this.circles.get(circle_index).add_new_course_to_circle(course_name, course_id, lecturer, checker, max_num_of_students);
+		return this.circles.get(circle_index).add_new_course_to_circle(course_name, course_id, lecturer, checker);
 	}
 
 	public int add_new_student_to_course(int circle_id, int course_id, Student student)

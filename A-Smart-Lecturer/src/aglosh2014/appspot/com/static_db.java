@@ -9,7 +9,7 @@ public class static_db {
 	public final int NUM_OF_CIRCLES=3;
 	public final int NUM_OF_COURSES=5;
 
-	public static Academy jce=new Academy("Jerusalem collage of engineering", 8, 100);
+	public static Academy jce=new Academy("Jerusalem collage of engineering");
 	public static boolean was_init=false;
 
 	public static void db_init()  //set a static db
@@ -18,15 +18,11 @@ public class static_db {
 			return;
 
 		was_init=true;
-		int j = jce.add_new_circle_to_academy(13, "הנדסת תוכנה", 2013, 5);
-		jce.add_new_circle_to_academy(21, "הנדסת חומרים", 2013, 5);
-		jce.add_new_circle_to_academy(5, "הנדסת תרופות", 2010, 5);
+		int j = jce.add_new_circle_to_academy(13, "הנדסת תוכנה", 2013);
+		jce.add_new_circle_to_academy(21, "הנדסת חומרים", 2013);
+		jce.add_new_circle_to_academy(5, "הנדסת תרופות", 2010);
 
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 69a9afdd8e28cc7cd9d63e8253478f294b220321
 		Lecturer lecturer;
 		Checker checker;
 		Student student,st2;
@@ -37,8 +33,8 @@ public class static_db {
 		checker=jce.add_new_checker(300664703, "checker", "hahaha");
 		admin=jce.add_new_admin(201581436, "מנהל", "hahaha");
 
-		jce.add_new_course_to_circle(13,"מבוא לחדוא", 175, lecturer, checker, 30);
-		jce.add_new_course_to_circle(13, "חדוא 2", 136, lecturer, checker, 20);
+		jce.add_new_course_to_circle(13,"מבוא לחדוא", 175, lecturer, checker);
+		jce.add_new_course_to_circle(13, "חדוא 2", 136, lecturer, checker);
 
 
 		student=jce.add_new_student(300667003, "חיים דוידו", "hahaha");
@@ -55,25 +51,23 @@ public class static_db {
 
 
 
-		int k = jce.add_new_course_to_circle(13, "הנדסת תוכנה", 100, lecturer, checker, 100);
-<<<<<<< HEAD
-		for(int i=0;i<10;i++){
-			int n = 111121110;
-			n+=i;
-			jce.add_new_student_to_course(13, 100, jce.add_new_student(n, "חיים דוידו", "hahaha"));
+		int k = jce.add_new_course_to_circle(13, "הנדסת תוכנה", 100, lecturer, checker);
+		//array of student id's
+		int[] idArr =new int[]{218941000,325734200,347080320,365978470,367958960,368926280
+				,200518256,200706265,200708832,200806602,201575701,201638673,203047857
+				,203307756,203880000,204174643,300308939,300503398,300897709,301451258
+				,301589263,301678405,302050265,302520648
+				,302540612,302771258,303093918,303176085,303724371,307889287,308225598
+				,308667385,310520952,311825590,320457807,321131708,328786462,329042527};
+		
+		for(int i=0;i<idArr.length-1;i++){//add student to course
+			jce.add_new_student_to_course(13, 100, jce.add_new_student(idArr[i], "חיים דוידו", "hahaha"));
 		}
 	
-		jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course();
 		
-		
-=======
 		System.out.println("**" + j + "**");
 		
-		for(int i=0;i<10;i++){
-			int n = 111121110;
-			n+=i;
-			jce.add_new_student_to_course(13, 100, jce.add_new_student(n, "חיים דוידו"+i, "hahaha"));
-		}
+		
 		
 		
 		int p = jce.get_circles_in_academy()[j].get_courses_in_circle()[k].add_new_exercise_to_course("ZFR",true);
@@ -106,7 +100,6 @@ public class static_db {
 			System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
 		}
 		
->>>>>>> 69a9afdd8e28cc7cd9d63e8253478f294b220321
 		//	System.out.println(jce.get_user_data_by_id(300664703));
 		//		System.out.println(jce.get_circles_in_academy_as_string());
 
