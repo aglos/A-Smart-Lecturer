@@ -28,11 +28,11 @@
 	width:220px;
 	margin:0;
 	padding:0;
-	border:1px solid #C3C3C3;
-	border-right:1px dotted #C3C3C3;
-	border-bottom:none;
+
 	height:auto;
 	float:right;
+		border:1px solid #0066CC;
+    box-shadow: 3px 10px 10px #888;
 
 }
 
@@ -123,7 +123,10 @@ textarea {
 
 .exericse_filterDiv {
 	margin-top:20px;
+	margin-right:250px;
+	
 }
+
 
 
 #chart_div {

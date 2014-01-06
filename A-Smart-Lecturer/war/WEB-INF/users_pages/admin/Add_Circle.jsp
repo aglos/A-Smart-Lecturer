@@ -16,6 +16,7 @@
 	media="screen" />
 	
 <script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="/script/jquery-ui.js"></script>
 <script type="text/javascript" src="../../script/Admin_script.js"></script>
 <script type="text/javascript" src="../../script/clock.js"></script>
 
@@ -50,6 +51,8 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
+        <script type="text/javascript" src="../../../script/addCircle.js"></script>
+  	    <%@ include file="../../inc/Admin/addCircle.jsp" %>
         <form id="addCircleForm" action="" method="post" name="addCircleForm">               
  			<div class="addCicle">
 

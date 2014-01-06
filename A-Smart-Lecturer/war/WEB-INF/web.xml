@@ -203,7 +203,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		
 	<servlet>
 		<servlet-name>EditUser</servlet-name>
-		<jsp-file>/WEB-INF/users_pages/admin/Edit_User.jsp</jsp-file>
+		<jsp-file>\WEB-INF\users_pages\admin\Edit_User.jsp</jsp-file>
 	</servlet>
 	 
 	<servlet-mapping>

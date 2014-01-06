@@ -1,6 +1,7 @@
 
 
 $(document).ready(function() {
+	
 	//ADDCircle validity
 	$('#addCircleMsg').html("");
 
@@ -196,5 +197,10 @@ $(document).ready(function() {
 								
 		return true;
 	});
+	
+	
+	
+
+	
 });
 

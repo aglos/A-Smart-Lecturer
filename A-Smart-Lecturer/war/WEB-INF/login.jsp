@@ -95,15 +95,15 @@
 			<form id="loginForm" action="" method="post" name="loginForm">
 				<div class="loginBox">
 
-					<div class="loginBoxHeader">הזן תעודת זהות וסיסמה תקינים</div>
+					<div class="loginBoxHeader"><b>הזן תעודת זהות וסיסמה תקינים</b></div>
 
-					<div class="fieldTitle">תעודת זהות:</div>
+					<div class="fieldTitle"><b>תעודת זהות:</b></div>
 					<input type="text" name="user_id_as_string" dir="rtl"
 						id="user_id_as_string" class="formField" />
 
 					<div style="clear: both"></div>
 
-					<div class="fieldTitle">סיסמה:</div>
+					<div class="fieldTitle"><b>סיסמה:</b></div>
 					<input type="password" autocomplete="off" name="pass" id="pass" dir="ltr"
 						 class="formField" />
 

@@ -51,6 +51,8 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
+            <script type="text/javascript" src="../../../script/delCourse.js"></script>
+  		    <%@ include file="../../inc/Admin/delCourse.jsp" %>
         	<form id="delCourseForm" action="" method="post" name="delCourseForm">           
  				<div class="delUser">
 
@@ -59,7 +61,7 @@
 				
 					
 					<div class="fieldTitle"><b>הקש מספר קורס</b></div>
-					<input type="text" autocomplete="off" name="delCouerse" dir="rtl"
+					<input type="text" id="delCourseId" autocomplete="off" name="delCouerse" dir="rtl"
 						id="CourseId" class="formField" />
 
 					<div style="clear: both"></div>
