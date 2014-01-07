@@ -45,16 +45,17 @@ Circle[] cs = a.get_circles_in_academy();
 	    var visualization;
 	    var data;
 	
-	    var options = {'showRowNumber': true};
+	    var options = {'showRowNumber': false};
 	    function drawVisualization() {
 	      // Create and populate the data table.
 	      var dataAsJson =
 	      {cols:[
-	        {id:'A',label:'שם קורס',type:'string'},
-	        {id:'B',label:'שם חוג',type:'string'},
-	        {id:'C',label:'מספר תרגיל',type:'string'},
-	        {id:'D',label:'נבדק',type:'boolean'},
-	        {id:'E',label:'כלים',type:'string'}],
+			{id:'A',label:'',type:'string'},
+	        {id:'B',label:'שם קורס',type:'string'},
+	        {id:'C',label:'שם חוג',type:'string'},
+	        {id:'D',label:'מספר תרגיל',type:'string'},
+	        {id:'E',label:'נבדק',type:'boolean'},
+	        {id:'F',label:'כלים',type:'string'}],
 	      rows:[
 		
    
@@ -63,14 +64,23 @@ Circle[] cs = a.get_circles_in_academy();
                       	Course[] cr = cs[i].get_courses_in_circle();
                       	
                       	for(int j=0;j<cr.length;j++) {
+                      		
+                      		int checked_count=0;;
                       		Exercise[] e = cr[j].get_exercises_in_course();
-                      		for(int k=0;k<e.length;k++) {%>
-                      		{c:[{v:'<%=cr[j].get_course_name()%>'},{v:'<%=cs[i].get_circle_name()%>'},
+                      		for(int k=0;k<e.length;k++) {
+                      			if (e[k].is_checked()==true)
+                      				checked_count++;
+                      		%>
+                      		{c:[{v:'<%=k+1%>'},{v:'<%=cr[j].get_course_name()%>'},{v:'<%=cs[i].get_circle_name()%>'},
 								{v:'<%=e[k].get_exercise_title()%>  | <%=k+1%>'},{v:<%=((e[k].is_checked()==true)?"true":"false")%>},
                 			  	{v:'<a href="/Lecturer/Show/?exId=<%=e[k].get_exercise_id()%>&circleId=<%=cs[i].get_circle_id()%>&courseId=<%=cr[j].get_course_id()%>&year=<%=cs[i].get_circle_year()%>"><%=((e[k].is_checked()==true)?"צפייה":"")%></a>'}]},
                       		<%}
-                      		 
-                      	}
+                      		if (e.length>0) {%>
+                      		{c:[{v:''},{v:'<div class="total_row">סטטיסטיקה כיתית</div>'},{v:'<%=e.length%> מתוך <%=checked_count%> תרגילים'},{v:'<div class="total_row">סה"כ <%=checked_count * cr[j].get_students_in_course().length%> תרגילים שנבדקו</div>'},{v:''},
+                      		  {v:'<a href="/Lecturer/Show/?exId=total&circleId=<%=cs[i].get_circle_id()%>&courseId=<%=cr[j].get_course_id()%>&year=<%=cs[i].get_circle_year()%>">צפייה</a>'}]},
+                      		<% } %>
+                      <%
+                      }
                       	
                       } %>
 	      ]};
@@ -78,7 +88,7 @@ Circle[] cs = a.get_circles_in_academy();
 	    
 	      // Set paging configuration options
 	      // Note: these options are changed by the UI controls in the example.
-	      options['page'] = 'enable';
+	      options['page'] = 'disable';
 	      options['pageSize'] = 10;
 	      options['allowHtml'] = 'true';
 	      options['pagingSymbols'] = {prev: 'הקודם', next: 'הבא'};
@@ -95,7 +105,39 @@ Circle[] cs = a.get_circles_in_academy();
 	    }
 	    
 	
-	    google.setOnLoadCallback(drawVisualization);
+	    google.setOnLoadCallback(function() {
+
+	    	drawVisualization(function() {
+				
+	    	}),
+
+	    	$(function() {
+			var i=0;
+	    	var space_row = $(".space_row").parent(); 	
+			var table_cell = $(".total_row").parent();
+			
+				$(space_row).siblings().css('border','none');
+				$(space_row).css('border','none');
+				
+				$(table_cell).siblings().css( "background-color", "#BDD8DA" );
+				$(table_cell).siblings().css('color','black');
+				//$(table_cell).siblings().css('margin','0px');
+				//$(table_cell).siblings().css('padding','0px')
+				$(table_cell).siblings().css('border','none');
+				$(table_cell).siblings().css('font-weight','700');
+				//$(table_cell).siblings().html(' ');
+				$(table_cell).parent().find('td').each (function() {
+					if (i==4)
+						$(this).html('');
+				   	i++;
+				});
+				
+
+			//	$(".summery1").html('1');
+			
+			});
+	   
+	    });
 	
 
     

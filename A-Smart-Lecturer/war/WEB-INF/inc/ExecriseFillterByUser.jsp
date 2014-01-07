@@ -1,3 +1,6 @@
+<%@page import="aglosh2014.appspot.com.Exercise"%>
+<%@page import="aglosh2014.appspot.com.Academy"%>
+<%@page import="aglosh2014.appspot.com.Circle"%>
 <%@page import="aglosh2014.appspot.com.Course"%>
 <%@page import="aglosh2014.appspot.com.Student"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,11 +28,61 @@
 	if (user_type == -1)
 		return;
 	
-	int circle;
-	Course[] courses = null;
+	int circle =-1;
+	/*****************************************************************************************/
+	//			CLASSES FALUIRE TO GET STUDENT CIRCLE
+	/*****************************************************************************************/
 	
-	if (request.getAttribute ("circle") != null && user_type==1) {
-		circle = Integer.parseInt(request.getAttribute ("circle").toString());
+	
+	Course[] courses = null;
+	Circle[] cs1 = db.jce.get_circles_in_academy();
+	Student students[] = null;
+	int circle_id, course_id;
+	if (session.getAttribute("id") == null)
+		return;
+
+	int student_id = Integer.parseInt(session.getAttribute("id").toString());
+	int p = -1;
+	boolean studentExist;
+	for (int i = 0; i < cs1.length; i++) {
+
+		Course[] cr = cs1[i].get_courses_in_circle();
+		circle_id = cs1[i].get_circle_id();
+
+		for (int j = 0; j < cr.length; j++) {
+
+			//Exercise[] e = cr[j].get_exercises_in_course();
+
+			course_id = cr[j].get_course_id();
+			students = db.jce.get_students_array_in_course(circle_id,course_id);
+		
+			
+			studentExist = false;
+						
+			
+			for (p = 0; p < students.length; p++) {
+				if (students[p].get_id() == student_id) {
+					studentExist = true;
+					
+					
+					break;
+				}
+			} 
+				
+			if (studentExist == true) {
+				circle = i;
+				break;
+				
+			}
+		
+		}
+		if (circle != -1)
+			break;
+	}
+
+	/******************************************************************************************/
+	
+	if (circle != -1 && user_type==1) {
 		courses = db.jce.get_circles_in_academy()[circle].get_courses_in_circle();
 	} 
 %>
@@ -63,14 +116,14 @@
 		</script>
 	<% } %>
 		</select> &nbsp;&nbsp;&nbsp;קורס: &nbsp;&nbsp;&nbsp; <select name="course"
-			id="course" class="formField" <%=((user_type==1  && courses != null)?"":"disabled")%>>
+			id="course" class="formField" <%=((user_type==1)?"":"disabled")%>>
 			<option value="0" style="background-color: #CCCfff">בחר קורס</option>
 			<%if (user_type==1 && courses != null) {
 				
 				for (int i=0;i<courses.length;i++) {%>
 					<option value="<%=courses[i].get_course_id()%>"><%=courses[i].get_course_name()%></option>
-				<%}
-			} %>
+				<% }
+			}%>
 			
 				
 				
