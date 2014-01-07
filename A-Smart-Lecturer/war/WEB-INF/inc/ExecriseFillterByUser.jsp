@@ -79,6 +79,6 @@
 	</h3>
 </div>
 <br />
-<hr />
+<hr id="filterline" />
 <br />
 <!-- END FILTER -->

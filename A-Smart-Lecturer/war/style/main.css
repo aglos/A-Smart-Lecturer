@@ -130,6 +130,14 @@ a, .div_link {
 		width:auto;
 }
 
+#showAndEdit
+{
+	font-family: Arnoldboecklin, fantasy;
+	font-weight: bold;
+	
+	
+		
+}
 /*LOGIN*/
 
 .loginBox {
@@ -141,7 +149,7 @@ a, .div_link {
 	padding:0 20px;
 	border:1px solid #C3C3C3;
 	line-height:40px;
-
+	
 }
 
 .addUser {
