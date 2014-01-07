@@ -10,6 +10,7 @@ public class Course
 	private Checker course_checker;
 	private ArrayList<Student> students_in_course;
 	private ArrayList<Exercise> exercises_in_course;
+	private ArrayList<Integer> total;
 	
 	public Course(String course_name, int course_id, Lecturer lecturer, Checker checker)
 	{
@@ -21,6 +22,7 @@ public class Course
 		
 		this.exercises_in_course=new ArrayList<>();
 		this.students_in_course=new ArrayList<>();
+		this.total=new ArrayList<>();
 	}
 	
 	public void set_course_lecturer(Lecturer lecturer)
@@ -61,6 +63,25 @@ public class Course
 	public int get_course_id()
 	{
 		return this.course_id;
+	}
+	
+	public int[] get_course_total()
+	{
+		int[] ret = new int[total.size()];
+	    for (int i=0; i < ret.length; i++)
+	    {
+	        ret[i] = total.get(i).intValue();
+	    }
+	    return ret;
+	}
+	
+	public void set_course_total(int[] array)
+	{
+		for (int i = 0; i < array.length; i++)
+	    {
+	        total.add(array[i]);
+	    }
+
 	}
 	
 	public int add_student_to_course(Student student) //return -1 if no room, return 0 if already in course, return 1 if added to course

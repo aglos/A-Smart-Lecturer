@@ -11,12 +11,14 @@
 	static_db studentdb = new static_db();
 	static_db.db_init();
 	Student[] students =  null;
+	int[] total = null;
 	
 	int circleId=0,courseId=0,exId=0;
 	
 	Exercise ex = null;
 	Circle circle = null;
 	Course course = null;
+	double d[] = new double[10];
 	
 	if (request.getParameter("courseId")!=null && request.getParameter("circleId")!=null && request.getParameter("exId")!=null) {
 	
@@ -24,7 +26,12 @@
 		
 		circleId = Integer.parseInt(request.getParameter("circleId"));
 		courseId = Integer.parseInt(request.getParameter("courseId"));
-		exId = Integer.parseInt(request.getParameter("exId"));
+		if (request.getParameter("exId").toString().equals("total")) {
+			// flag -2 for total stat
+			exId= -2;
+		} else {
+			exId = Integer.parseInt(request.getParameter("exId"));
+		}
 		
 		
 		Circle[] circles = studentdb.jce.get_circles_in_academy();
@@ -33,46 +40,52 @@
 		
 		//Student_array = studentdb.jce.get_students_id_in_course(circleId, courseId);
 		
-		int k,j=-1;
-		 for(k=0;k<circles.length && course == null;k++) {
-			int id = circles[k].get_circle_id();
-			
-			if (id == circleId) {
-				circle = circles[k];
-				for(j=0;k<circles[k].courses.size();j++) {
-					id = circle.get_courses_in_circle()[j].get_course_id();
-					if (id == courseId) {
-						course = circle.get_courses_in_circle()[j];
-						break;
+			int k,j=-1;
+			 for(k=0;k<circles.length && course == null;k++) {
+				int id = circles[k].get_circle_id();
+				
+				if (id == circleId) {
+					circle = circles[k];
+					for(j=0;k<circles[k].courses.size();j++) {
+						id = circle.get_courses_in_circle()[j].get_course_id();
+						if (id == courseId) {
+							course = circle.get_courses_in_circle()[j];
+							break;
+						}
 					}
 				}
 			}
-		}
-		 
-		students =  studentdb.jce.get_students_array_in_course(circleId, courseId);
-		if (course != null)
-			ex = course.get_exercises_in_course()[exId];
-	
-		
-	} else { 
-		// Add new grades
+			if (exId != -2) {	 
+				students =  studentdb.jce.get_students_array_in_course(circleId, courseId);
+				if (course != null) {
+					ex = course.get_exercises_in_course()[exId];
+				}
+			
+			
+			
+			} else {
+				total = studentdb.jce.get_circles_in_academy()[k-1].get_courses_in_circle()[j].get_course_total();
+			
+			}
+		} else { 
+			// Add new grades
 
 	}
-
-	int count = students.length;
+	
+	
+	int count = ((exId != -2)?students.length : total.length);
 	
 	StatisticsFunctionsClass s = new StatisticsFunctionsClass();
 	
 	double a[] = new double[count];
-	double d[] = new double[10];
+	
 	
 	for (int i = 0; i < count ; i++) {
-		a[i]= students[i].get_student_grade(ex).get_grade();
+		a[i]=  ((exId != -2) ? students[i].get_student_grade(ex).get_grade() : total[i]);
 		//a[i] = Double.parseDouble( request.getParameter(input));
 	}
 	
 	d = s.Distribution(a);
-	
 	
 	//static_db db = new static_db();
 	
