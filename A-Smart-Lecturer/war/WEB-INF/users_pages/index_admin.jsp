@@ -10,6 +10,9 @@
 	<meta http-equiv="Content-Language" content="he" />
     
 	<title>A Smart Lecturer</title>
+	<script type="text/javascript" src="../../script/jquery.js"></script>
+<script type="text/javascript" src="../../script/jquery-ui.js"></script>
+<script type="text/javascript" src="../../script/clock.js"></script>
     
     <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
     <link rel="image_src" href="images/share.png" />
@@ -51,9 +54,6 @@
     
     
 	</div>
-    </div>
     
-    <script type="text/javascript" src="script/jquery.easing.1.3.js.js"></script>
-  	<script type="text/javascript" src="script/jquery-ui.js"></script>
 </body>
 </html>

@@ -13,6 +13,7 @@
     
     <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
     <link rel="image_src" href="images/share.png" />
+     <script type="text/javascript" src="../../script/jquery.js"></script>
 
 </head>
 <body>
@@ -38,7 +39,9 @@
                            <div class="menuItem">עריכת פרטי חוג קיים</div>
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
-                        
+      <script type="text/javascript" src="../../../script/EditCircle.js"></script>
+      <%@ include file="../../inc/Admin/EditCircle.jsp" %>
+           	 
  		<div class="addCicle">
 
 					<div class="loginBoxHeader"><b>עריכת פרטי חוג</b></div>
@@ -47,20 +50,20 @@
 					
 					<div class="fieldTitle"><b>שם חוג</b></div>
 					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
+						<input type="text" name=myText id=EditCircleName value="Enter Your Name">
 					</form>
 
 					<div style="clear: both"></div>
 					
-					<div class="fieldTitle"><b>מספר קורס</b></div>
+					<div class="fieldTitle"><b>קוד קורס</b></div>
 					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
+						<input type="text" name=myText id=EditCircleId value="Enter Your Name">
 					</form>
 					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>שנה</b></div>
 					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
+						<input type="text" name=myText id=EditCircleYear value="Enter Your Name">
 					</form>
 					<div style="clear: both"></div>
 					
@@ -84,9 +87,6 @@
     
     
 	</div>
-    </div>
-    
-    <script type="text/javascript" src="script/jquery.easing.1.3.js.js"></script>
-  	<script type="text/javascript" src="script/jquery-ui.js"></script>
+ 
 </body>
 </html>

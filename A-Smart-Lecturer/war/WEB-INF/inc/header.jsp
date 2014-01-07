@@ -4,10 +4,10 @@
 	
 %>
 <!-- START HEADER -->
-<script type="text/javascript" src="/script/clock.js"></script>
+<script type="text/javascript" src="/war/script/clock.js"></script>
 <div id="header">
 	<div class="headerTitle">
-		<h3>שלום 
+		<h3 id=mainName>שלום 
 		<%if(session.getAttribute("user")!= null) {%>
 		<%=session.getAttribute("user").toString() %>
 		<%}
@@ -19,7 +19,8 @@
 		<div id="displayDate"></div>
 	</div>
 	<div id="exitButton">
-		<a href="/ExitSession">התנתק מהמערכת</a>
+	<a href="/ExitSession"><img src="/images/logout-button-blue-hi.jpg" width="60" height="30" alt="" /></a>
+		
 	</div>
 </div>
 <!-- END HEADER -->

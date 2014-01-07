@@ -3,15 +3,7 @@
 <%@page import="org.apache.tools.ant.filters.TokenFilter.Trim"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%
-	static_db.db_init();
-	User u = static_db.jce.get_user_by_id(Integer.parseInt(session.getAttribute("id").toString()));
-//user_id=Integer.parseInt(user_id_as_string);
-		
-//user_type=static_db.jce.user_login(user_id, pass);
 
-
-%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir="rtl">
@@ -27,6 +19,9 @@
     
     <link rel="shortcut icon" href="images/unlock-it.ico" type="image/x-icon" />
     <link rel="image_src" href="images/share.png" />
+    
+    <script type="text/javascript" src="../../script/jquery.js"></script>
+	<script type="text/javascript" src="../../script/clock.js"></script>
 
 </head>
 <body>
@@ -52,20 +47,25 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
+            <script type="text/javascript" src="../../../script/EditUser.js"></script>
+  		    <%@ include file="../../inc/Admin/EditUser.jsp" %>
+         
   		    <div class="addUser">
 
+							
 					<div class="loginBoxHeader"><b>עריכת משתמש</b></div>
 					
 					<div class="fieldTitle"><b>שם מלא</b></div>
 					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
+						<input type="text" name=myText id="EditUserName" value="Enter Your Name">
 					</form>
 
 					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>תעודת זהות</b></div>
 					<form name=myText>
-						<input type="text" name="myText" value="<%=u.get_id()%>">
+					
+						<input type="text" name="myText" id="EditUserId" value="Enter Your Name">
 					</form>
 
 					<div style="clear: both"></div>
@@ -103,8 +103,6 @@
     
 	
     </div>
-    
-    <script type="text/javascript" src="script/jquery.easing.1.3.js.js"></script>
-  	<script type="text/javascript" src="script/jquery-ui.js"></script>
+
 </body>
 </html>

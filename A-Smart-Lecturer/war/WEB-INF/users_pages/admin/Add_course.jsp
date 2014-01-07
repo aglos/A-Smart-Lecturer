@@ -51,6 +51,8 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
+     	<script type="text/javascript" src="../../../script/addCourse.js"></script>
+  	    <%@ include file="../../inc/Admin/addCourse.jsp" %>
         <form id="addCourseForm" action="" method="post" name="addCourseForm">                           
  		<div class="addCourse">
 

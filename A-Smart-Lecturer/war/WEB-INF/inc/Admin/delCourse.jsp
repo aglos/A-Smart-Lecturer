@@ -43,6 +43,6 @@
 	</h3>
 </div>
 <br />
-<hr id="filterline" />
+<hr id=filterline />
 <br />
 <!-- END FILTER -->

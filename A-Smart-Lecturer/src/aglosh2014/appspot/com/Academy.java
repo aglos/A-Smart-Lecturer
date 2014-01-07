@@ -55,16 +55,19 @@ public class Academy
 		return list;
 	}
 
+
 	public User get_user_by_id(int id)
 	{
 		for(int i=0; i<users.size(); i++)
 		{
 			if(users.get(i).get_id()==id)
 				return users.get(i);
+			
 		}
 
 		return null;
 	}
+
 
 	public String get_circles_in_spec_year(int year) //returns circle1_name, circle1_id, ... 
 	{
