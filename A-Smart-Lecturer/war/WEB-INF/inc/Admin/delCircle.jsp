@@ -8,7 +8,7 @@
 	int years[]=db.jce.get_circles_years(); //get years
 	String Names=db.jce.get_circles_in_academy_as_string(); //get years
 	String Id = db.jce.get_circles_in_academy_as_string(); //get circles
-
+	
 	String[] circles =Id.split(",");
 %>
 

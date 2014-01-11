@@ -1,6 +1,8 @@
+<%@page import="aglosh2014.appspot.com.Course"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@page import="org.apache.tools.ant.filters.TokenFilter.Trim"%>
 	
 <%
 	static_db db = new static_db();
@@ -45,4 +47,29 @@
 <br />
 <hr  id=filterline />
 <br />
+<%	String CourseName="";
+	String CourseNum="";
+	String CheckerName="";
+	String LecturerName="";
+	String CircleId="";
+	
+	if (request.getParameter("courseName")!=null) { 
+		
+		CourseName = request.getParameter("courseName").trim();
+		CourseNum = request.getParameter("courseId").trim();
+		LecturerName = request.getParameter("courseLecturerName").trim();
+		CheckerName = request.getParameter("courseCheckerName").trim();
+		//static_db db=new static_db();
+	//	static_db.db_init();
+
+		int course_id=0;
+		int circle_id=0;
+		course_id=Integer.parseInt(CourseNum);
+		//circle_id=Integer.parseInt(CircleId);
+		System.out.println("courseId:"+course_id+" courseId: "+circle_id+" courseName: "+CourseName+" checkeName: "+CheckerName+" lecturerName: "+LecturerName);
+		
+		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
+		//Course c= new Course();
+		
+	} %>
 <!-- END FILTER -->

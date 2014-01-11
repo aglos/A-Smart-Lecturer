@@ -12,6 +12,7 @@ public class static_db {
 	public final int NUM_OF_COURSES=5;
 
 	public static Academy jce=new Academy("Jerusalem collage of engineering");
+	
 	public static boolean was_init=false;
 
 	public static void db_init()  //set a static db

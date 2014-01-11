@@ -4,7 +4,7 @@
 	
 %>
 <!-- START HEADER -->
-<script type="text/javascript" src="/war/script/clock.js"></script>
+
 <div id="header">
 	<div class="headerTitle">
 		<h3 id=mainName>שלום 

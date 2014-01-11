@@ -32,7 +32,7 @@ $(document).ready(function() {
 		}
 		else if($CircleYear.length !== 4)
 		{
-			$msg.html("אורך השנה צריך להיות לפחות 4 ספרות בלבד");
+			$msg.html("אורך השנה צריך להיות בדיוק  4 ספרות בלבד");
 			return false;
 		}
 		
@@ -40,6 +40,7 @@ $(document).ready(function() {
 		return true;
 	});
 	
+
 	
 	
 	
@@ -57,8 +58,9 @@ $(document).ready(function() {
 		var $msg = $("#addCourseMsg");
         
 		if($CourseName === '' || $CourseNum ===''||$lecturerName===''||$CheckerName==='' )
-		{
-				$msg.html("אנא מלא את כל השדות");
+		{		
+				
+				$msg.html("אנא מלא את כל השדות").css("font-size", "60 px");
 				return false;
 		}
 		else if(isNaN($CourseNum))
@@ -89,6 +91,8 @@ $(document).ready(function() {
 	$('#addUserForm').fadeIn('slow');
 	
 	$('#addUserForm').submit(function() {
+   		
+
 		var $UserName = $.trim($('#UserName').val());
 		var $UserId = $.trim($('#UserId').val());
 		var $UserType= $.trim($('#UserType').val());
@@ -114,7 +118,10 @@ $(document).ready(function() {
 			$msg.html("סוג משתמש לא הוקלד בהתאם לאופציות");
 			return false;
 		}
-					
+		
+
+	
+			
 		return true;
 	});
 	

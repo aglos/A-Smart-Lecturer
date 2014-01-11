@@ -77,7 +77,7 @@
 					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>סיסמה</b></div>
-					<input type="password" autocomplete="off" name="pass" id="Userpass" dir="ltr"
+					<input type="password" autocomplete="off" name="Userpass" id="Userpass" dir="rtl"
 						 class="formField" />
 
 					<div style="clear: both"></div>
