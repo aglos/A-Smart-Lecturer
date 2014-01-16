@@ -77,7 +77,7 @@
 		System.out.println("courseId:"+course_id+" circleId: "+circle_id+" courseName: "+CourseName+" checkeName: "+CheckerName+" lecturerName: "+LecturerName);
 		
 		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
-		//Course c= new Course();
+		//Course c= new Course(CheckerName, );
 		
 	} %>
 <!-- END FILTER -->

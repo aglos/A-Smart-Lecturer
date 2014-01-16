@@ -49,30 +49,32 @@ $(document).ready(function() {
   			});
   		});
 	  	$( "#circle" ).change(function() {
-	  			
-	  			$(".pageDesc").css({"color": "#ff0000"});
+  			
+  			$(".pageDesc").css({"color": "#ff0000"});
 
-	  			$(".pageDesc").html("בחר קורס");
-	  			$("#gradeContent").html('');
-	  			var circleId =  $("#circle").val();
-	  			var year= $("#year").val();
-	  			var Name= $("#circle option:selected").text();
-	  			if (this.value=='n') {
+  			$(".pageDesc").html("בחר קורס");
+  			$("#gradeContent").html('');
+  			var circleId =  $("#circle").val();
+  			var year= $("#year").val();
+  			var Name= $("#circle option:selected").text();
+  			if (this.value=='n') {
 
-	  				$(".pageDesc").html("בחר חוג");
-	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-	  				$("#course").attr("disabled", "disabled");
-		  			return false;
-	  			}
-	  			$('#addUserForm').show();
-	  			$("#EditCircleId").val(circleId);
-	  			$("#EditCircleYear").val(year);
-	  			$("#EditCircleName").val(Name.trim());
-	  			
-	  	});
-	  	
-		/*$( "#course" ).change(function() {
-			//<% if (isView==false) { %>
+  				$(".pageDesc").html("בחר חוג");
+  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+  				$("#course").attr("disabled", "disabled");
+	  			return false;
+  			}
+  			
+  			$("#type").removeAttr("disabled");
+  			//$('#addUserForm').show();
+  			//$("#EditCircleId").val(circleId);
+  			//$("#EditCircleYear").val(year);
+  			//$("#EditCircleName").val(Name.trim());
+  			
+  	});
+});
+	/*	( "#type" ).change(function() {
+			<% if (isView==false) { %>
 
 				$("#gradeContent").html('');
 				var circleId =  $("#circle").val();
@@ -104,5 +106,5 @@ $(document).ready(function() {
 	  				}
 	  			});
 			//<% } %>
-		});*/
-  	});
+		});
+  	});*/

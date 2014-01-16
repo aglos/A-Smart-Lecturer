@@ -6,13 +6,21 @@ public class Course
 {
 	private String course_name;
 	private int course_id;
-	private Lecturer course_lecturer;
-	private Checker course_checker;
-	private ArrayList<Student> students_in_course;
-	private ArrayList<Exercise> exercises_in_course;
-	private ArrayList<Integer> total;
+	public int course_num=0;
+	public int a[];
+	//private Lecturer course_lecturer;
+//	private Checker course_checker;
 	
-	public Course(String course_name, int course_id, Lecturer lecturer, Checker checker)
+	
+	private int course_lecturer;
+	private int course_checker;
+	private ArrayList<Integer> total;
+	//private int[] students_in_course;
+//	private int[] exercises_in_course;
+	
+	private ArrayList<Integer> students_in_course;
+	private ArrayList<Integer> exercises_in_course;
+	/*public Course(String course_name, int course_id, Lecturer lecturer, Checker checker)
 	{
 		this.course_id=course_id;
 		this.course_name=course_name;
@@ -23,9 +31,23 @@ public class Course
 		this.exercises_in_course=new ArrayList<>();
 		this.students_in_course=new ArrayList<>();
 		this.total=new ArrayList<>();
+	}*/
+	
+	public Course(String course_name, int course_id,int lecturer_id, int checker_id)
+	{
+		
+		this.course_id=course_id;
+		this.course_name=course_name;
+		course_num++;
+		this.course_checker=checker_id;
+		this.course_lecturer=lecturer_id;
+		this.exercises_in_course=new ArrayList<>();
+		this.students_in_course=new ArrayList<>();
+		this.total=new ArrayList<>();
 	}
 	
-	public void set_course_lecturer(Lecturer lecturer)
+	
+	/*public void set_course_lecturer(Lecturer lecturer)
 	{
 		if(lecturer==null)
 			return;
@@ -43,14 +65,23 @@ public class Course
 		checker.add_course(this);
 		
 		this.course_checker=checker;
-	}
+	}*/
 	
-	public Lecturer get_course_lecturer()
+	/*public Lecturer get_course_lecturer()
+	{
+		return this.course_lecturer;
+	}*/
+	public int get_course_lecturer()
 	{
 		return this.course_lecturer;
 	}
 	
-	public Checker get_course_checker()
+/*	public Checker get_course_checker()
+	{
+		return this.course_checker;
+	}*/
+	
+	public int get_course_checker()
 	{
 		return this.course_checker;
 	}
@@ -84,7 +115,7 @@ public class Course
 
 	}
 	
-	public int add_student_to_course(Student student) //return -1 if no room, return 0 if already in course, return 1 if added to course
+	/*public int add_student_to_course(Student student) //return -1 if no room, return 0 if already in course, return 1 if added to course
 	{
 		if(student==null) //if null or no more room in course
 			return -1;
@@ -95,6 +126,20 @@ public class Course
 		
 		//add student
 		students_in_course.add(student);
+		
+		return 1;
+	}*/
+	public int add_student_to_course(Student student)
+	{
+		if(student==null) //if null or no more room in course
+			return -1;
+		
+		//check if student is already in course
+		if(students_in_course.contains(student))
+			return 0;
+		
+		//add student
+		students_in_course.add(student.get_id());
 		
 		return 1;
 	}
@@ -116,10 +161,26 @@ public class Course
 		return array;
 	}
 	
-	public int add_new_exercise_to_course(String title,boolean checked) //return -1 if no more room for exercises, return 0 if added
+	/*public int add_new_exercise_to_course(String title,boolean checked) //return -1 if no more room for exercises, return 0 if added
 	{
 		exercises_in_course.add(new Exercise(exercises_in_course.size(), title,checked));
 		
 		return exercises_in_course.size()-1;
+	}*/
+	
+	
+	public int add_new_exercise_to_course(Exercise exercise)
+	{
+		if(exercise==null) //if null or no more room in course
+			return -1;
+		
+		//check if student is already in course
+		if(exercises_in_course.contains(exercise))
+			return 0;
+		
+		//add student
+		exercises_in_course.add(exercise.get_exercise_id());
+		
+		return 1;
 	}
 }

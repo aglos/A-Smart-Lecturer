@@ -1,4 +1,4 @@
-<%@page import="aglosh2014.appspot.com.Course"%>
+<%@page import="aglosh2014.appspot.com.Circle"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -57,6 +57,6 @@
 		
 		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
 		//Course c= new Course();
-	// Circle c= new Circle(circle_id , CircleName, circle_year);
+		 Circle c= new Circle(circle_id , CircleName, circle_year);
 	} %>
 <!-- END FILTER -->
