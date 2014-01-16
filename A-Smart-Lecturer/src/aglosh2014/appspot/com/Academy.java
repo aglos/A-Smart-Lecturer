@@ -187,8 +187,13 @@ public class Academy
 		User checker = get_user_by_id(checker_id);
 		User lecturer = get_user_by_id(lecturer_id);
 		
-		if(checker == null || lecturer == null || checker.user_type!=User.CHECKER || lecturer.user_type!=User.LECTURER)
-			return -1; //invalid users
+		//if invalid lecturer
+		if(lecturer == null || lecturer.user_type!=User.LECTURER)
+			return -2; //invalid lecturer
+		
+		//if invalid checker
+		if(checker == null || checker.user_type!=User.CHECKER)
+			return -3; //invalid cheker
 		
 		return add_new_course_to_circle(circle_id, course_name, course_id, (Lecturer)lecturer, (Checker)checker);
 	}
