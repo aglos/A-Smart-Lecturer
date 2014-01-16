@@ -28,8 +28,9 @@ Circle[] cs = a.get_circles_in_academy();
 	<title>A Smart Lecturer</title>
 
 	 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
-	 <script type="text/javascript" src="../script/clock.js"></script>
-	 <script type="text/javascript" src="../script/jquery.js"></script>
+	 <script type="text/javascript" src="../../script/jquery.js"></script>
+	 <script type="text/javascript" src="../../script/clock.js"></script>
+
     <script type='text/javascript'>
       google.load('visualization', '1', {packages:['table']});
       google.setOnLoadCallback(drawTable);

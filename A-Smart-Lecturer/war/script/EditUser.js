@@ -15,8 +15,10 @@ $(document).ready(function() {
   				
   				$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
   				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+  				$("#student").html('<option value="0" style="background-color: #CCCfff">בחר סטודנט</option>');
   				$("#course").attr("disabled", "disabled");
   				$("#circle").attr("disabled", "disabled");
+  				$("#student").attr("disabled", "disabled");
 	  			return false;
   			}
   			
@@ -53,7 +55,7 @@ $(document).ready(function() {
 
 	  			$(".pageDesc").css({"color": "#ff0000"});
 
-	  			$(".pageDesc").html("בחר סטודנט");
+	  			
 	  			$("#gradeContent").html('');
 	  			var circleId =  $("#circle").val();
 	  			var year= $("#year").val();
