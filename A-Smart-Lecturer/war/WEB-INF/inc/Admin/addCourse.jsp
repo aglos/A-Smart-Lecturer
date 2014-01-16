@@ -57,27 +57,33 @@
 <br />
 <%	String CourseName="";
 	String CourseNum="";
-	String CheckerName="";
-	String LecturerName="";
+	int CheckerName=0;
+	int LecturerName=0;
 	String CircleId="";
 	
 	if (request.getParameter("CourseName")!=null) { 
 		
 		CourseName = request.getParameter("CourseName").trim();
 		CourseNum = request.getParameter("CourseNum").trim();
-		LecturerName = request.getParameter("lecturerName").trim();
-		CheckerName = request.getParameter("checkerName").trim();
+		LecturerName = Integer.parseInt(request.getParameter("lecturerName").trim());
+		CheckerName = Integer.parseInt(request.getParameter("checkerName").trim());
+		CircleId= request.getParameter("CircleId").trim();
 		//static_db db=new static_db();
 	//	static_db.db_init();
 
 		int course_id=0;
 		int circle_id=0;
 		course_id=Integer.parseInt(CourseNum);
-		//circle_id=Integer.parseInt(CircleId);
+		circle_id=Integer.parseInt(CircleId);
 		System.out.println("courseId:"+course_id+" circleId: "+circle_id+" courseName: "+CourseName+" checkeName: "+CheckerName+" lecturerName: "+LecturerName);
 		
-		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
-		//Course c= new Course();
+		int was_added = static_db.jce.add_new_course_to_circle_by_ids(circle_id, CourseName, course_id, LecturerName, CheckerName);
+		
+		if(was_added==-2) //the id is not of a lecturer
+			System.out.println("The id is not of a lecturer");
+		
+		else if(was_added==-3)
+			System.out.println("The id is not of a checker");
 		
 	} %>
 <!-- END FILTER -->
