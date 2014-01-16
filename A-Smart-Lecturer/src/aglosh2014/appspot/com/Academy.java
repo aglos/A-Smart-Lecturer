@@ -178,11 +178,6 @@ public class Academy
 	
 	public int add_new_course_to_circle_by_ids(int circle_id, String course_name, int course_id, int lecturer_id, int checker_id)
 	{
-		int circle_index=get_circle_index_in_array(circle_id);
-
-		if(circle_index==-1)
-			return 0; //circle doesn't exist
-		
 		//check if lecturer and checker are valid
 		User checker = get_user_by_id(checker_id);
 		User lecturer = get_user_by_id(lecturer_id);
@@ -207,7 +202,17 @@ public class Academy
 
 		return this.circles.get(circle_index).add_new_student_to_course(course_id, student);
 	}
+/*	
+	public int add_new_student_to_course_by_id(int circle_id, int course_id, int student_id)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
 
+		if(circle_index==-1)
+			return 0; //circle doesn't exist
+
+		
+	}
+*/
 	public Lecturer add_new_lecturer(int id, String name, String password)
 	{
 		users.add(new Lecturer(id, name, password));

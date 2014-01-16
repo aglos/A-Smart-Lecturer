@@ -8,8 +8,8 @@ public class Course
 	private int course_id;
 	private Lecturer course_lecturer;
 	private Checker course_checker;
-	private ArrayList<Student> students_in_course;
-	private ArrayList<Exercise> exercises_in_course;
+	public ArrayList<Student> students_in_course;
+	public ArrayList<Exercise> exercises_in_course;
 	private ArrayList<Integer> total;
 	
 	public Course(String course_name, int course_id, Lecturer lecturer, Checker checker)
@@ -95,6 +95,7 @@ public class Course
 		
 		//add student
 		students_in_course.add(student);
+		student.user_courses.add(this);
 		
 		return 1;
 	}
