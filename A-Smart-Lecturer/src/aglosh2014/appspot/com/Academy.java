@@ -165,7 +165,7 @@ public class Academy
 
 		return circles.size()-1; //course added
 	}
-
+	
 	public int add_new_course_to_circle(int circle_id, String course_name, int course_id, Lecturer lecturer, Checker checker)
 	{
 		int circle_index=get_circle_index_in_array(circle_id);
@@ -174,6 +174,23 @@ public class Academy
 			return 0; //circle doesn't exist
 
 		return this.circles.get(circle_index).add_new_course_to_circle(course_name, course_id, lecturer, checker);
+	}
+	
+	public int add_new_course_to_circle_by_ids(int circle_id, String course_name, int course_id, int lecturer_id, int checker_id)
+	{
+		int circle_index=get_circle_index_in_array(circle_id);
+
+		if(circle_index==-1)
+			return 0; //circle doesn't exist
+		
+		//check if lecturer and checker are valid
+		User checker = get_user_by_id(checker_id);
+		User lecturer = get_user_by_id(lecturer_id);
+		
+		if(checker == null || lecturer == null || checker.user_type!=User.CHECKER || lecturer.user_type!=User.LECTURER)
+			return -1; //invalid users
+		
+		return add_new_course_to_circle(circle_id, course_name, course_id, (Lecturer)lecturer, (Checker)checker);
 	}
 
 	public int add_new_student_to_course(int circle_id, int course_id, Student student)
