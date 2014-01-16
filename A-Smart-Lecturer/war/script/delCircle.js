@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+		$("#delCircleForm").hide();
 		$(".pageDesc").html("בחר שנה");
 		$(".pageDesc").css({"color": "#ff0000"});
 		 
@@ -57,16 +57,9 @@ $(document).ready(function() {
 	  			var circleId =  $("#circle").val();
 	  			var year= $("#year").val();
 	  			var Name= $("#circle option:selected").text();
-	  			if (this.value=='n') {
-
-	  				$(".pageDesc").html("בחר חוג");
-	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-	  				$("#course").attr("disabled", "disabled");
-		  			return false;
-	  			}
-	  			
+	  			$("#delCircleForm").show();
 	  			$("#delCircle").val(circleId);
-	  		
+	  			
 	  			
 	  	});
 	  	

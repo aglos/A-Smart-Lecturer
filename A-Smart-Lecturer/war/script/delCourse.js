@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+		$("#delCourseForm").hide();
 		$(".pageDesc").html("בחר שנה");
 		$(".pageDesc").css({"color": "#ff0000"});
 		 
@@ -98,7 +98,10 @@ $(document).ready(function() {
 			//<% if (isView==false) { %>
 
 				var courseId =  $("#course").val();
+				var circleId =	 $("#circle").val();
 				$("#delCourseId").val(courseId.trim());
+				$("#delCourseForm").show();
+				$("#CircleId").val(circleId.trim());
 			
 		});
   	});

@@ -50,8 +50,9 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <div class="menuItem">מחיקת חוג</div>                      
                         </div>
-            <script type="text/javascript" src="../../../script/delCircle.js"></script>
-  	  		<%@ include file="../../inc/Admin/delCircle.jsp" %>        
+         <%@ include file="../../inc/Admin/delCircle.jsp" %>   
+       
+  	  		<script type="text/javascript" src="../../../script/delCircle.js"></script>
  		   	<form id="delCircleForm" action="" method="post" name="delCircleForm">           
  				<div class="delUser">
 
@@ -60,7 +61,7 @@
 				
 					
 					<div class="fieldTitle"><b>הקש מספר חוג</b></div>
-					<input type="text" id="delCircle" autocomplete="off" name="CircleId" dir="rtl"
+					<input type="text" id="delCircle" autocomplete="off" name="delCircle" dir="rtl"
 						id="CircleId" class="formField" />
 
 					<div style="clear: both"></div>

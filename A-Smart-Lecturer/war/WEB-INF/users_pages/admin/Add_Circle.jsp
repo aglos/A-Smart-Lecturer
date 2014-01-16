@@ -74,8 +74,8 @@
 
 					<div style="clear: both"></div>
 					
-					<div class="fieldTitle"><b>שנה</b></div>
-					<input type="text" autocomplete="off" name="CircleYear" dir="rtl"
+					
+					<input type="hidden" autocomplete="off" name="CircleYear" dir="rtl"
 						id="CircleYear" class="formField" />
 
 					<div style="clear: both"></div>
