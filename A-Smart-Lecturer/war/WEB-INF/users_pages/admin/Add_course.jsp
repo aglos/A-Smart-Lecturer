@@ -57,6 +57,7 @@
  		<div class="addCourse">
 
 					<div class="loginBoxHeader"><b>הוספת קורס</b></div>
+					<input type="hidden" id="CircleId" name="CircleId" />
 					
 				
 					
@@ -72,13 +73,13 @@
 
 					<div style="clear: both"></div>
 					
-					<div class="fieldTitle"><b>שם מרצה</b></div>
+					<div class="fieldTitle"><b>ת.ז  מרצה</b></div>
 					<input type="text" autocomplete="off" name="lecturerName" dir="rtl"
 						id="lecturerName" class="formField" />
 
 					<div style="clear: both"></div>
 					
-						<div class="fieldTitle"><b>שם בודק</b></div>
+						<div class="fieldTitle"><b>ת.ז  בודק</b></div>
 					<input type="text" autocomplete="off" name="checkerName" dir="rtl"
 						id="checkerName" class="formField" />
 

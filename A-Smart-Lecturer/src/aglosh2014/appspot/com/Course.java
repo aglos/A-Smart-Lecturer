@@ -8,8 +8,8 @@ public class Course
         private int course_id;
         private Lecturer course_lecturer;
         private Checker course_checker;
-        private ArrayList<Student> students_in_course;
-        private ArrayList<Exercise> exercises_in_course;
+        public ArrayList<Student> students_in_course;
+        public ArrayList<Exercise> exercises_in_course;
         private ArrayList<Integer> total;
         
         public Course(String course_name, int course_id, Lecturer lecturer, Checker checker)
@@ -25,14 +25,6 @@ public class Course
                 this.total=new ArrayList<>();
         }
         
-        
-        public void remove_student_from_course()
-        {
-           	for (Student student: students_in_course)
-        	{
-        		student.user_courses.remove(this);
-        	}
-        }
         public void set_course_lecturer(Lecturer lecturer)
         {
                 if(lecturer==null)
@@ -103,6 +95,7 @@ public class Course
                 
                 //add student
                 students_in_course.add(student);
+                student.user_courses.add(this);
                 
                 return 1;
         }
@@ -130,5 +123,13 @@ public class Course
                 
                 return exercises_in_course.size()-1;
         }
-        
+
+		
+		public void remove_student_from_course()
+		{
+		   	for (Student student: students_in_course)
+			{
+				student.user_courses.remove(this);
+			}
+		}
 }

@@ -69,12 +69,12 @@ $(document).ready(function() {
 			return false;
 		}
 		
-		else if (!$CheckerName.match(/^[א-ת\s]*$/)) {
-			$msg.html("שם בודק חייב להיות מורכב מאותיות עבריות בלבד");
+		else if (isNaN($CheckerName)) {
+			$msg.html("תעודת הזהות של הבודק אינה תקינה");
 			return false;
 		}
-		else if (!$lecturerName.match(/^[א-ת\s]*$/)) {
-			$msg.html("שם מרצה חייב להיות מורכב מאותיות עבריות בלבד");
+		else if (isNaN($lecturerName)) {
+			$msg.html("תעודת הזהות של המרצה אינה תקינה");
 			return false;
 		}
 		

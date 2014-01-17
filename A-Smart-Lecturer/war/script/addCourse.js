@@ -64,8 +64,9 @@ $(document).ready(function() {
 	  				$("#course").attr("disabled", "disabled");
 		  			return false;
 	  			}
+	  			
 	  			$("#addCourseForm").show();
-	  			$("#EditCircleId").val(circleId);
+	  			$("#CircleId").val(circleId);
 	  			$("#EditCircleYear").val(year);
 	  			$("#EditCircleName").val(Name.trim());
 	  			
