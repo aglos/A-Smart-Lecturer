@@ -21,7 +21,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>addCircleJava</servlet-name>
-		<url-pattern>/add_circle</url-pattern>
+		<url-pattern>/Admin/add_circle</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
