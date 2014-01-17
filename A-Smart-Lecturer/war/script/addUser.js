@@ -1,5 +1,5 @@
 $(document).ready(function() {
-		$('#addUserForm').hide();
+		$(".addUser").hide();
 		$(".pageDesc").html("בחר שנה");
 		$(".pageDesc").css({"color": "#ff0000"});
 		 
@@ -47,64 +47,61 @@ $(document).ready(function() {
 						$("#circle").removeAttr("disabled");
   				}
   			});
-  		});
-	  	$( "#circle" ).change(function() {
-  			
-  			$(".pageDesc").css({"color": "#ff0000"});
-
-  			$(".pageDesc").html("בחר קורס");
-  			$("#gradeContent").html('');
-  			var circleId =  $("#circle").val();
-  			var year= $("#year").val();
-  			var Name= $("#circle option:selected").text();
-  			if (this.value=='n') {
-
-  				$(".pageDesc").html("בחר חוג");
-  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-  				$("#course").attr("disabled", "disabled");
-	  			return false;
-  			}
-  			
-  			$("#type").removeAttr("disabled");
-  			//$('#addUserForm').show();
-  			//$("#EditCircleId").val(circleId);
-  			//$("#EditCircleYear").val(year);
-  			//$("#EditCircleName").val(Name.trim());
-  			
   	});
-});
-	/*	( "#type" ).change(function() {
-			<% if (isView==false) { %>
+  	  	
+	  	$( "#circle" ).change(function() {
 
-				$("#gradeContent").html('');
-				var circleId =  $("#circle").val();
-				var courseId =  $("#course").val();
-				var year = $("#year").val();
+	  			$(".pageDesc").css({"color": "#ff0000"});
 
-				if (courseId=='n') {
-					$(".pageDesc").html("בחר קורס");
-					$(".gradeContent").html("");
+	  			$(".pageDesc").html("בחר קורס");
+	  			$("#gradeContent").html('');
+	  			var circleId =  $("#circle").val();
+	  			var year= $("#year").val();
+	  			
+	  			if (this.value=='n') {
+
+	  				$(".pageDesc").html("בחר חוג");
+	  				$("#Type").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
+	  				$("#Type").attr("disabled", "disabled");
 		  			return false;
 	  			}
-				
-				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
-				$.ajax({
+	  			
+	  			var dataString = 'circleId='+ this.value;
+	  			$.ajax({
 	  				async: false,
 	  				type: "POST",
-	  				url: "/getStudentsInCourse",
+	  				url: "/UserType",
 	  				data: dataString,
 	  				success: function(ret){
 	  					// success
-
-  						$(".gradeContent").html(ret);
-  						$(".pageDesc").css({"color":"green"});
-  						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
-  						
-  				
-  						initSliders();
-
+	  					var res = ret.split(",");
+	  					
+	  				
+	  					var options = '<option value="n">בחר סוג משתמש</option>';
+	  					for (var i = 0; i < res.length; i++) {
+				  					// success
+									options += '<option value="' + res[i] + '">' + res[i] + '</option>';
+				  				}
+	  						$("#Type").html(options);
+  							$("#Type").removeAttr("disabled");
 	  				}
 	  			});
+	  	});
+	  	
+		$( "#Type" ).change(function() {
+			//<% if (isView==false) { %>
+
+				$("#gradeContent").html('');
+				
+			
+			
+				var type = $("#Type option:selected").text();
+				$('.addUser').show();
+	  		
+	  			$("#userType").val(type.trim());
+	  			
+	  			
 			//<% } %>
 		});
-  	});*/
+		
+  	});

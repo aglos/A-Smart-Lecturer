@@ -95,7 +95,7 @@ $(document).ready(function() {
 
 		var $UserName = $.trim($('#UserName').val());
 		var $UserId = $.trim($('#UserId').val());
-		var $UserType= $.trim($('#UserType').val());
+		var $UserType= $.trim($('#Type').val());
 		var $Userpass= $.trim($('#Userpass').val());
 		var $msg = $("#addUserMsg");
         
@@ -114,14 +114,7 @@ $(document).ready(function() {
 			$msg.html("שם חייב להיות מורכב מאותיות עבריות בלבד");
 			return false;
 		}
-		else if ($UserType!=="מנהל"&&$UserType!=="בודק"&&$UserType!=="מרצה"&&$UserType!=="סטודנט") {
-			$msg.html("סוג משתמש לא הוקלד בהתאם לאופציות");
-			return false;
-		}
-		
-
 	
-			
 		return true;
 	});
 	

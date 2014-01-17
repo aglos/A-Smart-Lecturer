@@ -129,7 +129,8 @@ public class Course
 		{
 		   	for (Student student: students_in_course)
 			{
-				student.user_courses.remove(this);
+		   		if (student!=null)
+		   			student.user_courses.remove(this);
 			}
 		}
 }

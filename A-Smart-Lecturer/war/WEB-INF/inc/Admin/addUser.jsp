@@ -34,23 +34,15 @@
 		<select name="circle" id="circle"
 			class="formField" disabled="disabled">
 			<option value="n" style="background-color: #CCCfff">בחר חוג</option>
-			<%
-			for (int i=0;i<circles.length;i++) { 
-				%>
-				<option id="<%=i%>" value="<%=i%>"><%=circles[i]%></option>
 		</select>
-			<%}%>
+			
 			
 					</select>&nbsp;&nbsp;&nbsp; סוג: &nbsp;&nbsp;&nbsp; 
 		<select name="Type" id="Type"
 			class="formField" disabled="disabled">
 			<option value="n" style="background-color: #CCCfff">בחר סוג משתמש </option>
-			<%
-			for (int i=0;i<usersType.length;i++) { 
-				%>
-				<option id="<%=i%>" value="<%=i%>"><%=usersType[i]%></option>
 		</select>
-			<%}%>
+		
 			
 		
 	
@@ -68,7 +60,7 @@
 		
 		UserName = request.getParameter("UserName").trim();
 		UserId = request.getParameter("UserId").trim();
-		UserType = request.getParameter("UserType").trim();
+		UserType = request.getParameter("userType").trim();
 		password = request.getParameter("Userpass").trim();
 
 		int user_id=0;
@@ -78,7 +70,8 @@
 		//user_type=static_db.jce.user_login(user_id, password);
 		//user_type=Integer.parseInt(UserType)
 		System.out.println("UserId:"+user_id+" UserName: "+UserName+" UserType: "+UserType+" password: "+password);
-		//User c= new User(user_id, UserName, password, user_type );
+		User c= new User(user_id, UserName, password, user_type );
+		//insert(c)
 		
 	} %>
 <!-- END FILTER -->

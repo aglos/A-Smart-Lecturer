@@ -143,7 +143,33 @@ public class Academy
                 return circles.get(circle_index).get_student_list_in_course(course_id);
         }
         
+        public String get_students_array_by_type(int user_type)
+        {
+        		String list="";
+        		for (User user:users)
+        		{
+        			if(user!=null&&user.user_type==user_type)
+        			{
+        				 list+=user.name + ",";
+        				
+        			}
+        		}
+        		return list;
+        }
         
+        public String get_students_array()
+        {
+        		String list="";
+        		for (User user:users)
+        		{
+        			if(user!=null)
+        			{
+        				 list+=user.name + ",";
+        				
+        			}
+        		}
+        		return list;
+        }
 
         private int get_circle_index_in_array(int circle_id) //return -1 if not found
         {        
@@ -450,11 +476,12 @@ public class Academy
         	
         	for(Circle circle: circles)
         	{
-        		if(circle.get_circle_id()==circle_id)
+        		if(circle!=null&&circle.get_circle_id()==circle_id)
         		{
         			
-        			circle.remove_all_courses();
-        			circles.remove(circle);
+        			//circle.remove_all_courses();
+        			if(circles!=null)
+        				circles.remove(circle);
         			break;
         		}
         	}
@@ -465,7 +492,7 @@ public class Academy
         {
         	for( Circle circle: circles)
         	{
-        		if(circle.get_circle_id()==circle_id)
+        		if(circle!=null&&circle.get_circle_id()==circle_id)
         		{
         			circle.remove_course_by_id(course_id);
         			break;	

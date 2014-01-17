@@ -15,14 +15,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 
 	
-	<servlet>
-		<servlet-name>addCircleJava</servlet-name>
-		<servlet-class>aglosh2014.appspot.com.addCircle</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>addCircleJava</servlet-name>
-		<url-pattern>/add_circle</url-pattern>
-	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>LoginJSP</servlet-name>
@@ -232,6 +224,18 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/getCircle</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>UserType</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/UserType.jsp</jsp-file>
+	</servlet>
+	
+	
+	<servlet-mapping>
+	    <servlet-name>UserType</servlet-name>
+	    <url-pattern>/UserType</url-pattern>
+	</servlet-mapping>
+	
+‬
 	<servlet>
 		<servlet-name>GetCirclesByUser</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getCirclesByUser.jsp</jsp-file>
