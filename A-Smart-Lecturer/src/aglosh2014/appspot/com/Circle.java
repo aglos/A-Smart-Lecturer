@@ -1,13 +1,20 @@
 package aglosh2014.appspot.com;
 
 import java.util.ArrayList;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Circle {
-
+	  	@PrimaryKey
         private int circle_id;
-        private int circle_year;
-        private String  circle_name;
-
+	    @Persistent
+	  	private int circle_year;
+	    @Persistent
+	    private String  circle_name;
+	    @Persistent
         public ArrayList<Course> courses;
 
         public Circle(int id , String name, int year)

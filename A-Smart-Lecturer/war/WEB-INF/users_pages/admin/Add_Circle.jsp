@@ -55,7 +55,7 @@
         <%@ include file="../../inc/Admin/addCircle.jsp" %>
         <script type="text/javascript" src="../../../script/addCircle.js"></script>
   	
-        <form id="addCircleForm" action="" method="post" name="addCircleForm">               
+        <form id="addCircleForm" action="addCircleJava" method="post" name="addCircleForm">               
  			<div class="addCicle">
 
 					<div class="loginBoxHeader"><b>הוספת חוג</b></div>
