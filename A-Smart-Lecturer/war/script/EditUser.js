@@ -1,114 +1,54 @@
 $(document).ready(function() {
-		$(".addUser").hide();
-		$(".pageDesc").html("בחר שנה");
-		$(".pageDesc").css({"color": "#ff0000"});
-		 
-  		$( "#year" ).change(function() {
+		$(".delUser").hide();
+		$("#checkers").hide();
+		$("#lecturers").hide();
+  		$( "#type" ).change(function() {
   			
-  			$(".pageDesc").html("בחר חוג");
-  			$(".pageDesc").css({"color": "#ff0000"});
   			$("#gradeContent").html('');
-
-  			if (this.value==='n') {
-
-  				$(".pageDesc").html("בחר שנה");
-  				
-  				$("#circle").html('<option value="0" style="background-color: #CCCfff">בחר חוג</option>');
-  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-  				$("#student").html('<option value="0" style="background-color: #CCCfff">בחר סטודנט</option>');
-  				$("#course").attr("disabled", "disabled");
-  				$("#circle").attr("disabled", "disabled");
-  				$("#student").attr("disabled", "disabled");
-	  			return false;
-  			}
+  		
+			var type = $("#type option:selected").text();
+  			$("#Type").val(type.trim());
+  			if(type.trim()=="מרצה")
+  			{
+  				$("#lecturers").show();
+  				$("#students").hide();
+  				$("#checkers").hide();
+  				$("#lecturers").removeAttr("disabled");
   			
-  			//ajax
-  			var dataString = 'year='+ this.value;
-  			$.ajax({
-  				async: false,
-  				type: "POST",
-  				url: "/getCircle",
-  				data: dataString,
-  				success: function(ret){
-  					// success
-  					
-  					var res = ret.split(","); //res[i]=name, res[i+1]=id
-
-  					var options = '<option value="n">בחר חוג</option>';
-  					
-  					//disable courses options
-  					$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-  					$("#course").attr("disabled", "disabled");
-
-  					
-  					for (var i = 0; i < res.length; i+=2) {
-				  		// success
-						options += '<option value="' + res[i+1] + '">' + res[i] + '</option>';
-						}
-						$("#circle").html(options);
-						$("#circle").removeAttr("disabled");
-  				}
-  			});
-  	});
-  	  	
-	  	$( "#circle" ).change(function() {
-
-	  			$(".pageDesc").css({"color": "#ff0000"});
-
-	  			
-	  			$("#gradeContent").html('');
-	  			var circleId =  $("#circle").val();
-	  			var year= $("#year").val();
-	  			
-	  			if (this.value=='n') {
-
-	  				$(".pageDesc").html("בחר חוג");
-	  				$("#course").html('<option value="0" style="background-color: #CCCfff">בחר קורס</option>');
-	  				$("#course").attr("disabled", "disabled");
-		  			return false;
-	  			}
-	  			
-	  			var dataString = 'circleId='+ this.value;
-	  			$.ajax({
-	  				async: false,
-	  				type: "POST",
-	  				url: "/WEB-INF/dynamic/getStudentsInCourse.jsp‬",
-	  				data: dataString,
-	  				success: function(ret){
-	  					// success
-	  					var res = ret.split(",");
-	  					
-	  					if(res.length === 1) //if no courses in circle
-	  						{
-	  						$("#course").html('<option value="0" style="background-color: #CCCfff">אין סטודנטים בחוג</option>');
-	  							$("#course").attr("disabled", "disabled");
-	  							return false;
-	  						}
-	  					
-	  					var options = '<option value="n">בחר סטודנט</option>';
-	  					for (var i = 0; i < res.length; i++ {
-				  					// success
-									options += '<option value="' + res[i+1] + '">' + res[i] + '</option>';
-				  				}
-	  						$("#course").html(options);
-  							$("#course").removeAttr("disabled");
-	  				}
-	  			});
-	  	});
-	  	
-		$( "#course" ).change(function() {
-			//<% if (isView==false) { %>
-
-				$("#gradeContent").html('');
-				var Name= $("#circle option:selected").text();
-				var circleId =  $("#circle").val();
-				var courseId =  $("#course").val();
-				var year = $("#year").val();
-	  			$('.addUser').show();
-	  			
-	  			
-		
-	  			
-			//<% } %>
-		});
-  	});
+  			}
+  			else if(type.trim()=="בודק")
+  			{
+  				$("#checkers").show();
+  				$("#students").hide();
+  				$("#lecturers").hide();
+  				$("#checkers").removeAttr("disabled");
+  				
+  			}
+  			else if(type.trim()=="סטודנט")
+  			{
+  				$("#students").show();
+  				$("#lecturers").hide();
+  				$("#checkers").hide();
+  				$("#students").removeAttr("disabled");
+  				
+  			}
+  	
+  			$( "#checkers" ).change(function() {
+	  				$('.delUser').show();
+	  				var checkerId =  $("#checkers").val();
+	  				$("#UserId").val(checkerId);
+	  		});
+  			$( "#students" ).change(function() {
+	  				$('.delUser').show();
+	  				var studentId =  $("#students").val();
+	  				$("#UserId").val(studentId);
+	  		});
+  			$( "#lecturers" ).change(function() {
+	  				$('.delUser').show();
+	  				var lecturerId =  $("#lecturers").val();
+	  				$("#UserId").val(lecturerId);
+	  		});
+  		
+  			
+  		});
+});

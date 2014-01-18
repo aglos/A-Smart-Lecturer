@@ -1,4 +1,9 @@
+<%@page import="aglosh2014.appspot.com.Lecturer"%>
 <%@page import="aglosh2014.appspot.com.Course"%>
+<%@page import="aglosh2014.appspot.com.Circle"%>
+<%@page import="aglosh2014.appspot.com.Checker"%>
+<%@page import="aglosh2014.appspot.com.Student"%>
+<%@page import="aglosh2014.appspot.com.Academy"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -7,11 +12,16 @@
 <%
 	static_db db = new static_db();
 
-	String name=db.jce.get_students_array(); //get years
+	
+	String student=db.jce.get_users_names_and_id_by_type(1); 
+	String lecturer=db.jce.get_users_names_and_id_by_type(2); 
+	String checker=db.jce.get_users_names_and_id_by_type(3); 
+
 	String	usersTypes=  "בודק, מרצה , סטודנט";
 	String[] types=usersTypes.split(",");
-	//int lecturerNames[]=db.jce.g
-	String[] names =name.split(",");
+	String[] students =student.split(",");
+	String[] checkers =checker.split(",");
+	String[] lecturers =lecturer.split(",");
 %>
 
 <!-- START FILTER -->
@@ -30,45 +40,60 @@
 
 			
 		</select>&nbsp;&nbsp;&nbsp; שם משתמש: &nbsp;&nbsp;&nbsp; 
-		<select name="name" id="name"
+		<select name="students" id="students"
 			class="formField" disabled="disabled">
 			<option value="n" style="background-color: #CCCfff">בחר שם</option>
 					<%
 				
-			if(names!=null) //must login first!
-				for (int i=0;i<names.length;i++) { %>
-					<option value="<%=names[i]%>"><%=names[i]%></option>
+			if(students!=null) //must login first!
+				for (int i=0;i<students.length-1;i=i+2) { %>
+					<option value="<%=students[i+1]%>"><%=students[i]%></option>
 				<%}%>
 		</select>
 		
 			
-		
+		<select style="visibility: " name="checkers" id="checkers"
+			class="formField" disabled="disabled">
+			<option value="n" style="background-color: #CCCfff">בחר שם</option>
+					<%
+				
+			if(checkers!=null) //must login first!
+				for (int i=0;i<checkers.length-1;i=i+2) { %>
+					<option value="<%=checkers[i+1]%>"><%=checkers[i]%></option>
+				<%}%>
+		</select>
+			
+		<select style="visibility: " name="lecturers" id="lecturers"
+			class="formField" disabled="disabled">
+			<option value="n" style="background-color: #CCCfff">בחר שם</option>
+					<%
+				
+			if(lecturers!=null) //must login first!
+				for (int i=0;i<lecturers.length-1;i=i+2) { %>
+					<option value="<%=lecturers[i+1]%>"><%=lecturers[i]%></option>
+				<%}%>
+		</select>
 	
 	</h3>
 </div>
 <br />
 <hr  id=filterline />
 <br />
-<%	String CourseName="";
-	String CourseNum="";
-	String CheckerName="";
-	String LecturerName="";
-	String CircleId="";
+<%	
+	String userId="";
 	
-	if (request.getParameter("courseName")!=null) { 
+	
+	if (request.getParameter("UserId")!=null) { 
 		
-		CourseName = request.getParameter("courseName").trim();
-		CourseNum = request.getParameter("courseId").trim();
-		LecturerName = request.getParameter("courseLecturerName").trim();
-		CheckerName = request.getParameter("courseCheckerName").trim();
-		//static_db db=new static_db();
-	//	static_db.db_init();
+		userId = request.getParameter("UserId").trim();
+	
+	
 
 		int course_id=0;
-		int circle_id=0;
-		course_id=Integer.parseInt(CourseNum);
+
+		course_id=Integer.parseInt(userId);
 		//circle_id=Integer.parseInt(CircleId);
-		System.out.println("courseId:"+course_id+" courseId: "+circle_id+" courseName: "+CourseName+" checkeName: "+CheckerName+" lecturerName: "+LecturerName);
+		System.out.println("courseId:"+course_id);
 		
 		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
 		//Course c= new Course();

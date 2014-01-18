@@ -156,7 +156,19 @@ public class Academy
         		}
         		return list;
         }
-        
+        public String get_users_names_and_id_by_type(int user_type)
+        {
+        		String list="";
+        		for (User user:users)
+        		{
+        			if(user!=null&&user.user_type==user_type)
+        			{
+        				 list+=user.name + ","+user.user_id+",";
+        				
+        			}
+        		}
+        		return list;
+        }
         public String get_students_array()
         {
         		String list="";
