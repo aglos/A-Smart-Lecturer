@@ -6,7 +6,29 @@
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@page import="aglosh2014.appspot.com.StatisticsFunctionsClass"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%if(session.getAttribute("user")== null || session.getAttribute("type")==null) {
+	response.sendRedirect("/Login");
+} 
 
+int usertype = Integer.parseInt(session.getAttribute("type").toString());
+String url = "";
+
+switch (usertype) {
+case 1:	url="/Student";
+		break;
+case 2:	url="/Lecturer";
+		break;
+case 3:	url="/Checker";
+		break;
+case 4:	url="/Admin";
+		break;
+}
+if (usertype!=2) {
+	
+	
+	response.sendRedirect(url);
+}
+%>
 <%
 	static_db studentdb = new static_db();
 	static_db.db_init();
@@ -158,7 +180,31 @@
                             
                              <!--Div that will hold the pie chart-->
                              <div align="center" style="width:800px">
-                             	<div id="chart_div" style="height: 500px;"></div>
+                             	<div id="chart_div" style="height: auto"></div>
+	                             <div align="right" style="width: 300px;float: right;margin-right: 150px;line-height: 45px">
+	                             	<div><font style="font-weight: 700">ממוצע כיתתי:</font>	<%=Math.floor(s.getAvg(a) * 100) / 100%></div>
+	                             	<div><font style="font-weight: 700">ציון מקסימלי:</font>	<%=s.getMax(a)%></div>
+	                             	<div><font style="font-weight: 700">ציון מינימלי:</font>	<%=s.getMin(a)%></div>
+	                             	<div><font style="font-weight: 700">סטיית תקן:</font>	<%=Math.floor(s.StandardDeviation(a) * 100) / 100%></div>
+
+	                             </div>
+	                             
+	                             <div style="float: right;width: 300px">
+	                             	<table border="1" style="width:400px">
+	                             		<tr>
+	                             			<th>תחום ציונים</th>
+	                             			<th>% סטודנטים</th>
+	                             		</tr>
+	                             		<% for (int i=0;i<d.length;i++) { %>
+	                             		<tr>
+	                             			<td><%=i*10%>-<%=(i+1)*10%></td>
+	                             			<td><%=Math.floor(d[i] * 100) / 100%></td>
+	                             		</tr>
+	                             		<% } %>
+	                             	</table>
+	                             
+	                             </div>
+                      
                              </div>
                         </div>
                         
@@ -177,7 +223,11 @@
     <script type="text/javascript" src="../script/jquery.easing.1.3.js.js"></script>
   	<script type="text/javascript" src="../script/jquery-ui.js"></script>
   	
-  	
+  	<script>
+
+	 $("#home").attr("href", "<%=url%>");
+
+	</script>
   	
 </body>
 </html>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
 	<servlet>
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<servlet-class>aglosh2014.appspot.com.A_smart_lecturerServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>A_smart_lecturer</servlet-name>
 		<url-pattern>/a_smart_lecturer</url-pattern>
@@ -18,272 +18,294 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>LoginJSP</servlet-name>
 		<jsp-file>/WEB-INF/login.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>LoginJSP</servlet-name>
-	    <url-pattern>/Login</url-pattern>
+		<servlet-name>LoginJSP</servlet-name>
+		<url-pattern>/Login</url-pattern>
 	</servlet-mapping>
 
-	
+
 	<servlet>
 		<servlet-name>LecturerIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_lecturer.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>LecturerIndex</servlet-name>
-	    <url-pattern>/Lecturer</url-pattern>
+		<servlet-name>LecturerIndex</servlet-name>
+		<url-pattern>/Lecturer</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>LecturerStatistics</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/lecturer/statics.jsp</jsp-file>
 	</servlet>
-		<servlet-mapping>
-	    <servlet-name>LecturerStatistics</servlet-name>
-	    <url-pattern>/Lecturer/Show/*</url-pattern>
+	<servlet-mapping>
+		<servlet-name>LecturerStatistics</servlet-name>
+		<url-pattern>/Lecturer/Show/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>StudentIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_student.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>StudentIndex</servlet-name>
-	    <url-pattern>/Student</url-pattern>
+		<servlet-name>StudentIndex</servlet-name>
+		<url-pattern>/Student</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ExitSession</servlet-name>
 		<jsp-file>/WEB-INF/inc/exitSession.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>ExitSession</servlet-name>
-	    <url-pattern>/ExitSession</url-pattern>
+		<servlet-name>ExitSession</servlet-name>
+		<url-pattern>/ExitSession</url-pattern>
 	</servlet-mapping>
-		
+
 	<servlet>
 		<servlet-name>CheckerIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_checker.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>CheckerIndex</servlet-name>
-	    <url-pattern>/Checker</url-pattern>
+		<servlet-name>CheckerIndex</servlet-name>
+		<url-pattern>/Checker</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>AddExecrise</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/lecturer/add_execrise.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>AddExecrise</servlet-name>
-	    <url-pattern>/Lecturer/Add</url-pattern>
+		<servlet-name>AddExecrise</servlet-name>
+		<url-pattern>/Lecturer/Add</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ViewGrades</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>ViewGrades</servlet-name>
-	    <url-pattern>/Checker/Show/*</url-pattern>
+		<servlet-name>ViewGrades</servlet-name>
+		<url-pattern>/Checker/Show/*</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EditGrades</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/checker/saveEditgrades.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EditGrades</servlet-name>
+		<url-pattern>/Checker/Update/*</url-pattern>
+	</servlet-mapping>
+
+	
+	<servlet-mapping>
+		<servlet-name>AddGrades</servlet-name>
+		<url-pattern>/Checker/Create/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddGrades</servlet-name>
+		<jsp-file>/WEB-INF/users_pages/checker/saveNewgrades.jsp</jsp-file>
+	</servlet>
+	
 	
 	<servlet>
 		<servlet-name>InsertGrades</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/checker/grades.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>InsertGrades</servlet-name>
-	    <url-pattern>/Checker/Insert/*</url-pattern>
+		<servlet-name>InsertGrades</servlet-name>
+		<url-pattern>/Checker/Insert/*</url-pattern>
 	</servlet-mapping>
-	
+
 
 	<servlet>
 		<servlet-name>ViewResults</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/checker/results.jsp</jsp-file>
 	</servlet>
-	
-	<servlet-mapping>
-	    <servlet-name>ViewResults</servlet-name>
-	    <url-pattern>/Checker/Results</url-pattern>
-	</servlet-mapping>
-	
 
-	
+	<servlet-mapping>
+		<servlet-name>ViewResults</servlet-name>
+		<url-pattern>/Checker/Results</url-pattern>
+	</servlet-mapping>
+
+
+
 	<servlet>
 		<servlet-name>AdminIndex</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/index_admin.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>AdminIndex</servlet-name>
-	    <url-pattern>/Admin</url-pattern>
+		<servlet-name>AdminIndex</servlet-name>
+		<url-pattern>/Admin</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AddUser</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/admin/Add_user.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>AddUser</servlet-name>
-	    <url-pattern>/Admin/addUser</url-pattern>
+		<servlet-name>AddUser</servlet-name>
+		<url-pattern>/Admin/addUser</url-pattern>
 	</servlet-mapping>
-		
+
 	<servlet>
 		<servlet-name>DelUser</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/admin/del_user.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>DelUser</servlet-name>
-	    <url-pattern>/Admin/delUser</url-pattern>
+		<servlet-name>DelUser</servlet-name>
+		<url-pattern>/Admin/delUser</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AddCourse</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/admin/Add_course.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>AddCourse</servlet-name>
-	    <url-pattern>/Admin/addCourse</url-pattern>
+		<servlet-name>AddCourse</servlet-name>
+		<url-pattern>/Admin/addCourse</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>DelCourse</servlet-name>
 		<jsp-file>\WEB-INF\users_pages\admin\del_Course.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>DelCourse</servlet-name>
-	    <url-pattern>/Admin/delCourse</url-pattern>
+		<servlet-name>DelCourse</servlet-name>
+		<url-pattern>/Admin/delCourse</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>DelCircle</servlet-name>
 		<jsp-file>\WEB-INF\users_pages\admin\del_Circle.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>DelCircle</servlet-name>
-	    <url-pattern>/Admin/delCircle</url-pattern>
+		<servlet-name>DelCircle</servlet-name>
+		<url-pattern>/Admin/delCircle</url-pattern>
 	</servlet-mapping>
-	
-		
+
+
 	<servlet>
 		<servlet-name>AddCircle</servlet-name>
 		<jsp-file>\WEB-INF\users_pages\admin\Add_Circle.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>AddCircle</servlet-name>
-	    <url-pattern>/Admin/AddCircle</url-pattern>
+		<servlet-name>AddCircle</servlet-name>
+		<url-pattern>/Admin/AddCircle</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>EditCourse</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/admin/Edit_Course.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>EditCourse</servlet-name>
-	    <url-pattern>/Admin/EditCourse</url-pattern>
-	 </servlet-mapping>
-	
+		<servlet-name>EditCourse</servlet-name>
+		<url-pattern>/Admin/EditCourse</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>EditCircle</servlet-name>
 		<jsp-file>/WEB-INF/users_pages/admin/Edit_Circle.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>EditCircle</servlet-name>
-	    <url-pattern>/Admin/EditCircle</url-pattern>
+		<servlet-name>EditCircle</servlet-name>
+		<url-pattern>/Admin/EditCircle</url-pattern>
 	</servlet-mapping>
-		
+
 	<servlet>
 		<servlet-name>EditUser</servlet-name>
 		<jsp-file>\WEB-INF\users_pages\admin\Edit_User.jsp</jsp-file>
 	</servlet>
-	 
+
 	<servlet-mapping>
-	    <servlet-name>EditUser</servlet-name>
-	    <url-pattern>/Admin/EditUser</url-pattern>
+		<servlet-name>EditUser</servlet-name>
+		<url-pattern>/Admin/EditUser</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetCircles</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getCircles.jsp</jsp-file>
 	</servlet>
-	
-	
+
+
 	<servlet-mapping>
-	    <servlet-name>GetCircles</servlet-name>
-	    <url-pattern>/getCircle</url-pattern>
+		<servlet-name>GetCircles</servlet-name>
+		<url-pattern>/getCircle</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetCirclesByUser</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getCirclesByUser.jsp</jsp-file>
 	</servlet>
-	
+
 	<servlet-mapping>
-	    <servlet-name>GetCirclesByUser</servlet-name>
-	    <url-pattern>/getCircleByUser</url-pattern>
+		<servlet-name>GetCirclesByUser</servlet-name>
+		<url-pattern>/getCircleByUser</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetCourses</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getCourses.jsp</jsp-file>
 	</servlet>
-	
+
 	<servlet-mapping>
-	    <servlet-name>GetCourses</servlet-name>
-	    <url-pattern>/getCourse</url-pattern>
+		<servlet-name>GetCourses</servlet-name>
+		<url-pattern>/getCourse</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetCoursesByUser</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getCoursesByUser.jsp</jsp-file>
 	</servlet>
-	
+
 	<servlet-mapping>
-	    <servlet-name>GetCoursesByUser</servlet-name>
-	    <url-pattern>/getCourseByUser</url-pattern>
+		<servlet-name>GetCoursesByUser</servlet-name>
+		<url-pattern>/getCourseByUser</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>getStudentsInCourse</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/getStudentsInCourse.jsp</jsp-file>
 	</servlet>
-	
+
 	<servlet-mapping>
-	    <servlet-name>getStudentsInCourse</servlet-name>
-	    <url-pattern>/getStudentsInCourse</url-pattern>
+		<servlet-name>getStudentsInCourse</servlet-name>
+		<url-pattern>/getStudentsInCourse</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>updateStudentTable</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/updateStudentTable.jsp</jsp-file>
 	</servlet>
-	
+
 	<servlet-mapping>
-	    <servlet-name>updateStudentTable</servlet-name>
-	    <url-pattern>/updateStudentTable</url-pattern>
+		<servlet-name>updateStudentTable</servlet-name>
+		<url-pattern>/updateStudentTable</url-pattern>
 	</servlet-mapping>
-	
-		<servlet>
+
+	<servlet>
 		<servlet-name>UserType</servlet-name>
 		<jsp-file>/WEB-INF/dynamic/UserType.jsp</jsp-file>
 	</servlet>
-	
-	
+
+
 	<servlet-mapping>
-	    <servlet-name>UserType</servlet-name>
-	    <url-pattern>/UserType</url-pattern>
+		<servlet-name>UserType</servlet-name>
+		<url-pattern>/UserType</url-pattern>
 	</servlet-mapping>
-	
+
 	<welcome-file-list>
 		<welcome-file>Login</welcome-file>
 	</welcome-file-list>

@@ -1,9 +1,29 @@
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@page import="aglosh2014.appspot.com.StatisticsFunctionsClass"%>
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%if(session.getAttribute("user")== null || session.getAttribute("type")==null) {
+	response.sendRedirect("/Login");
+} 
 
+int usertype = Integer.parseInt(session.getAttribute("type").toString());
+String url = "";
+
+switch (usertype) {
+case 1:	url="/Student";
+		break;
+case 2:	url="/Lecturer";
+		break;
+case 3:	url="/Checker";
+		break;
+case 4:	url="/Admin";
+		break;
+}
+if (usertype!=3) {
+	
+	
+	response.sendRedirect(url);
+}
+%>
 <% 
 	int count = 0;
 	if (request.getParameter("count")!=null) {
@@ -119,9 +139,13 @@
     
     
 	</div>
-    </div>
     
     <script type="text/javascript" src="../script/jquery.easing.1.3.js.js"></script>
   	<script type="text/javascript" src="../script/jquery-ui.js"></script>
+  		<script>
+
+
+	 $("#home").attr("href", "<%=url%>");
+	</script>
 </body>
 </html>

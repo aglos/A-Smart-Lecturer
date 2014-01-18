@@ -1,7 +1,29 @@
 <%@page import="aglosh2014.appspot.com.Exercise"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%if(session.getAttribute("user")== null || session.getAttribute("type")==null) {
+	response.sendRedirect("/Login");
+} 
 
+int usertype = Integer.parseInt(session.getAttribute("type").toString());
+String url = "";
+
+switch (usertype) {
+case 1:	url="/Student";
+		break;
+case 2:	url="/Lecturer";
+		break;
+case 3:	url="/Checker";
+		break;
+case 4:	url="/Admin";
+		break;
+}
+if (usertype!=2) {
+	
+	
+	response.sendRedirect(url);
+}
+%>
 
 <%
 	boolean isAdded=false;
@@ -164,7 +186,11 @@
 	
 
   	</script>
+	<script>
 
+
+	 $("#home").attr("href", "<%=url%>");
+	</script>
 	
 </body>
 </html>

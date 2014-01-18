@@ -7,6 +7,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%if(session.getAttribute("user")== null || session.getAttribute("type")==null) {
+	response.sendRedirect("/Login");
+} 
+
+int usertype = Integer.parseInt(session.getAttribute("type").toString());
+String url = "";
+if (usertype!=1) {
+	
+	switch (usertype) {
+	case 1:	url="/Student";
+			break;
+	case 2:	url="/Lecturer";
+			break;
+	case 3:	url="/Checker";
+			break;
+	case 4:	url="/Admin";
+			break;
+	}
+	response.sendRedirect(url);
+}
+%>
+
 <%
 
 static_db studentdb = new static_db();
@@ -218,7 +240,6 @@ Circle[] cs = a.get_circles_in_academy();
 		<div id="warp">
 
 
-
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 10px;">
 				<%@ include file="/WEB-INF/inc/ExecriseFillterByUser.jsp"%>
@@ -243,6 +264,8 @@ Circle[] cs = a.get_circles_in_academy();
 		makeAjaxCall(this.value);
 	});
 
+	 $("#home").attr("href", "<%=url%>");
+	 $('#home').hide();
 	</script>
 
 </body>

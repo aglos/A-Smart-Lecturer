@@ -34,7 +34,7 @@
 
 </div>
 
-<div class="header_fade"></div>
+<div class="header_fade" align="left"><%if(session.getAttribute("user")!=null){%><a href="#" style="font-size: 14px" id="home">חזרה לעמוד ראשי</a><%}%></div>
 
 <script type="text/javascript">
 	$(document).ready(function() {

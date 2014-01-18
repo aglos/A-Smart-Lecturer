@@ -6,6 +6,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%if(session.getAttribute("user")== null || session.getAttribute("type")==null) {
+	response.sendRedirect("/Login");
+} 
+
+int usertype = Integer.parseInt(session.getAttribute("type").toString());
+String url = "";
+if (usertype!=2) {
+	
+	switch (usertype) {
+	case 1:	url="/Student";
+			break;
+	case 2:	url="/Lecturer";
+			break;
+	case 3:	url="/Checker";
+			break;
+	case 4:	url="/Admin";
+			break;
+	}
+	response.sendRedirect(url);
+}
+%>
 <%
 
 static_db studentdb = new static_db();
@@ -37,11 +58,11 @@ Circle[] cs = a.get_circles_in_academy();
 <script type="text/javascript" src="../script/jquery-ui.js"></script>
 <script type="text/javascript" src="../script/clock.js"></script>
 
- <script type="text/javascript" src="//www.google.com/jsapi"></script>
-    <script type="text/javascript">
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type="text/javascript">
       google.load('visualization', '1', {packages: ['table']});
     </script>
-    <script type="text/javascript">
+<script type="text/javascript">
 	    var visualization;
 	    var data;
 	
@@ -78,11 +99,10 @@ Circle[] cs = a.get_circles_in_academy();
                       		if (e.length>0) {%>
                       		{c:[{v:''},{v:'<div class="total_row">סטטיסטיקה כיתית</div>'},{v:'<%=e.length%> מתוך <%=checked_count%> תרגילים'},{v:'<div class="total_row">סה"כ <%=checked_count * cr[j].get_students_in_course().length%> תרגילים שנבדקו</div>'},{v:''},
                       		  {v:'<a href="/Lecturer/Show/?exId=total&circleId=<%=cs[i].get_circle_id()%>&courseId=<%=cr[j].get_course_id()%>&year=<%=cs[i].get_circle_year()%>">צפייה</a>'}]},
-                      		<% } %>
-                      <%
-                      }
-                      	
-                      } %>
+                      		<%}%>
+                      <%}
+
+			}%>
 	      ]};
 	      data = new google.visualization.DataTable(dataAsJson);
 	    
@@ -163,9 +183,9 @@ Circle[] cs = a.get_circles_in_academy();
 			<div class="mainContent"
 				style="width: 971px; float: right; padding: 10px;">
 				<div align="left">
-                	<a href="#"><img src="images/search.jpg" width="20" height="20" alt="" /></a>
-                	<a href="Lecturer/Add"><img src="images/plus.jpg" width="20" height="20" alt="" /></a>
-                </div>
+					<a href="Lecturer/Add"><img src="images/plus.jpg" width="20"
+						height="20" alt="" /></a>
+				</div>
 				<div id='table'></div>
 			</div>
 
@@ -180,6 +200,10 @@ Circle[] cs = a.get_circles_in_academy();
 
 	</div>
 
+	<script>
 
+	 $("#home").attr("href", "<%=url%>");
+	 $('#home').hide();
+	</script>
 </body>
 </html>
