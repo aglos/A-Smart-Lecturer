@@ -36,16 +36,17 @@ $(document).ready(function() {
   			$( "#checkers" ).change(function() {
 	  				$('.delUser').show();
 	  				var checkerId =  $("#checkers").val();
-	  			
-		  			$("#UserId").val(checkerId);
+	  				$("#UserId").val(checkerId);
 	  		});
   			$( "#students" ).change(function() {
 	  				$('.delUser').show();
-	  			
+	  				var studentId =  $("#students").val();
+	  				$("#UserId").val(studentId);
 	  		});
   			$( "#lecturers" ).change(function() {
 	  				$('.delUser').show();
-	  			
+	  				var lecturerId =  $("#lecturers").val();
+	  				$("#UserId").val(lecturerId);
 	  		});
   		
   			
