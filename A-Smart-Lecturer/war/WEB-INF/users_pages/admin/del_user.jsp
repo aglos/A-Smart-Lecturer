@@ -50,7 +50,8 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
-                                   
+        <script type="text/javascript" src="../../../script/delUser.js"></script>    
+          <%@ include file="../../inc/Admin/delUser.jsp" %>       
         <form id="delUserForm" action="" method="post" name="delUserForm">           
  		<div class="delUser">
 
@@ -61,7 +62,8 @@
 					<div class="fieldTitle"><b>הקש תעודת זהות</b></div>
 					<input type="text" autocomplete="off" name="UserId" dir="rtl"
 						id="UserId" class="formField" />
-
+					<input type="hidden" autocomplete="off" name="Type" dir="rtl"
+						id="Type" class="formField" />	
 					<div style="clear: both"></div>
 					
 					

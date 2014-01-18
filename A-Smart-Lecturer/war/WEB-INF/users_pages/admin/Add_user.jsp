@@ -68,16 +68,14 @@
 						id="UserId" class="formField" />
 
 					<div style="clear: both"></div>
-					
-							
-					<div class="fieldTitle"><b>מנהל/מרצה/בודק/סטודנט</b></div>
-					<input type="text" autocomplete="off" name="UserType" dir="rtl"
-						id="UserType" class="formField" />
+		
+					<input type="hidden" autocomplete="off" name="userType" dir="rtl"
+						id="userType" class="formField" />
 
 					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>סיסמה</b></div>
-					<input type="password" autocomplete="off" name="pass" id="Userpass" dir="ltr"
+					<input type="password" autocomplete="off" name="Userpass" id="Userpass" dir="rtl"
 						 class="formField" />
 
 					<div style="clear: both"></div>

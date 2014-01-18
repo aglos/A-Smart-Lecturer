@@ -80,23 +80,21 @@
 <hr  id=filterline />
 <br />
 <%	
-	String userName="";
+	String user_id="";
 	
 	
-	if (request.getParameter("EditUserName")!=null) { 
+	if (request.getParameter("UserId")!=null) { 
 		
-		userName = request.getParameter("EditUserName").trim();
-		
+		user_id = request.getParameter("UserId").trim();
+	
 	
 
-		int course_id=0;
+		int user_Id=0;
+
+		user_Id=Integer.parseInt(user_id);
 		
-		course_id=Integer.parseInt(userName);
-		//circle_id=Integer.parseInt(CircleId);
-		System.out.println("courseId:"+course_id);
+		System.out.println("userId:"+user_Id);
 		
-		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
-		//Course c= new Course();
-		
+		static_db.jce.remove_user_by_id(user_Id);
 	} %>
 <!-- END FILTER -->

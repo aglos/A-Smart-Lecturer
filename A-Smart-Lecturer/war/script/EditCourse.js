@@ -98,11 +98,12 @@ $(document).ready(function() {
 			//<% if (isView==false) { %>
 
 				$("#gradeContent").html('');
-				var Name= $("#circle option:selected").text();
+				var Name= $("#course option:selected").text();
 				var circleId =  $("#circle").val();
 				var courseId =  $("#course").val();
 				var year = $("#year").val();
 	  			$('.addUser').show();
+	  			
 	  			$("#courseId").val(courseId);
 	  			$("#courseName").val(Name.trim());
 	  			
@@ -110,4 +111,5 @@ $(document).ready(function() {
 	  			
 			//<% } %>
 		});
+		
   	});

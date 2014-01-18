@@ -32,7 +32,7 @@ $(document).ready(function() {
 		}
 		else if($CircleYear.length !== 4)
 		{
-			$msg.html("אורך השנה צריך להיות לפחות 4 ספרות בלבד");
+			$msg.html("אורך השנה צריך להיות בדיוק  4 ספרות בלבד");
 			return false;
 		}
 		
@@ -40,6 +40,7 @@ $(document).ready(function() {
 		return true;
 	});
 	
+
 	
 	
 	
@@ -57,8 +58,9 @@ $(document).ready(function() {
 		var $msg = $("#addCourseMsg");
         
 		if($CourseName === '' || $CourseNum ===''||$lecturerName===''||$CheckerName==='' )
-		{
-				$msg.html("אנא מלא את כל השדות");
+		{		
+				
+				$msg.html("אנא מלא את כל השדות").css("font-size", "60 px");
 				return false;
 		}
 		else if(isNaN($CourseNum))
@@ -67,12 +69,12 @@ $(document).ready(function() {
 			return false;
 		}
 		
-		else if (!$CheckerName.match(/^[א-ת\s]*$/)) {
-			$msg.html("שם בודק חייב להיות מורכב מאותיות עבריות בלבד");
+		else if (isNaN($CheckerName)) {
+			$msg.html("תעודת הזהות של הבודק אינה תקינה");
 			return false;
 		}
-		else if (!$lecturerName.match(/^[א-ת\s]*$/)) {
-			$msg.html("שם מרצה חייב להיות מורכב מאותיות עבריות בלבד");
+		else if (isNaN($lecturerName)) {
+			$msg.html("תעודת הזהות של המרצה אינה תקינה");
 			return false;
 		}
 		
@@ -89,9 +91,11 @@ $(document).ready(function() {
 	$('#addUserForm').fadeIn('slow');
 	
 	$('#addUserForm').submit(function() {
+   		
+
 		var $UserName = $.trim($('#UserName').val());
 		var $UserId = $.trim($('#UserId').val());
-		var $UserType= $.trim($('#UserType').val());
+		var $UserType= $.trim($('#Type').val());
 		var $Userpass= $.trim($('#Userpass').val());
 		var $msg = $("#addUserMsg");
         
@@ -100,6 +104,7 @@ $(document).ready(function() {
 				$msg.html("אנא מלא את כל השדות");
 				return false;
 		}
+		
 		else if(isNaN($UserId))
 		{
 			$msg.html("מספר תעודת זהות יכול להכיל מספרים בלבד");
@@ -110,11 +115,7 @@ $(document).ready(function() {
 			$msg.html("שם חייב להיות מורכב מאותיות עבריות בלבד");
 			return false;
 		}
-		else if ($UserType!=="מנהל"&&$UserType!=="בודק"&&$UserType!=="מרצה"&&$UserType!=="סטודנט") {
-			$msg.html("סוג משתמש לא הוקלד בהתאם לאופציות");
-			return false;
-		}
-					
+	
 		return true;
 	});
 	
@@ -153,7 +154,7 @@ $(document).ready(function() {
 	
 	$('#delCourseForm').submit(function() {
 		
-		var $CourseId = $.trim($('#CourseId').val());
+		var $CourseId = $.trim($('#delCourseId').val());
 		
 		var $msg = $("#delCourseMsg");
         
@@ -180,7 +181,7 @@ $(document).ready(function() {
 	
 	$('#delCircleForm').submit(function() {
 		
-		var $CircleId = $.trim($('#CircleId').val());
+		var $CircleId = $.trim($('#delCircle').val());
 		
 		var $msg = $("#delCircleMsg");
         

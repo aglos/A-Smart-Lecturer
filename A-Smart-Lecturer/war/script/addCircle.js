@@ -19,6 +19,8 @@ $(document).ready(function() {
   				$("#circle").attr("disabled", "disabled");
 	  			return false;
   			}
+  			var year =  $("#year").val();
+  			$("#CircleYear").val(year);
   		});
 	});
 

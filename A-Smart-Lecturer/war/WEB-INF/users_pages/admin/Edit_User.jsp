@@ -50,37 +50,23 @@
             <script type="text/javascript" src="../../../script/EditUser.js"></script>
   		    <%@ include file="../../inc/Admin/EditUser.jsp" %>
          
-  		    <div class="addUser">
+  		    <div class="delUser">
 
 							
 					<div class="loginBoxHeader"><b>עריכת משתמש</b></div>
 					
 					<div class="fieldTitle"><b>שם מלא</b></div>
 					<form name=myText>
-						<input type="text" name=myText id="EditUserName" value="Enter Your Name">
+						<input type="text" name="EditUserName" id="EditUserName" value="Enter Your Name">
 					</form>
 
 					<div style="clear: both"></div>
 					
-					<div class="fieldTitle"><b>תעודת זהות</b></div>
-					<form name=myText>
 					
-						<input type="text" name="myText" id="EditUserId" value="Enter Your Name">
-					</form>
-
-					<div style="clear: both"></div>
-					
-							
-					<div class="fieldTitle"><b>סוג משתמש</b></div>
-					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
-					</form>
-
-					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>סיסמה</b></div>
 					<form name=myText>
-						<input type="text" name=myText value="Enter Your Name">
+						<input type="text" name="password" id="password" value="Enter Your Name">
 					</form>
 
 					<div style="clear: both"></div>

@@ -50,10 +50,12 @@
                            <div class="menuItem">הוספת חוג חדש</div>
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
+    
                         </div>
+        <%@ include file="../../inc/Admin/addCircle.jsp" %>
         <script type="text/javascript" src="../../../script/addCircle.js"></script>
-  	    <%@ include file="../../inc/Admin/addCircle.jsp" %>
-        <form id="addCircleForm" action="" method="post" name="addCircleForm">               
+  	
+        <form id="addCircleForm" action=" " method=" "><!--  name="addCircleForm"> -->              
  			<div class="addCicle">
 
 					<div class="loginBoxHeader"><b>הוספת חוג</b></div>
@@ -72,15 +74,15 @@
 
 					<div style="clear: both"></div>
 					
-					<div class="fieldTitle"><b>שנה</b></div>
-					<input type="text" autocomplete="off" name="CircleYear" dir="rtl"
+					
+					<input type="hidden" autocomplete="off" name="CircleYear" dir="rtl"
 						id="CircleYear" class="formField" />
 
 					<div style="clear: both"></div>
 					
 			
 					<div style="">
-						<input type="submit" id="addCircle" name="addCircle" value="הוספה"
+						<input type="submit" id="addCircle" name="addCircleSubmit" value="הוספה"
 							class="loginButton" />
 					</div>
 
