@@ -273,7 +273,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <url-pattern>/updateStudentTable</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>UserType</servlet-name>
+		<jsp-file>/WEB-INF/dynamic/UserType.jsp</jsp-file>
+	</servlet>
 	
+	
+	<servlet-mapping>
+	    <servlet-name>UserType</servlet-name>
+	    <url-pattern>/UserType</url-pattern>
+	</servlet-mapping>
 	
 	<welcome-file-list>
 		<welcome-file>Login</welcome-file>
