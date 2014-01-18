@@ -200,10 +200,11 @@ public class Circle {
         {
         	for(Course course: courses)
         	{
-        		if(course.get_course_id()==course_id)
+        		if(course!=null&&course.get_course_id()==course_id)
         		{
         			course.remove_student_from_course();
-        			courses.remove(course);
+        			if (courses!=null)	
+        				courses.remove(course);
         			break;
         		}
         	}
@@ -213,9 +214,11 @@ public class Circle {
         {
         	for(Course course: courses)
         	{
-        		course.remove_student_from_course();
-        		courses.remove(course);
+        		if (course!=null)
+        		{
+        			course.remove_student_from_course();
+        			courses.removeAll(courses);
+        		}
         	}
         }
-        
 }

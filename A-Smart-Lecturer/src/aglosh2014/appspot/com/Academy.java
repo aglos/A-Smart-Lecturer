@@ -450,11 +450,12 @@ public class Academy
         	
         	for(Circle circle: circles)
         	{
-        		if(circle.get_circle_id()==circle_id)
+        		if(circle!=null&&circle.get_circle_id()==circle_id)
         		{
         			
-        			circle.remove_all_courses();
-        			circles.remove(circle);
+        			//circle.remove_all_courses();
+        			if(circles!=null)
+        				circles.remove(circle);
         			break;
         		}
         	}
@@ -465,7 +466,7 @@ public class Academy
         {
         	for( Circle circle: circles)
         	{
-        		if(circle.get_circle_id()==circle_id)
+        		if(circle!=null&&circle.get_circle_id()==circle_id)
         		{
         			circle.remove_course_by_id(course_id);
         			break;	

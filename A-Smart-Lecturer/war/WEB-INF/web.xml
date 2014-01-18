@@ -24,6 +24,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/Admin/add_circle</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>DeleteCircle</servlet-name>
+		<servlet-class>aglosh2014.appspot.com.deleteCircle</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteCircle</servlet-name>
+		<url-pattern>/Admin/delete_circle</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>LoginJSP</servlet-name>
 		<jsp-file>/WEB-INF/login.jsp</jsp-file>
