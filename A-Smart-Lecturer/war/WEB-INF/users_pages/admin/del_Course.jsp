@@ -16,7 +16,7 @@
 	media="screen" />
 	
 <script type="text/javascript" src="../../script/jquery.js"></script>
-<script type="text/javascript" src="../../script/Admin_script.js"></script>
+ <script type="text/javascript" src="../../script/Admin_script.js"></script>
 <script type="text/javascript" src="../../script/clock.js"></script>
 
 
@@ -51,17 +51,19 @@
                             <a href="/Admin/EditCircle"><div class="menuItem">עריכת פרטי חוג קיים</div></a>  
                             <a href="/Admin/delCircle"><div class="menuItem">מחיקת חוג</div></a>                           
                         </div>
-            <script type="text/javascript" src="../../../script/delCourse.js"></script>
+  		 <script type="text/javascript" src="../../../script/delCourse.js"></script>
   		    <%@ include file="../../inc/Admin/delCourse.jsp" %>
         	<form id="delCourseForm" action="" method="post" name="delCourseForm">           
  				<div class="delUser">
 
 					<div class="loginBoxHeader"><b>מחיקת קורס</b></div>
 					
+					<input type="hidden" id="CircleId" autocomplete="off" name="CircleId" dir="rtl"
+						id="CourseId" class="formField" />
 				
 					
 					<div class="fieldTitle"><b>הקש מספר קורס</b></div>
-					<input type="text" id="delCourseId" autocomplete="off" name="delCouerse" dir="rtl"
+					<input type="text" id="delCourseId" autocomplete="off" name="delCourseId" dir="rtl"
 						id="CourseId" class="formField" />
 
 					<div style="clear: both"></div>
@@ -84,9 +86,8 @@
             <!-- END SITE MAIN -->   
        
             <%@ include file="../../inc/footer.jsp" %>
-    
-    
+             
+   
 	</div>
-  
-</body>
+ </body>
 </html>

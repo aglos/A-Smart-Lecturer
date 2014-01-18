@@ -160,7 +160,7 @@ $(document).ready(function() {
 	
 	$('#delCourseForm').submit(function() {
 		
-		var $CourseId = $.trim($('#CourseId').val());
+		var $CourseId = $.trim($('#delCourseId').val());
 		
 		var $msg = $("#delCourseMsg");
         
@@ -187,7 +187,7 @@ $(document).ready(function() {
 	
 	$('#delCircleForm').submit(function() {
 		
-		var $CircleId = $.trim($('#CircleId').val());
+		var $CircleId = $.trim($('#delCircle').val());
 		
 		var $msg = $("#delCircleMsg");
         

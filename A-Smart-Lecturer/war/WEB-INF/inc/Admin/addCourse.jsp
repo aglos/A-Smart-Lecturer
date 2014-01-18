@@ -77,6 +77,10 @@
 		circle_id=Integer.parseInt(CircleId);
 		System.out.println("courseId:"+course_id+" circleId: "+circle_id+" courseName: "+CourseName+" checkeName: "+CheckerName+" lecturerName: "+LecturerName);
 		
+
+		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
+		//Course c= new Course(CheckerName, );
+
 		int was_added = static_db.jce.add_new_course_to_circle_by_ids(circle_id, CourseName, course_id, LecturerName, CheckerName);
 		
 		if(was_added==-2) //the id is not of a lecturer
@@ -84,6 +88,7 @@
 		
 		else if(was_added==-3)
 			System.out.println("The id is not of a checker");
+
 		
 	} %>
 <!-- END FILTER -->

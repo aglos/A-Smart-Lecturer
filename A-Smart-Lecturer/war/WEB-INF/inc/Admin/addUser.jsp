@@ -1,4 +1,4 @@
-<%@page import="aglosh2014.appspot.com.Course"%>
+<%@page import="aglosh2014.appspot.com.User"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -10,6 +10,8 @@
 	int years[]=db.jce.get_circles_years(); //get years
 	String Names=db.jce.get_circles_in_academy_as_string(); //get years
 	String Id = db.jce.get_circles_in_academy_as_string(); //get circles
+	String	usersType[]=  {"בודק","מרצה","סטודנט"};
+
 
 	String[] circles =Id.split(",");
 %>
@@ -39,6 +41,17 @@
 		</select>
 			<%}%>
 			
+					</select>&nbsp;&nbsp;&nbsp; סוג: &nbsp;&nbsp;&nbsp; 
+		<select name="Type" id="Type"
+			class="formField" disabled="disabled">
+			<option value="n" style="background-color: #CCCfff">בחר סוג משתמש </option>
+			<%
+			for (int i=0;i<usersType.length;i++) { 
+				%>
+				<option id="<%=i%>" value="<%=i%>"><%=usersType[i]%></option>
+		</select>
+			<%}%>
+			
 		
 	
 	</h3>
@@ -59,12 +72,13 @@
 		password = request.getParameter("Userpass").trim();
 
 		int user_id=0;
-
+		int user_type=0;
 		
 		user_id=Integer.parseInt(UserId);
-
+		//user_type=static_db.jce.user_login(user_id, password);
+		//user_type=Integer.parseInt(UserType)
 		System.out.println("UserId:"+user_id+" UserName: "+UserName+" UserType: "+UserType+" password: "+password);
-
+		//User c= new User(user_id, UserName, password, user_type );
 		
 	} %>
 <!-- END FILTER -->

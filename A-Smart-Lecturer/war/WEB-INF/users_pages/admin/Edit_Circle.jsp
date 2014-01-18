@@ -55,20 +55,20 @@
 					
 					<div class="fieldTitle"><b>שם חוג</b></div>
 					
-						<input type="text" name=myText id=EditCircleName value="Enter Your Name">
+						<input type="text" name=EditCircleName id=EditCircleName value="Enter Your Name">
 				
 
 					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>קוד חוג</b></div>
 				
-						<input type="text" name=myText id=EditCircleId value="Enter Your Name">
+						<input type="text" name=EditCircleId id=EditCircleId value="Enter Your Name">
 				
 					<div style="clear: both"></div>
 					
 					<div class="fieldTitle"><b>שנה</b></div>
 				
-						<input type="text" name=myText id=EditCircleYear value="Enter Your Name">
+						<input type="text" name=EditCircleYear id=EditCircleYear value="Enter Your Name">
 					
 					<div style="clear: both"></div>
 					
