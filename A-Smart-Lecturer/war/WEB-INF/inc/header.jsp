@@ -29,8 +29,17 @@
 <div class="imei_box_cell">
 
 	<div id="top_bar">
-		<div class="logo"></div>
+		<div class="logo"><span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: 0px 0px;"></span>
+		<span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: -30px 0px;"></span>
+		<span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: -60px 0px;"></span>
+		<span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: -90px 0px;"></span>
+		<span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: -120px 0px;"></span>
+		<span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: -150px 0px;"></span>
+		<span style="width: 30px; height: 30px; -webkit-transition: -webkit-transform 500ms ease-in-out; transition: -webkit-transform 500ms ease-in-out; -webkit-transform: translateX(0%) translateY(0%) translateZ(0px) rotateX(0deg) rotateY(0deg) rotate(0deg); background-position: -180px 0px;"></span>
+		
+		</div>
 	</div>
+
 
 </div>
 
@@ -44,6 +53,10 @@
 			$('#exitButton').show();
 		<%}%>
 	});
+	
+
 
 </script>
+
+
 <!-- END HEADER -->
