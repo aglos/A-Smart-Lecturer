@@ -70,8 +70,6 @@
 		//Course c= new Course();
 	// Circle c= new Circle(circle_id , CircleName, circle_year);
 	}
-	else{
-		System.out.println("dsssssss\n");
-	}
+
 	%>
 <!-- END FILTER -->

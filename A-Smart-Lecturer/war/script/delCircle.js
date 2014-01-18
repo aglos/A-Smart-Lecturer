@@ -63,38 +63,5 @@ $(document).ready(function() {
 	  			
 	  	});
 	  	
-		/*$( "#course" ).change(function() {
-			//<% if (isView==false) { %>
 
-				$("#gradeContent").html('');
-				var circleId =  $("#circle").val();
-				var courseId =  $("#course").val();
-				var year = $("#year").val();
-
-				if (courseId=='n') {
-					$(".pageDesc").html("בחר קורס");
-					$(".gradeContent").html("");
-		  			return false;
-	  			}
-				
-				var dataString = 'circleId='+ circleId + '&courseId='+ courseId;
-				$.ajax({
-	  				async: false,
-	  				type: "POST",
-	  				url: "/getStudentsInCourse",
-	  				data: dataString,
-	  				success: function(ret){
-	  					// success
-
-  						$(".gradeContent").html(ret);
-  						$(".pageDesc").css({"color":"green"});
-  						$(".pageDesc").html("שנה: " + year + " | " +  "חוג: "+circleId + " | " +  "קורס: " + courseId);
-  						
-  				
-  						initSliders();
-
-	  				}
-	  			});
-			//<% } %>
-		});*/
   	});

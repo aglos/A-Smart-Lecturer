@@ -81,19 +81,20 @@
 <br />
 <%	
 	String userName="";
-	
+	String userId="";
 	
 	if (request.getParameter("EditUserName")!=null) { 
 		
 		userName = request.getParameter("EditUserName").trim();
-		
+		userId= request.getParameter("UserId").trim();
 	
 
-		int course_id=0;
+		int user_id=0;
 		
-		course_id=Integer.parseInt(userName);
+		user_id=Integer.parseInt(userId);
 		//circle_id=Integer.parseInt(CircleId);
-		System.out.println("courseId:"+course_id);
+		System.out.println("userId:"+user_id+"userName"+userName);
+		
 		
 		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
 		//Course c= new Course();

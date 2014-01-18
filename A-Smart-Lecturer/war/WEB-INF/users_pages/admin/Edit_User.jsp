@@ -57,22 +57,17 @@
 					
 					<div class="fieldTitle"><b>שם מלא</b></div>
 					<form name=myText>
-						<input type="text" name="EditUserName" id="EditUserName" value="Enter Your Name">
+						<input type="text" name="EditUserName" id="EditUserName" value="">
 					</form>
 
 					<div style="clear: both"></div>
 					
-					
-					
-					<div class="fieldTitle"><b>סיסמה</b></div>
-					<form name=myText>
-						<input type="text" name="password" id="password" value="Enter Your Name">
-					</form>
-
+					<input type="hidden" name="UserId" id="UserId" value="">
+				
 					<div style="clear: both"></div>
 
 					<div style="">
-						<input type="submit" id="login" name="login" value="הוספה"
+						<input type="submit" id="login" name="login" value="עריכה"
 							class="loginButton" />
 					</div>
 
