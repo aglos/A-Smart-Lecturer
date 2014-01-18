@@ -39,22 +39,25 @@
 		int user_type=0;
 		user_id=Integer.parseInt(UserId);
 	//    STUDENT=1, LECTURER=2, CHECKER=3, ADMIN=4;
-	
-		if (UserTypes.trim()=="סטודנט")
+		System.out.println("UserId: \n"+UserTypes);
+		if (UserTypes.equals("סטודנט"))
 		{	user_type=1;
-			Student s= new Student(user_id, UserName,password);
+			
+			static_db.jce.add_new_student(user_id, UserName,password);
 		}
-		else if (UserTypes.trim()=="בודק")
+		else if (UserTypes.equals("בודק"))
 		{	user_type=3;
-			Checker s= new Checker(user_id, UserName,password);
+			
+			static_db.jce.add_new_checker(user_id, UserName,password);
 		}
-		else if (UserTypes.trim()=="מרצה")
+		else if (UserTypes.equals("מרצה"))
 		{	user_type=2;
-			Lecturer s= new Lecturer(user_id, UserName,password);
+		
+			static_db.jce.add_new_lecturer(user_id, UserName,password);
 		}
 				//user_type=static_db.jce.user_login(user_id, password);
 		//user_type=Integer.parseInt(UserType)
-		System.out.println("UserId:"+user_id+" UserName: "+UserName+" user_type: "+user_type+" password: "+password);
+		System.out.println("UserId:"+user_id+" UserName: "+UserName+" user_type: "+UserTypes+" password: "+password);
 		
 	
 		//insert(c)

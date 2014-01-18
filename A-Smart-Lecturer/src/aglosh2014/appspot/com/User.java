@@ -24,36 +24,36 @@ public class User {
                 if(name==null || name.isEmpty())
                 {
                         System.out.println("Please enter name.");
-                        return;
+                       
                 }
                 
                 else if(name.length()<MIN_NAME_LEGNTH)
                 {
                         System.out.println("Min name legnth is: " + MIN_NAME_LEGNTH);
-                        return;
+                     
                 }
                 //password verification
                 if(password==null || password.isEmpty())
                 {
                         System.out.println("Please enter password.");
-                        return;
+                     
                 }
                 else if(password.length()<MIN_PASSWORD_LEGNTH)
                 {
                         System.out.println("Min password legnth is: " + MIN_PASSWORD_LEGNTH);
-                        return;
+                       
                 }
                 //id verification
                 if(id<0 || (Integer.toString(id)).length()!=ID_LEGNTH)
                 {
                         System.out.println("Illegal ID.");
-                        return;
+                      
                 }
                 //type verification
                 if(type!=LECTURER && type!=CHECKER && type!=STUDENT &&type!=ADMIN)
                 {
                         System.out.println("User type: " + user_type + " is undifiend");
-                        return;
+                      
                 }
                 
                 user_id = id;

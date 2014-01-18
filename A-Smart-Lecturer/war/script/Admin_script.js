@@ -104,6 +104,7 @@ $(document).ready(function() {
 				$msg.html("אנא מלא את כל השדות");
 				return false;
 		}
+		
 		else if(isNaN($UserId))
 		{
 			$msg.html("מספר תעודת זהות יכול להכיל מספרים בלבד");
