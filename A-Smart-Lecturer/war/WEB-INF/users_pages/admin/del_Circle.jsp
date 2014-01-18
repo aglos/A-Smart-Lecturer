@@ -53,7 +53,7 @@
          <%@ include file="../../inc/Admin/delCircle.jsp" %>   
        
   	  		<script type="text/javascript" src="../../../script/delCircle.js"></script>
- 		   	<form id="delCircleForm" action="" method="post" name="delCircleForm">           
+ 		   	<form id="delCircleForm" action="delete_circle" method="post" name="delCircleForm">           
  				<div class="delUser">
 
 					<div class="loginBoxHeader"><b>מחיקת חוג</b></div>
