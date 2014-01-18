@@ -1,3 +1,4 @@
+<%@page import="aglosh2014.appspot.com.DataStoreManager"%>
 <%@page import="aglosh2014.appspot.com.Circle"%>
 <%@page import="aglosh2014.appspot.com.static_db"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -57,6 +58,11 @@
 	
 	
 		System.out.println("CircleId:"+circle_id);//+" circleYear: "+circle_year+" CircleName: "+CircleName);
+		
+	//	DataStoreManager.getInstance().removeCircle(circle_id);
+		
+		
+		System.out.println("");
 		static_db.jce.remove_circle_by_id(circle_id);
 		//static_db.jce.add_new_course_to_circle(circle_id, CourseName, course_id, "sssr", "checker");
 		//Course c= new Course();
