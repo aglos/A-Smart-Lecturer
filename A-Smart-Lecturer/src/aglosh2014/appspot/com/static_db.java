@@ -71,7 +71,7 @@ public class static_db {
                                 ,301589263,301678405,302050265,302520648,302540612,302771258
                                 ,303093918,303176085,303724371,307889287,308225598,308667385
                                 ,310520952,311825590,320457807,321131708,328786462,329042527};
-                System.out.println("*****************-------------------->************\n"+idArr.length);
+     //           System.out.println("*****************-------------------->************\n"+idArr.length);
 
 
                 //*********************************************************************************************************************************************//                
@@ -120,7 +120,7 @@ public class static_db {
                 }
 
 
-                System.out.println("**" + j + "**");
+       //         System.out.println("**" + j + "**");
 
 
                 //*********************************************************************************************************************************************//                
@@ -136,8 +136,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(inception[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+      //                  System.out.println(students[i].Grades.add(g));
+       //                 System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
 
                 //*********************************************************************************************************************************************//                
@@ -151,8 +151,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(srs[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+   //                     System.out.println(students[i].Grades.add(g));
+     //                   System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
 
                 //*********************************************************************************************************************************************//                
@@ -165,8 +165,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(personal_task_Hello[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+   //                     System.out.println(students[i].Grades.add(g));
+  //                      System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
                 //*********************************************************************************************************************************************//                
 
@@ -178,8 +178,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(sds[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+   //                     System.out.println(students[i].Grades.add(g));
+    //                    System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
                 //*********************************************************************************************************************************************//                
 
@@ -191,8 +191,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(prototype[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+   //                     System.out.println(students[i].Grades.add(g));
+   //                     System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
 
                 //*********************************************************************************************************************************************//                
@@ -205,8 +205,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(personal_task_Git[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+   //                     System.out.println(students[i].Grades.add(g));
+    //                    System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
 
                 //*********************************************************************************************************************************************//                
@@ -219,8 +219,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade(zfr[i]);
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+   //                     System.out.println(students[i].Grades.add(g));
+  //                      System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
                 
                 //*********************************************************************************************************************************************//                
@@ -252,8 +252,8 @@ public class static_db {
                         Grade g = new Grade(e);
                         g.set_grade((6*i + 10));
 
-                        System.out.println(students[i].Grades.add(g));
-                        System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
+    //                    System.out.println(students[i].Grades.add(g));
+    //                    System.out.println("Add grade to student " + i + " in circle : 13 in course: 100 in exec" + p);
                 }
 
                 //        System.out.println(jce.get_user_data_by_id(300664703));
