@@ -17,7 +17,7 @@ A-Smart-Lecturer
   
   <img src="https://0.gravatar.com/avatar/90689234430e5bf4f910bde4654afc36?d=https%3A%2F%2Fidenticons.github.com%2F6d924fbfc98ec9fb9d6636e4b0df0186.png&r=x&s=440">
   <div align="right" dir="rtl">
-  <h2>הערה: עקב בעיות סינכרון בענפים השונים. כעת הענף v1--working מחזיק את הקוד האחרון</h2>
+  <h2>הערה: עקב בעיות סינכרון בענפים השונים. כעת הענף sharon2 מחזיק את הקוד האחרון</h2>
   <br>
   <h2>סטטוס הפרויקט</h2>
   כרגע יש אתר באוויר המציג את הפונקציונליות של המשתמשים השונים .
